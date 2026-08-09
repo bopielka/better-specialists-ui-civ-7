@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="it_IT">
+            <Text>Rese comuni degli specialisti</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="it_IT">
+            <Text>Shift &#8594; vista predefinita</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="it_IT">
+            <Text>Shift &#8594; differenze di resa</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="it_IT">
+            <Text>Rese comuni degli specialisti</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="it_IT">
+            <Text>Mostra sempre le rese negative</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION" Language="it_IT">
+            <Text>Mostra le differenze negative su ogni casella. Se disattivato, compaiono solo sulla casella sotto il cursore.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT" Language="it_IT">
+            <Text>Mostra le rese originali per impostazione predefinita</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION" Language="it_IT">
+            <Text>Mantiene la visualizzazione originale del gioco e mostra le rese comuni solo mentre si tiene premuto Shift. Se disattivato, la vista della mod è quella predefinita e Shift mostra l'originale.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON" Language="it_IT">
+            <Text>Non aggregare le rese negative</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="it_IT">
+            <Text>Esclude i costi dal valore comune sulla mappa, così ogni casella continua a mostrare le rese negative complete anziché la sola differenza. Il pannello le elenca comunque.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="it_IT">
+            <Text>Mostra solo le rese con un valore comune</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION" Language="it_IT">
+            <Text>Nasconde dai pannelli i tipi di resa privi di valore comune, lasciando solo quelli su cui gli specialisti incidono davvero.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="it_IT">
+            <Text>Mostra le rese complete al passaggio del cursore</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="it_IT">
+            <Text>Passando il cursore su una casella, mostra le sue rese complete non modificate invece della differenza. Riguarda solo la casella sotto il cursore.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="it_IT">
+            <Text>Mostra solo i valori positivi</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="it_IT">
+            <Text>Mostra sopra le caselle solo le differenze positive. Quelle negative compaiono solo sulla casella sotto il cursore.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

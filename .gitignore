@@ -1,0 +1,14 @@
+# Local deploy script - copy deploy.example.sh to deploy.sh and set MOD_ID.
+# Kept out of the repository so everyone can point it at their own install.
+deploy.sh
+
+# System
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Edytory
+.vscode/
+.idea/
+*.swp
+*~

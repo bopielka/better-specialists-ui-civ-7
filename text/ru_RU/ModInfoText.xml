@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_NAME" Language="ru_RU">
+            <Text>Better Specialists UI by Najane</Text>
+        </Row>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION" Language="ru_RU">
+            <Text>Додає панель «Спільні прибутки», яка показує, що дає й скільки коштує будь-який спеціаліст у цьому місті. Клітинки на карті відтоді показують лише різницю від цього спільного значення, а не повторюють його скрізь. Утримуйте Shift, щоб повернутися до початкового вигляду гри. Лише інтерфейс - жодні правила гри не змінюються.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="ko_KR">
+            <Text>전문가 공통 생산량</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="ko_KR">
+            <Text>Shift &#8594; 기본 보기</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="ko_KR">
+            <Text>Shift &#8594; 생산량 차이</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="ko_KR">
+            <Text>전문가 공통 생산량</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="ko_KR">
+            <Text>음수 생산량 항상 표시</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION" Language="ko_KR">
+            <Text>모든 타일에 음수 차이를 표시합니다. 끄면 커서 아래 타일에만 표시됩니다.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT" Language="ko_KR">
+            <Text>기본적으로 원래 생산량 표시</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION" Language="ko_KR">
+            <Text>게임의 원래 표시를 유지하고, Shift를 누르고 있는 동안에만 공통 생산량 보기를 표시합니다. 끄면 모드 보기가 기본이 되고 Shift로 원래 보기를 표시합니다.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON" Language="ko_KR">
+            <Text>음수 생산량을 합산하지 않음</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="ko_KR">
+            <Text>지도에서 유지 비용을 공통 값에서 제외하여 각 타일이 차이만이 아니라 전체 음수 생산량을 계속 표시합니다. 패널에는 계속 표시됩니다.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="ko_KR">
+            <Text>공통 값이 있는 생산량만 표시</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION" Language="ko_KR">
+            <Text>공통 값이 없는 생산량 유형을 패널에서 숨기고, 전문가가 실제로 영향을 주는 항목만 남깁니다.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="ko_KR">
+            <Text>마우스를 올리면 전체 생산량 표시</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="ko_KR">
+            <Text>타일에 마우스를 올리는 동안 차이 대신 해당 타일의 수정되지 않은 전체 생산량을 표시합니다. 커서 아래 타일에만 적용됩니다.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="ko_KR">
+            <Text>양수 값만 표시</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="ko_KR">
+            <Text>타일 위에는 양수 차이만 표시합니다. 음수는 커서 아래 타일에만 표시됩니다.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

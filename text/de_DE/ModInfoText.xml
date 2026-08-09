@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_NAME" Language="de_DE">
+            <Text>Better Specialists UI by Najane</Text>
+        </Row>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION" Language="de_DE">
+            <Text>Fügt ein Panel „Gemeinsame Erträge“ hinzu, das zeigt, was jeder Spezialist in dieser Stadt bringt und kostet. Felder auf der Karte zeigen dann nur noch ihre Abweichung von diesem gemeinsamen Wert, statt ihn überall zu wiederholen. Shift gedrückt halten, um zur ursprünglichen Anzeige zurückzukehren. Nur Benutzeroberfläche - es werden keine Spielregeln geändert.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

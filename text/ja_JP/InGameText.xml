@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="ja_JP">
+            <Text>専門家の共通産出</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="ja_JP">
+            <Text>Shift &#8594; 標準表示</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="ja_JP">
+            <Text>Shift &#8594; 産出の差分</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="ja_JP">
+            <Text>専門家の共通産出</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="ja_JP">
+            <Text>マイナスの産出を常に表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION" Language="ja_JP">
+            <Text>すべてのタイルにマイナスの差分を表示します。オフの場合はカーソル下のタイルにのみ表示されます。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT" Language="ja_JP">
+            <Text>標準の産出を既定で表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION" Language="ja_JP">
+            <Text>ゲーム本来の表示を維持し、Shiftを押している間だけ共通産出の表示に切り替えます。オフの場合はMODの表示が既定となり、Shiftで本来の表示になります。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON" Language="ja_JP">
+            <Text>マイナスの産出をまとめない</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="ja_JP">
+            <Text>マップ上では維持費を共通値から除外し、各タイルが差分ではなくマイナスの産出をそのまま表示します。パネルには引き続き表示されます。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="ja_JP">
+            <Text>共通値がある産出のみ表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION" Language="ja_JP">
+            <Text>共通値のない産出タイプをパネルから隠し、専門家が実際に影響するものだけを残します。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="ja_JP">
+            <Text>カーソルを合わせたときに完全な産出を表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="ja_JP">
+            <Text>タイルにカーソルを合わせている間、差分ではなくそのタイルの変更されていない完全な産出を表示します。カーソル下のタイルのみが対象です。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="ja_JP">
+            <Text>プラスの値のみ表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="ja_JP">
+            <Text>タイル上にはプラスの差分のみを表示します。マイナスの値はカーソル下のタイルにのみ表示されます。</Text>
+        </Row>
+    </LocalizedText>
+</Database>

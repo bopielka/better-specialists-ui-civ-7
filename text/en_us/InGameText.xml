@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <EnglishText>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER">
+            <Text>Common Specialists Yields</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL">
+            <Text>Shift &#8594; default view</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF">
+            <Text>Shift &#8594; yield differences</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS">
+            <Text>Common Specialists Yields</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES">
+            <Text>Always show negative yields</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION">
+            <Text>Show negative yield differences on every tile. When off, they only appear on the tile under the cursor.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT">
+            <Text>Show original yields by default</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION">
+            <Text>Keep the unmodified game display, and show the common-yield view only while Shift is held. When off, the mod's view is the default and Shift shows the original one.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON">
+            <Text>Do not aggregate negative yields</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION">
+            <Text>Leave costs out of the common value on the map, so every tile keeps showing its full negative yields instead of only the difference. The panel still lists them.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO">
+            <Text>Show only yields with a common value</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION">
+            <Text>Hide yield types with no common value from the Common Yields panels, leaving only the ones specialists actually affect.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER">
+            <Text>Show full yields on hover</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION">
+            <Text>While hovering a tile, show its complete unmodified yields instead of the difference. Only the hovered tile is affected.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE">
+            <Text>Show positive yields only</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION">
+            <Text>Show only positive differences above the hexes. Negative ones appear only on the tile under the cursor.</Text>
+        </Row>
+    </EnglishText>
+</Database>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_NAME" Language="pl_PL">
+            <Text>Better Specialists UI by Najane</Text>
+        </Row>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION" Language="pl_PL">
+            <Text>Dodaje panel Wspólne dochody, który pokazuje, co daje i ile kosztuje każdy specjalista w tym mieście. Pola na mapie pokazują wtedy tylko to, czym różnią się od tej wspólnej wartości, zamiast powtarzać ją wszędzie. Przytrzymaj Shift, aby wrócić do oryginalnego widoku gry. Tylko interfejs - nie zmienia żadnych zasad gry.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

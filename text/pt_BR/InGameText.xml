@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="pt_BR">
+            <Text>Rendimentos comuns de especialistas</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="pt_BR">
+            <Text>Shift &#8594; visualização padrão</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="pt_BR">
+            <Text>Shift &#8594; diferenças de rendimento</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="pt_BR">
+            <Text>Rendimentos comuns de especialistas</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="pt_BR">
+            <Text>Sempre mostrar rendimentos negativos</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION" Language="pt_BR">
+            <Text>Mostra as diferenças negativas em todos os hexágonos. Quando desativado, elas aparecem apenas no hexágono sob o cursor.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT" Language="pt_BR">
+            <Text>Mostrar rendimentos originais por padrão</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION" Language="pt_BR">
+            <Text>Mantém a exibição original do jogo e mostra os rendimentos comuns apenas enquanto Shift estiver pressionado. Quando desativado, a visualização do mod é a padrão e Shift mostra a original.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON" Language="pt_BR">
+            <Text>Não agregar rendimentos negativos</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="pt_BR">
+            <Text>Deixa os custos fora do valor comum no mapa, para que cada hexágono continue mostrando seus rendimentos negativos completos em vez de apenas a diferença. O painel continua listando-os.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="pt_BR">
+            <Text>Mostrar apenas rendimentos com valor comum</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION" Language="pt_BR">
+            <Text>Oculta dos painéis os tipos de rendimento sem valor comum, deixando apenas aqueles que os especialistas realmente afetam.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="pt_BR">
+            <Text>Mostrar rendimentos completos ao passar o cursor</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="pt_BR">
+            <Text>Ao passar o cursor sobre um hexágono, mostra seus rendimentos completos e inalterados em vez da diferença. Afeta apenas o hexágono sob o cursor.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="pt_BR">
+            <Text>Mostrar apenas valores positivos</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="pt_BR">
+            <Text>Mostra sobre os hexágonos apenas as diferenças positivas. As negativas aparecem somente no hexágono sob o cursor.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

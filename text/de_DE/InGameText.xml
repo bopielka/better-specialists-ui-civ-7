@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="de_DE">
+            <Text>Gemeinsame Spezialistenerträge</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="de_DE">
+            <Text>Shift &#8594; Standardansicht</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="de_DE">
+            <Text>Shift &#8594; Ertragsunterschiede</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="de_DE">
+            <Text>Gemeinsame Spezialistenerträge</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="de_DE">
+            <Text>Negative Erträge immer anzeigen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION" Language="de_DE">
+            <Text>Zeigt negative Ertragsunterschiede auf jedem Feld. Andernfalls erscheinen sie nur auf dem Feld unter dem Mauszeiger.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT" Language="de_DE">
+            <Text>Originalerträge standardmäßig anzeigen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION" Language="de_DE">
+            <Text>Behält die unveränderte Spielanzeige bei; die Ansicht der gemeinsamen Erträge erscheint nur, solange Shift gedrückt wird. Andernfalls ist die Mod-Ansicht Standard und Shift zeigt das Original.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON" Language="de_DE">
+            <Text>Negative Erträge nicht zusammenfassen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="de_DE">
+            <Text>Lässt Kosten auf der Karte aus dem gemeinsamen Wert heraus, sodass jedes Feld weiterhin seine vollen negativen Erträge zeigt statt nur der Differenz. Im Panel werden sie weiterhin aufgeführt.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="de_DE">
+            <Text>Nur Erträge mit gemeinsamem Wert anzeigen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION" Language="de_DE">
+            <Text>Blendet Ertragsarten ohne gemeinsamen Wert aus den Panels aus, sodass nur die verbleiben, die Spezialisten tatsächlich beeinflussen.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="de_DE">
+            <Text>Volle Erträge beim Überfahren anzeigen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="de_DE">
+            <Text>Zeigt beim Überfahren eines Feldes dessen vollständige, unveränderte Erträge statt der Differenz. Betrifft nur das Feld unter dem Mauszeiger.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="de_DE">
+            <Text>Nur positive Erträge anzeigen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="de_DE">
+            <Text>Zeigt über den Feldern nur positive Differenzen. Negative erscheinen nur auf dem Feld unter dem Mauszeiger.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

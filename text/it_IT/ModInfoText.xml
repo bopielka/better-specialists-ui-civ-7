@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_NAME" Language="it_IT">
+            <Text>Better Specialists UI by Najane</Text>
+        </Row>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION" Language="it_IT">
+            <Text>Aggiunge un pannello Rese comuni che mostra quanto rende e quanto costa qualsiasi specialista di questa città. Le caselle sulla mappa mostrano poi solo la differenza rispetto a quel valore comune, invece di ripeterlo ovunque. Tieni premuto Shift per tornare alla visualizzazione originale del gioco. Solo interfaccia: non modifica alcuna regola di gioco.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

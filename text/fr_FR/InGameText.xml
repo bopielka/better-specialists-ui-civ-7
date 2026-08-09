@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="fr_FR">
+            <Text>Rendements communs des spécialistes</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="fr_FR">
+            <Text>Shift &#8594; vue par défaut</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="fr_FR">
+            <Text>Shift &#8594; différences de rendement</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="fr_FR">
+            <Text>Rendements communs des spécialistes</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="fr_FR">
+            <Text>Toujours afficher les rendements négatifs</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION" Language="fr_FR">
+            <Text>Affiche les différences négatives sur toutes les cases. Sinon, elles n'apparaissent que sur la case sous le curseur.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT" Language="fr_FR">
+            <Text>Afficher les rendements d'origine par défaut</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION" Language="fr_FR">
+            <Text>Conserve l'affichage d'origine du jeu et n'affiche les rendements communs que tant que Shift est maintenu. Sinon, la vue du mod est celle par défaut et Shift affiche l'originale.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON" Language="fr_FR">
+            <Text>Ne pas regrouper les rendements négatifs</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="fr_FR">
+            <Text>Exclut les coûts de la valeur commune sur la carte, afin que chaque case continue d'afficher ses rendements négatifs complets au lieu de la seule différence. Le panneau les indique toujours.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="fr_FR">
+            <Text>N'afficher que les rendements ayant une valeur commune</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION" Language="fr_FR">
+            <Text>Masque des panneaux les types de rendement sans valeur commune, ne laissant que ceux que les spécialistes influencent réellement.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="fr_FR">
+            <Text>Afficher les rendements complets au survol</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="fr_FR">
+            <Text>Au survol d'une case, affiche ses rendements complets non modifiés au lieu de l'écart. Seule la case survolée est concernée.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="fr_FR">
+            <Text>N'afficher que les valeurs positives</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="fr_FR">
+            <Text>N'affiche que les écarts positifs au-dessus des cases. Les négatifs n'apparaissent que sur la case sous le curseur.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

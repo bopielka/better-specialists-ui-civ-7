@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_NAME" Language="ko_KR">
+            <Text>Better Specialists UI by Najane</Text>
+        </Row>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION" Language="ko_KR">
+            <Text>이 도시의 전문가가 무엇을 주고 얼마를 소모하는지 보여주는 '공통 생산량' 패널을 추가합니다. 지도의 타일은 그 공통 값과의 차이만 표시하여 같은 수치를 반복하지 않습니다. Shift를 누르고 있으면 게임의 원래 표시로 돌아갑니다. UI 전용이며 게임 규칙은 전혀 변경하지 않습니다.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

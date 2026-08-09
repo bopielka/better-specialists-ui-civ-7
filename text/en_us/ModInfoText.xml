@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <EnglishText>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_NAME">
+            <Text>Better Specialists UI by Najane</Text>
+        </Row>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION">
+            <Text>Adds a Common Yields panel showing what any specialist in this city gives and costs. Tiles on the map then show only how they differ from that common value, instead of repeating it everywhere. Hold Shift to switch back to the game's original display. UI only - no game rules are changed.</Text>
+        </Row>
+    </EnglishText>
+</Database>

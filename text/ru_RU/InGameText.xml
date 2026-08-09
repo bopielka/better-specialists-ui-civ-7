@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="ru_RU">
+            <Text>Спільні прибутки спеціалістів</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="ru_RU">
+            <Text>Shift &#8594; типовий вигляд</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="ru_RU">
+            <Text>Shift &#8594; різниця прибутків</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="ru_RU">
+            <Text>Спільні прибутки спеціалістів</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="ru_RU">
+            <Text>Завжди показувати від'ємні прибутки</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION" Language="ru_RU">
+            <Text>Показує від'ємну різницю на всіх клітинках. Якщо вимкнено, вони з'являються лише на клітинці під курсором.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT" Language="ru_RU">
+            <Text>Типово показувати початкові прибутки</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION" Language="ru_RU">
+            <Text>Зберігає початковий вигляд гри та показує спільні прибутки лише доки утримується Shift. Якщо вимкнено, типовим є вигляд мода, а Shift показує початковий.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON" Language="ru_RU">
+            <Text>Не підсумовувати від'ємні прибутки</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="ru_RU">
+            <Text>Вилучає витрати зі спільного значення на карті, тож кожна клітинка й далі показує повні від'ємні прибутки, а не лише різницю. У панелі вони лишаються.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="ru_RU">
+            <Text>Показувати лише прибутки зі спільним значенням</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION" Language="ru_RU">
+            <Text>Приховує з панелей типи прибутків без спільного значення, лишаючи тільки ті, на які спеціалісти справді впливають.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="ru_RU">
+            <Text>Показувати повні прибутки при наведенні</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="ru_RU">
+            <Text>При наведенні на клітинку показує її повні незмінені прибутки замість різниці. Стосується лише клітинки під курсором.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="ru_RU">
+            <Text>Показувати лише додатні значення</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="ru_RU">
+            <Text>Над клітинками показує лише додатні різниці. Від'ємні з'являються тільки на клітинці під курсором.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

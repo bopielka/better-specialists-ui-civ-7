@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="zh_Hans_CN">
+            <Text>专家共同产出</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="zh_Hans_CN">
+            <Text>Shift &#8594; 默认视图</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="zh_Hans_CN">
+            <Text>Shift &#8594; 产出差异</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="zh_Hans_CN">
+            <Text>专家共同产出</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="zh_Hans_CN">
+            <Text>始终显示负数产出</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>在所有地块上显示负数差异。关闭时仅在光标所指的地块上显示。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT" Language="zh_Hans_CN">
+            <Text>默认显示原始产出</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>保持游戏原本的显示，仅在按住 Shift 时显示共同产出视图。关闭时模组视图为默认，按 Shift 显示原始视图。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON" Language="zh_Hans_CN">
+            <Text>不合并负数产出</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>在地图上将维护费用排除在共同数值之外，使每个地块继续显示完整的负数产出而非仅显示差异。面板中仍会列出。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="zh_Hans_CN">
+            <Text>仅显示具有共同数值的产出</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>在面板中隐藏没有共同数值的产出类型，只保留专家实际影响的部分。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="zh_Hans_CN">
+            <Text>悬停时显示完整产出</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>将光标悬停在地块上时，显示该地块未经修改的完整产出，而非差异。仅影响光标所指的地块。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="zh_Hans_CN">
+            <Text>仅显示正数值</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>地块上方仅显示正数差异。负数仅在光标所指的地块上显示。</Text>
+        </Row>
+    </LocalizedText>
+</Database>

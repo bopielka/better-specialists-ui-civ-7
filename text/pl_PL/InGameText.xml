@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="pl_PL">
+            <Text>Wspólne dochody specjalistów</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="pl_PL">
+            <Text>Shift &#8594; domyślny widok</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="pl_PL">
+            <Text>Shift &#8594; różnice dochodów</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="pl_PL">
+            <Text>Wspólne dochody specjalistów</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="pl_PL">
+            <Text>Zawsze pokazuj ujemne dochody</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION" Language="pl_PL">
+            <Text>Pokazuje ujemne różnice dochodu na wszystkich polach. Gdy wyłączone, pojawiają się tylko na polu pod kursorem.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT" Language="pl_PL">
+            <Text>Domyślnie pokazuj oryginalne dochody</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION" Language="pl_PL">
+            <Text>Zachowuje niezmieniony widok gry, a widok wspólnych dochodów pokazuje tylko przy wciśniętym Shift. Gdy wyłączone, domyślny jest widok moda, a Shift pokazuje oryginalny.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON" Language="pl_PL">
+            <Text>Nie sumuj ujemnych dochodów</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="pl_PL">
+            <Text>Pomija koszty przy wyliczaniu wspólnej wartości na mapie, dzięki czemu każde pole nadal pokazuje pełne ujemne dochody, a nie tylko różnicę. W panelu nadal są widoczne.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="pl_PL">
+            <Text>We wspólnych dochodach pokazuj tylko zasoby z niezerowymi dochodami</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION" Language="pl_PL">
+            <Text>Ukrywa w panelach wspólnych dochodów te typy zasobów, które nie mają wspólnej wartości, zostawiając tylko te, na które specjaliści faktycznie wpływają.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="pl_PL">
+            <Text>Po najechaniu pokaż pełne dochody</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="pl_PL">
+            <Text>Po najechaniu na pole pokazuje jego pełne, niezmienione dochody zamiast różnicy. Dotyczy tylko pola pod kursorem.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="pl_PL">
+            <Text>Pokaż tylko dodatnie wartości</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="pl_PL">
+            <Text>Nad hexami pokazuje wyłącznie dodatnie różnice. Ujemne pojawiają się tylko na polu pod kursorem.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

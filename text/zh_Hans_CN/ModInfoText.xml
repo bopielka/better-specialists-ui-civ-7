@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_NAME" Language="zh_Hans_CN">
+            <Text>Better Specialists UI by Najane</Text>
+        </Row>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>添加“共同产出”面板，显示该城市中任意专家带来的收益与消耗。地图上的地块随后只显示与该共同数值的差异，而不再到处重复相同数字。按住 Shift 可切换回游戏原本的显示。仅界面，不改变任何游戏规则。</Text>
+        </Row>
+    </LocalizedText>
+</Database>

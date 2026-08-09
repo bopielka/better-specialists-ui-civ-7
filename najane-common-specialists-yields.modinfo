@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="najane-common-specialists-yields" version="1.2"
+    xmlns="ModInfo">
+    <Properties>
+        <Name>LOC_MOD_NAJANE_SPECIALISTS_NAME</Name>
+        <Version>1.2</Version>
+        <Description>LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION</Description>
+        <Authors>Najane</Authors>
+        <Package>Mod</Package>
+        <AffectsSavedGames>0</AffectsSavedGames>
+        <ShowInBrowser>1</ShowInBrowser>
+    </Properties>
+    <Dependencies>
+        <Mod id="base-standard" title="LOC_MODULE_BASE_STANDARD_NAME" />
+    </Dependencies>
+    <ActionCriteria>
+        <Criteria id="always">
+            <AlwaysMet></AlwaysMet>
+        </Criteria>
+    </ActionCriteria>
+    <ActionGroups>
+        <ActionGroup id="najane-specialists-ui" scope="game" criteria="always">
+            <Properties>
+                <LoadOrder>1000</LoadOrder>
+            </Properties>
+            <Actions>
+                <UpdateText>
+                    <Item>text/en_us/InGameText.xml</Item>
+                    <Item locale="de_DE">text/de_DE/InGameText.xml</Item>
+                    <Item locale="es_ES">text/es_ES/InGameText.xml</Item>
+                    <Item locale="fr_FR">text/fr_FR/InGameText.xml</Item>
+                    <Item locale="it_IT">text/it_IT/InGameText.xml</Item>
+                    <Item locale="ja_JP">text/ja_JP/InGameText.xml</Item>
+                    <Item locale="ko_KR">text/ko_KR/InGameText.xml</Item>
+                    <Item locale="pl_PL">text/pl_PL/InGameText.xml</Item>
+                    <Item locale="pt_BR">text/pt_BR/InGameText.xml</Item>
+                    <Item locale="ru_RU">text/ru_RU/InGameText.xml</Item>
+                    <Item locale="zh_Hans_CN">text/zh_Hans_CN/InGameText.xml</Item>
+                    <Item locale="zh_Hant_HK">text/zh_Hant_HK/InGameText.xml</Item>
+                </UpdateText>
+                <UIScripts>
+                    <Item>ui/options/najane-options.js</Item>
+                    <Item>ui/shift-tracker.js</Item>
+                    <Item>ui/view-mode.js</Item>
+                    <Item>ui/model-specialists-yield-baseline.js</Item>
+                    <Item>ui/panel-place-population-decorator.js</Item>
+                    <Item>ui/worker-yields-layer-patch.js</Item>
+                </UIScripts>
+            </Actions>
+        </ActionGroup>
+        <ActionGroup id="najane-specialists-shell" scope="shell" criteria="always">
+            <Properties>
+                <LoadOrder>1000</LoadOrder>
+            </Properties>
+            <Actions>
+                <UpdateText>
+                    <Item>text/en_us/InGameText.xml</Item>
+                    <Item locale="de_DE">text/de_DE/InGameText.xml</Item>
+                    <Item locale="es_ES">text/es_ES/InGameText.xml</Item>
+                    <Item locale="fr_FR">text/fr_FR/InGameText.xml</Item>
+                    <Item locale="it_IT">text/it_IT/InGameText.xml</Item>
+                    <Item locale="ja_JP">text/ja_JP/InGameText.xml</Item>
+                    <Item locale="ko_KR">text/ko_KR/InGameText.xml</Item>
+                    <Item locale="pl_PL">text/pl_PL/InGameText.xml</Item>
+                    <Item locale="pt_BR">text/pt_BR/InGameText.xml</Item>
+                    <Item locale="ru_RU">text/ru_RU/InGameText.xml</Item>
+                    <Item locale="zh_Hans_CN">text/zh_Hans_CN/InGameText.xml</Item>
+                    <Item locale="zh_Hant_HK">text/zh_Hant_HK/InGameText.xml</Item>
+                </UpdateText>
+                <UIScripts>
+                    <Item>ui/options/najane-options.js</Item>
+                </UIScripts>
+            </Actions>
+        </ActionGroup>
+    </ActionGroups>
+    <LocalizedText>
+        <File>text/en_us/ModInfoText.xml</File>
+        <File>text/de_DE/ModInfoText.xml</File>
+        <File>text/es_ES/ModInfoText.xml</File>
+        <File>text/fr_FR/ModInfoText.xml</File>
+        <File>text/it_IT/ModInfoText.xml</File>
+        <File>text/ja_JP/ModInfoText.xml</File>
+        <File>text/ko_KR/ModInfoText.xml</File>
+        <File>text/pl_PL/ModInfoText.xml</File>
+        <File>text/pt_BR/ModInfoText.xml</File>
+        <File>text/ru_RU/ModInfoText.xml</File>
+        <File>text/zh_Hans_CN/ModInfoText.xml</File>
+        <File>text/zh_Hant_HK/ModInfoText.xml</File>
+    </LocalizedText>
+</Mod>

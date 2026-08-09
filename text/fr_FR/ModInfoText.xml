@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_NAME" Language="fr_FR">
+            <Text>Better Specialists UI by Najane</Text>
+        </Row>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION" Language="fr_FR">
+            <Text>Ajoute un panneau Rendements communs indiquant ce que rapporte et coûte n'importe quel spécialiste de cette ville. Les cases de la carte n'affichent alors que leur écart par rapport à cette valeur commune, au lieu de la répéter partout. Maintenez Shift pour revenir à l'affichage d'origine du jeu. Interface uniquement : aucune règle du jeu n'est modifiée.</Text>
+        </Row>
+    </LocalizedText>
+</Database>

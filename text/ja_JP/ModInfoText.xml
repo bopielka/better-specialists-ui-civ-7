@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <LocalizedText>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_NAME" Language="ja_JP">
+            <Text>Better Specialists UI by Najane</Text>
+        </Row>
+        <Row Tag="LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION" Language="ja_JP">
+            <Text>この都市の専門家が何をもたらし、どれだけ費用がかかるかを示す「共通の産出」パネルを追加します。マップ上のタイルは、その共通値との差だけを表示するようになり、同じ数値を繰り返しません。Shiftを押している間はゲーム本来の表示に戻ります。UIのみで、ゲームルールは一切変更しません。</Text>
+        </Row>
+    </LocalizedText>
+</Database>
