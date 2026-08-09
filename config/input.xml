@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Registers the "alternative view" key as a real game input action, so it shows up
+    in Options -> Key Bindings and can be remapped like any other binding.
+
+    EventType="All" is what makes hold-to-view possible: the action then reports
+    START when the key goes down and FINISH when it comes back up, instead of a
+    single press. The game uses the same trick for "keyboard-camera-modifier".
+
+    Default is KEY_TAB, a regular key rather than a modifier, and free in both the base
+    game and every installed mod.
+
+    Bare modifiers work as an XML default but NOT as a rebinding: the engine's gesture
+    recorder (Input.beginRecordingGestures) treats a modifier as the start of a
+    combination, so a player who rebinds away from Shift can never record plain Shift
+    again - only a full reset of every binding brings it back. KEY_CONTROL went one step
+    further and showed up as "unassigned" outright. A regular key keeps the binding
+    reversible, which matters more here than the key itself.
+
+    IMPORTANT: these tables live in the FRONTEND/config database, not the gameplay one.
+    This file must be loaded from a scope="shell" action group only. Loading it in a
+    scope="game" group fails with 'no such table: InputActions' and rolls back that
+    group's entire UpdateDatabase action.
+
+    <Replace> rather than <Row>, matching how other mods do it: it is idempotent, so
+    re-applying the mod cannot fail on an existing row.
+-->
+<Database>
+    <InputActions>
+        <Replace ActionId="najane-alternative-view"
+                 DeviceType="Keyboard"
+                 Name="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW"
+                 Description="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP"
+                 EventType="All" />
+    </InputActions>
+    <InputActionDefaultGestures>
+        <Replace ActionId="najane-alternative-view" Index="0"
+                 GestureType="KBMouse" GestureData="KEY_TAB" />
+    </InputActionDefaultGestures>
+    <InputContextConstraints>
+        <Replace ActionId="najane-alternative-view" ContextId="World" />
+        <Replace ActionId="najane-alternative-view" ContextId="Unit" />
+    </InputContextConstraints>
+</Database>

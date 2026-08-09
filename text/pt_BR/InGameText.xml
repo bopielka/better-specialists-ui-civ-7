@@ -4,12 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="pt_BR">
             <Text>Rendimentos comuns de especialistas</Text>
         </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="pt_BR">
-            <Text>Shift &#8594; visualização padrão</Text>
-        </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="pt_BR">
-            <Text>Shift &#8594; diferenças de rendimento</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="pt_BR">
             <Text>Rendimentos comuns de especialistas</Text>
         </Row>
@@ -38,16 +32,31 @@
             <Text>Oculta dos painéis os tipos de rendimento sem valor comum, deixando apenas aqueles que os especialistas realmente afetam.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="pt_BR">
-            <Text>Mostrar rendimentos completos ao passar o cursor</Text>
+            <Text>Mostrar tudo ao passar o cursor</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="pt_BR">
             <Text>Ao passar o cursor sobre um hexágono, mostra seus rendimentos completos e inalterados em vez da diferença. Afeta apenas o hexágono sob o cursor.</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="pt_BR">
-            <Text>Mostrar apenas valores positivos</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="pt_BR">
+            <Text>Não agregar rendimentos positivos</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="pt_BR">
-            <Text>Mostra sobre os hexágonos apenas as diferenças positivas. As negativas aparecem somente no hexágono sob o cursor.</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION" Language="pt_BR">
+            <Text>Deixa os ganhos fora do valor comum no mapa, para que cada hexágono mostre seus rendimentos positivos completos mesmo quando são iguais em toda parte. O painel continua listando-os.</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_ORIGINAL" Language="pt_BR">
+            <Text>{1_Key} &#8594; visualização padrão</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF" Language="pt_BR">
+            <Text>{1_Key} &#8594; diferenças de rendimento</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_FALLBACK" Language="pt_BR">
+            <Text>a tecla de visualização alternativa</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW" Language="pt_BR">
+            <Text>Better Specialists UI: visualização alternativa</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="pt_BR">
+            <Text>Segure para alternar entre a visualização de rendimentos comuns e a exibição original do jogo.</Text>
         </Row>
     </LocalizedText>
 </Database>

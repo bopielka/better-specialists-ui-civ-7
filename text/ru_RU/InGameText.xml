@@ -4,12 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="ru_RU">
             <Text>Спільні прибутки спеціалістів</Text>
         </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="ru_RU">
-            <Text>Shift &#8594; типовий вигляд</Text>
-        </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="ru_RU">
-            <Text>Shift &#8594; різниця прибутків</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="ru_RU">
             <Text>Спільні прибутки спеціалістів</Text>
         </Row>
@@ -38,16 +32,31 @@
             <Text>Приховує з панелей типи прибутків без спільного значення, лишаючи тільки ті, на які спеціалісти справді впливають.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="ru_RU">
-            <Text>Показувати повні прибутки при наведенні</Text>
+            <Text>Показувати все при наведенні</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="ru_RU">
             <Text>При наведенні на клітинку показує її повні незмінені прибутки замість різниці. Стосується лише клітинки під курсором.</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="ru_RU">
-            <Text>Показувати лише додатні значення</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="ru_RU">
+            <Text>Не підсумовувати додатні прибутки</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="ru_RU">
-            <Text>Над клітинками показує лише додатні різниці. Від'ємні з'являються тільки на клітинці під курсором.</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION" Language="ru_RU">
+            <Text>Вилучає прибутки зі спільного значення на карті, тож кожна клітинка показує їх у повному розмірі, навіть коли вони скрізь однакові. У панелі вони лишаються.</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_ORIGINAL" Language="ru_RU">
+            <Text>{1_Key} &#8594; типовий вигляд</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF" Language="ru_RU">
+            <Text>{1_Key} &#8594; різниця прибутків</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_FALLBACK" Language="ru_RU">
+            <Text>клавіша альтернативного вигляду</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW" Language="ru_RU">
+            <Text>Better Specialists UI: альтернативний вигляд</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="ru_RU">
+            <Text>Утримуйте, щоб перемикатися між виглядом спільних прибутків та початковим виглядом гри.</Text>
         </Row>
     </LocalizedText>
 </Database>

@@ -30,7 +30,7 @@ MOD_ID="your-mod-id-here"
 
 # Directories copied into the game, relative to this script. Add any others your
 # mod ships (for example: config icons maps scripts).
-CONTENT_DIRS=(ui text)
+CONTENT_DIRS=(ui text config)
 
 # Default install path. Windows (Git Bash) uses %LOCALAPPDATA%; adjust for other
 # platforms or override with CIV7_MODS_DIR.

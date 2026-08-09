@@ -4,12 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="de_DE">
             <Text>Gemeinsame Spezialistenerträge</Text>
         </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="de_DE">
-            <Text>Shift &#8594; Standardansicht</Text>
-        </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="de_DE">
-            <Text>Shift &#8594; Ertragsunterschiede</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="de_DE">
             <Text>Gemeinsame Spezialistenerträge</Text>
         </Row>
@@ -38,16 +32,31 @@
             <Text>Blendet Ertragsarten ohne gemeinsamen Wert aus den Panels aus, sodass nur die verbleiben, die Spezialisten tatsächlich beeinflussen.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="de_DE">
-            <Text>Volle Erträge beim Überfahren anzeigen</Text>
+            <Text>Beim Überfahren alles anzeigen</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="de_DE">
             <Text>Zeigt beim Überfahren eines Feldes dessen vollständige, unveränderte Erträge statt der Differenz. Betrifft nur das Feld unter dem Mauszeiger.</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="de_DE">
-            <Text>Nur positive Erträge anzeigen</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="de_DE">
+            <Text>Positive Erträge nicht zusammenfassen</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="de_DE">
-            <Text>Zeigt über den Feldern nur positive Differenzen. Negative erscheinen nur auf dem Feld unter dem Mauszeiger.</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION" Language="de_DE">
+            <Text>Lässt Gewinne auf der Karte aus dem gemeinsamen Wert heraus, sodass jedes Feld seine vollen positiven Erträge zeigt, auch wenn sie überall gleich sind. Im Panel werden sie weiterhin aufgeführt.</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_ORIGINAL" Language="de_DE">
+            <Text>{1_Key} &#8594; Standardansicht</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF" Language="de_DE">
+            <Text>{1_Key} &#8594; Ertragsunterschiede</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_FALLBACK" Language="de_DE">
+            <Text>die Taste für die alternative Ansicht</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW" Language="de_DE">
+            <Text>Better Specialists UI: alternative Ansicht</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="de_DE">
+            <Text>Gedrückt halten, um zwischen der Ansicht der gemeinsamen Erträge und der ursprünglichen Anzeige zu wechseln.</Text>
         </Row>
     </LocalizedText>
 </Database>

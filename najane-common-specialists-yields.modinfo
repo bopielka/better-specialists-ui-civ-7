@@ -39,8 +39,9 @@
                     <Item locale="zh_Hant_HK">text/zh_Hant_HK/InGameText.xml</Item>
                 </UpdateText>
                 <UIScripts>
+                    <Item>ui/options/editors/najane-editor-keyboard-mapping.js</Item>
                     <Item>ui/options/najane-options.js</Item>
-                    <Item>ui/shift-tracker.js</Item>
+                    <Item>ui/modifier-tracker.js</Item>
                     <Item>ui/view-mode.js</Item>
                     <Item>ui/model-specialists-yield-baseline.js</Item>
                     <Item>ui/panel-place-population-decorator.js</Item>
@@ -67,7 +68,11 @@
                     <Item locale="zh_Hans_CN">text/zh_Hans_CN/InGameText.xml</Item>
                     <Item locale="zh_Hant_HK">text/zh_Hant_HK/InGameText.xml</Item>
                 </UpdateText>
+                <UpdateDatabase>
+                    <Item>config/input.xml</Item>
+                </UpdateDatabase>
                 <UIScripts>
+                    <Item>ui/options/editors/najane-editor-keyboard-mapping.js</Item>
                     <Item>ui/options/najane-options.js</Item>
                 </UIScripts>
             </Actions>
