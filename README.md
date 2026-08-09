@@ -4,27 +4,43 @@ A UI-only mod for Sid Meier's Civilization VII.
 
 When placing a specialist, every workable tile repeats the same numbers. This mod
 states the shared part once in a **Common Specialists Yields** panel, so the tiles on
-the map only have to show how they deviate from it. Hold **Shift** at any time to fall
-back to the game's original display.
+the map only have to show how they deviate from it. Hold **Tab** at any time to fall
+back to the game's original display — the key is rebindable in the game's keyboard
+settings.
 
 No game rules, values or balance are changed, and saved games are unaffected.
 
-Steam Workshop: *(add link once published)*
+Current version: **1.3**. Steam Workshop: *(add link once published)*
 
 ## Repository layout
 
 ```
 najane-common-specialists-yields.modinfo   mod manifest - actions, scopes, file list
+config/input.xml                           the rebindable key (shell scope ONLY)
 ui/                                        JavaScript loaded by the game's UI
   model-specialists-yield-baseline.js        common-value calculation + caching
-  options/najane-options.js                  mod options (Options -> Mods)
-  panel-place-population-decorator.js        the "Common Specialists Yields" panel
-  shift-tracker.js                           Shift-held detection
+  modifier-tracker.js                        is the alternative-view key held?
   view-mode.js                               which of the two displays is active
+  panel-place-population-decorator.js        the "Common Specialists Yields" panel
   worker-yields-layer-patch.js               per-tile rendering on the map
+  options/najane-options.js                  mod options (Options -> Mods)
+  options/editors/najane-editor-keyboard-mapping.js
+                                             makes the key appear in the rebinding screen
 text/<locale>/                             translations, 12 languages
 deploy.example.sh                          template for the local deploy script
 ```
+
+## How the pieces fit
+
+`model-specialists-yield-baseline.js` decides **what the common value is**; everything
+else consumes it. `view-mode.js` answers **which display is active** and is shared by
+the panel and the map layer so the two can never disagree. `worker-yields-layer-patch.js`
+patches the singleton lens layer registered in `LensManager.layers` rather than
+overwriting any game file.
+
+Options only ever affect **presentation**, never the baseline itself — that is why
+"do not aggregate…" is applied in the layer and not in the model. Putting it in the
+model once made the panel and the map disagree.
 
 ## Working on the mod
 
@@ -80,6 +96,22 @@ for f in ui/**/*.js; do node --input-type=module --check < "$f"; done
 ```
 
 Note that `console.log` never reaches `UI.log` — use `console.error` for diagnostics.
+
+## Known gaps and next steps
+
+- **The `*Maintenance` fields are not understood.** The game omits the "Specialist
+  maintenance" line in the ANALYSIS block on a tile that already holds a specialist,
+  even though the RESULTS bar above it accounts for the cost. An attempt to fill that
+  line in produced roughly double the real figures and was reverted before 1.0. Before
+  retrying, dump the raw `CurrentMaintenance` / `NextMaintenance` arrays for a tile with
+  0 and with 1 specialist and derive the formula from real data, not assumptions.
+- **The City Hall compatibility shim reaches into their internals**
+  (`realizeBuildSlots`, `bzGridSpritePosition`). It is feature-detected and wrapped in
+  try/catch, so it fails quietly, but it will need revisiting if that mod restructures.
+- **"Tested alongside City Hall" in the store description** should be re-confirmed in
+  game after any change to the layer patch.
+- The Steam description, short blurb and changelogs live in
+  `../steam-description.md` and must be kept in step with option renames.
 
 ## Licence and origin
 
