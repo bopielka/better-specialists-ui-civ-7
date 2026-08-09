@@ -4,12 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="zh_Hans_CN">
             <Text>专家共同产出</Text>
         </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="zh_Hans_CN">
-            <Text>Shift &#8594; 默认视图</Text>
-        </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="zh_Hans_CN">
-            <Text>Shift &#8594; 产出差异</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="zh_Hans_CN">
             <Text>专家共同产出</Text>
         </Row>
@@ -38,16 +32,31 @@
             <Text>在面板中隐藏没有共同数值的产出类型，只保留专家实际影响的部分。</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="zh_Hans_CN">
-            <Text>悬停时显示完整产出</Text>
+            <Text>悬停时显示全部</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>将光标悬停在地块上时，显示该地块未经修改的完整产出，而非差异。仅影响光标所指的地块。</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="zh_Hans_CN">
-            <Text>仅显示正数值</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="zh_Hans_CN">
+            <Text>不合并正数产出</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="zh_Hans_CN">
-            <Text>地块上方仅显示正数差异。负数仅在光标所指的地块上显示。</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>在地图上将收益排除在共同数值之外，使每个地块即使处处相同也显示完整的正数产出。面板中仍会列出。</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_ORIGINAL" Language="zh_Hans_CN">
+            <Text>{1_Key} &#8594; 默认视图</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF" Language="zh_Hans_CN">
+            <Text>{1_Key} &#8594; 产出差异</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_FALLBACK" Language="zh_Hans_CN">
+            <Text>备用视图按键</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW" Language="zh_Hans_CN">
+            <Text>Better Specialists UI：备用视图</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="zh_Hans_CN">
+            <Text>按住可在共同产出视图与游戏原本显示之间切换。</Text>
         </Row>
     </LocalizedText>
 </Database>

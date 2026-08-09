@@ -4,12 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="pl_PL">
             <Text>Wspólne dochody specjalistów</Text>
         </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="pl_PL">
-            <Text>Shift &#8594; domyślny widok</Text>
-        </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="pl_PL">
-            <Text>Shift &#8594; różnice dochodów</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="pl_PL">
             <Text>Wspólne dochody specjalistów</Text>
         </Row>
@@ -38,16 +32,31 @@
             <Text>Ukrywa w panelach wspólnych dochodów te typy zasobów, które nie mają wspólnej wartości, zostawiając tylko te, na które specjaliści faktycznie wpływają.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="pl_PL">
-            <Text>Po najechaniu pokaż pełne dochody</Text>
+            <Text>Pokazuj wszystko po najechaniu</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="pl_PL">
             <Text>Po najechaniu na pole pokazuje jego pełne, niezmienione dochody zamiast różnicy. Dotyczy tylko pola pod kursorem.</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="pl_PL">
-            <Text>Pokaż tylko dodatnie wartości</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="pl_PL">
+            <Text>Nie sumuj dodatnich dochodów</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="pl_PL">
-            <Text>Nad hexami pokazuje wyłącznie dodatnie różnice. Ujemne pojawiają się tylko na polu pod kursorem.</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION" Language="pl_PL">
+            <Text>Pomija dodatnie dochody przy wyliczaniu wspólnej wartości na mapie, dzięki czemu każde pole pokazuje je w pełnej wysokości, nawet gdy wszędzie są takie same. W panelu nadal są widoczne.</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_ORIGINAL" Language="pl_PL">
+            <Text>{1_Key} &#8594; domyślny widok</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF" Language="pl_PL">
+            <Text>{1_Key} &#8594; różnice dochodów</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_FALLBACK" Language="pl_PL">
+            <Text>klawisz widoku alternatywnego</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW" Language="pl_PL">
+            <Text>Better Specialists UI: widok alternatywny</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="pl_PL">
+            <Text>Przytrzymaj, aby przełączać między widokiem wspólnych dochodów a oryginalnym widokiem gry.</Text>
         </Row>
     </LocalizedText>
 </Database>

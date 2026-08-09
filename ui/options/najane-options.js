@@ -56,9 +56,9 @@ const NajaneOptions = new class {
         alwaysShowNegatives: 0,
         originalByDefault: 0,
         dontAggregateNegatives: 0,
+        dontAggregatePositives: 0,
         onlyNonZeroCommon: 0,
         fullYieldsOnHover: 0,
-        onlyPositive: 0,
     };
     data = {};
 
@@ -84,9 +84,13 @@ const NajaneOptions = new class {
     get originalByDefault() { return this.get("originalByDefault"); }
     set originalByDefault(value) { this.set("originalByDefault", value); }
 
-    /** Leave negative yields out of the common value, so tiles show them in full. */
+    /** Leave costs out of the common value, so tiles show them in full. */
     get dontAggregateNegatives() { return this.get("dontAggregateNegatives"); }
     set dontAggregateNegatives(value) { this.set("dontAggregateNegatives", value); }
+
+    /** Mirror of the above for gains: tiles show them in full even when identical everywhere. */
+    get dontAggregatePositives() { return this.get("dontAggregatePositives"); }
+    set dontAggregatePositives(value) { this.set("dontAggregatePositives", value); }
 
     /** Hide yield types with no common value from the "Common yields" panels. */
     get onlyNonZeroCommon() { return this.get("onlyNonZeroCommon"); }
@@ -95,10 +99,6 @@ const NajaneOptions = new class {
     /** The hovered tile shows the game's full, unmodified figures instead of the difference. */
     get fullYieldsOnHover() { return this.get("fullYieldsOnHover"); }
     set fullYieldsOnHover(value) { this.set("fullYieldsOnHover", value); }
-
-    /** Keep negatives off the map entirely; they stay visible on the hovered tile. */
-    get onlyPositive() { return this.get("onlyPositive"); }
-    set onlyPositive(value) { this.set("onlyPositive", value); }
 }();
 
 Options.addInitCallback(() => {
@@ -132,6 +132,17 @@ Options.addInitCallback(() => {
         label: "LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON",
         description: "LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION",
     });
+    // Registered right after its mirror image so the pair reads as one choice.
+    Options.addOption({
+        category: CategoryType.Mods,
+        group: "najane_mods",
+        type: OptionType.Checkbox,
+        id: "najane-dont-aggregate-positives",
+        initListener: (info) => info.currentValue = NajaneOptions.dontAggregatePositives,
+        updateListener: (_info, value) => NajaneOptions.dontAggregatePositives = value,
+        label: "LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON",
+        description: "LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION",
+    });
     Options.addOption({
         category: CategoryType.Mods,
         group: "najane_mods",
@@ -151,16 +162,6 @@ Options.addInitCallback(() => {
         updateListener: (_info, value) => NajaneOptions.fullYieldsOnHover = value,
         label: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER",
         description: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION",
-    });
-    Options.addOption({
-        category: CategoryType.Mods,
-        group: "najane_mods",
-        type: OptionType.Checkbox,
-        id: "najane-only-positive",
-        initListener: (info) => info.currentValue = NajaneOptions.onlyPositive,
-        updateListener: (_info, value) => NajaneOptions.onlyPositive = value,
-        label: "LOC_OPTIONS_NAJANE_ONLY_POSITIVE",
-        description: "LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION",
     });
 });
 

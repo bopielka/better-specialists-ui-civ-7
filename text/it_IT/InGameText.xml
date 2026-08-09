@@ -4,12 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="it_IT">
             <Text>Rese comuni degli specialisti</Text>
         </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="it_IT">
-            <Text>Shift &#8594; vista predefinita</Text>
-        </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="it_IT">
-            <Text>Shift &#8594; differenze di resa</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="it_IT">
             <Text>Rese comuni degli specialisti</Text>
         </Row>
@@ -38,16 +32,31 @@
             <Text>Nasconde dai pannelli i tipi di resa privi di valore comune, lasciando solo quelli su cui gli specialisti incidono davvero.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="it_IT">
-            <Text>Mostra le rese complete al passaggio del cursore</Text>
+            <Text>Mostra tutto al passaggio del cursore</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="it_IT">
             <Text>Passando il cursore su una casella, mostra le sue rese complete non modificate invece della differenza. Riguarda solo la casella sotto il cursore.</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="it_IT">
-            <Text>Mostra solo i valori positivi</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="it_IT">
+            <Text>Non aggregare le rese positive</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="it_IT">
-            <Text>Mostra sopra le caselle solo le differenze positive. Quelle negative compaiono solo sulla casella sotto il cursore.</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION" Language="it_IT">
+            <Text>Esclude i guadagni dal valore comune sulla mappa, così ogni casella mostra le sue rese positive complete anche quando sono uguali ovunque. Il pannello le elenca comunque.</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_ORIGINAL" Language="it_IT">
+            <Text>{1_Key} &#8594; vista predefinita</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF" Language="it_IT">
+            <Text>{1_Key} &#8594; differenze di resa</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_FALLBACK" Language="it_IT">
+            <Text>il tasto della vista alternativa</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW" Language="it_IT">
+            <Text>Better Specialists UI: vista alternativa</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="it_IT">
+            <Text>Tieni premuto per passare dalla vista delle rese comuni alla visualizzazione originale del gioco.</Text>
         </Row>
     </LocalizedText>
 </Database>

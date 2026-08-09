@@ -3,7 +3,7 @@ import { InterfaceModeChangedEventName } from '/core/ui/interface-modes/interfac
 import PlotWorkersManager, { PlotWorkersHoveredPlotChangedEventName } from '/base-standard/ui/plot-workers/plot-workers-manager.js';
 import { computePlotSpecialistDeltas, computeSpecialistYieldBaseline, isSpecialistPlot } from '/najane-common-specialists-yields/ui/model-specialists-yield-baseline.js';
 import NajaneOptions, { NajaneOptionsChangedEventName } from '/najane-common-specialists-yields/ui/options/najane-options.js';
-import { ShiftChangedEventName } from '/najane-common-specialists-yields/ui/shift-tracker.js';
+import { ModifierChangedEventName } from '/najane-common-specialists-yields/ui/modifier-tracker.js';
 import { isOriginalDisplayActive } from '/najane-common-specialists-yields/ui/view-mode.js';
 
 /**
@@ -12,8 +12,9 @@ import { isOriginalDisplayActive } from '/najane-common-specialists-yields/ui/vi
  * states once). Rural/expansion tiles are left entirely alone.
  *
  * Display rules:
- *  - Shift falls back to the game's untouched output. The "original by default"
- *    option inverts that, so Shift becomes the way to see the mod's view.
+ *  - Holding the alternative-view key (Tab by default, rebindable in the keyboard
+ *    mapping screen) falls back to the game's untouched output. The "original by
+ *    default" option inverts that, so the key becomes the way to see the mod's view.
  *  - Negative pills are hidden unless the tile is hovered, so a screen full of
  *    identical upkeep numbers does not drown out the interesting differences.
  *    The "always show negatives" option turns them back on everywhere.
@@ -28,6 +29,36 @@ const ICON_Z_OFFSET = 5;
 const SPECIALIST_PIP_BLOCKED_ALPHA = 0.5;
 
 let patchedLayer = null;
+
+/**
+ * Re-runs what other mods add to this same method, which replacing it would otherwise
+ * drop.
+ *
+ * City Hall (bz-city-hall) wraps updateSpecialistPlot in the well-behaved way - call
+ * the previous implementation, then draw building slot icons above the tile. This
+ * mod's patch is installed afterwards and deliberately does NOT delegate (it replaces
+ * the yield pills wholesale), so their step was being skipped: the icons only showed
+ * up while the original view was on screen.
+ *
+ * Their extras are re-applied here instead. Everything is feature-detected, so this is
+ * a no-op when City Hall is absent and degrades quietly if they restructure their code.
+ * `getSpecialistPipOffsetsAndScale` is called through `this`, so their improved pip
+ * layout is picked up automatically as well.
+ */
+function drawCompanionExtras(info, location) {
+    if (typeof this.realizeBuildSlots !== "function" || !this.bzGridSpritePosition) {
+        return;   // City Hall not installed
+    }
+    try {
+        const workerCap = PlotWorkersManager.cityWorkerCap;
+        const topOffset = this.getSpecialistPipOffsetsAndScale(-1, workerCap - 1);
+        this.bzGridSpritePosition.y = topOffset.yOffset;
+        const districtID = MapCities.getDistrict(location.x, location.y);
+        this.realizeBuildSlots(Districts.get(districtID));
+    } catch (e) {
+        console.error(`najane-specialists: could not redraw City Hall building slots: ${e}`);
+    }
+}
 
 function applyPatch() {
     const layer = LensManager.layers.get(WORKER_YIELDS_LAYER_ID);
@@ -54,13 +85,14 @@ function applyPatch() {
 
         const baseline = computeSpecialistYieldBaseline();
         const deltas = computePlotSpecialistDeltas(info);
-        // "Only positive" forces negatives back to hover-only even when
-        // "always show negative yields" is on, so it takes precedence.
-        const showNegatives = isHovered
-            || (NajaneOptions.alwaysShowNegatives && !NajaneOptions.onlyPositive);
-        // Applied here rather than in the shared baseline: the option is only about
-        // what the tiles show, the panel must keep listing the common costs.
+        const showNegatives = isHovered || NajaneOptions.alwaysShowNegatives;
+        // Applied here rather than in the shared baseline: these two options are only
+        // about what the tiles show, the panel must keep listing the full common values.
+        // They are exact mirrors of each other - each keeps its side of the scale out
+        // of the subtraction, so a tile shows that value in full even when every tile
+        // has the same one.
         const skipNegativeBaseline = NajaneOptions.dontAggregateNegatives;
+        const skipPositiveBaseline = NajaneOptions.dontAggregatePositives;
 
         // Walk the yield indexes directly instead of building a Set from two spread
         // arrays per tile; GameInfo.Yields is short and this runs for every tile.
@@ -74,7 +106,10 @@ function applyPatch() {
                 continue;
             }
             const common = baseline.get(i) ?? 0;
-            const effectiveCommon = skipNegativeBaseline && common < 0 ? 0 : common;
+            const effectiveCommon =
+                (skipNegativeBaseline && common < 0) || (skipPositiveBaseline && common > 0)
+                    ? 0
+                    : common;
             const deviation = Math.round(((deltas.get(i) ?? 0) - effectiveCommon) * 10) / 10;
             if (deviation === 0 || (deviation < 0 && !showNegatives)) {
                 continue;
@@ -127,6 +162,8 @@ function applyPatch() {
                 this.addNegativeYield(this.yieldVisualizer, location, pill, negativeIndex++, negativeTotal, this.yieldSpritePadding);
             }
         }
+
+        drawCompanionExtras.call(this, info, location);
     };
 
     return true;
@@ -193,7 +230,7 @@ function hoverAffectsRendering() {
         return true;    // the hovered tile falls back to full figures
     }
     // Negatives are gated to the hovered tile unless they are shown everywhere.
-    return NajaneOptions.onlyPositive || !NajaneOptions.alwaysShowNegatives;
+    return !NajaneOptions.alwaysShowNegatives;
 }
 
 function onHoveredPlotChanged() {
@@ -216,7 +253,7 @@ engine.whenReady.then(() => {
         });
     }
     // Shift and option changes affect every tile, so those need the full redraw.
-    window.addEventListener(ShiftChangedEventName, redrawLayer);
+    window.addEventListener(ModifierChangedEventName, redrawLayer);
     window.addEventListener(NajaneOptionsChangedEventName, redrawLayer);
     window.addEventListener(PlotWorkersHoveredPlotChangedEventName, onHoveredPlotChanged);
 });

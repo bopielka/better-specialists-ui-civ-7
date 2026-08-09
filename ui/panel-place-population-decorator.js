@@ -4,7 +4,7 @@ import { PlacePopulationSelectionChangedEventName } from '/base-standard/ui/plac
 import { YieldBarEntryStyle } from '/base-standard/ui/yield-bar-base/yield-bar-base.js';
 import { computeSpecialistYieldBaseline, dumpSpecialistDiagnostics } from '/najane-common-specialists-yields/ui/model-specialists-yield-baseline.js';
 import NajaneOptions, { NajaneOptionsChangedEventName } from '/najane-common-specialists-yields/ui/options/najane-options.js';
-import { ShiftChangedEventName } from '/najane-common-specialists-yields/ui/shift-tracker.js';
+import { ModifierChangedEventName, getAlternativeViewKeyLabel } from '/najane-common-specialists-yields/ui/modifier-tracker.js';
 import { isOriginalDisplayActive } from '/najane-common-specialists-yields/ui/view-mode.js';
 
 /**
@@ -41,7 +41,7 @@ class NajaneCommonYieldsSection {
         window.addEventListener(PlotWorkersUpdatedEventName, this.refreshListener);
         window.addEventListener(InterfaceModeChangedEventName, this.refreshListener);
         window.addEventListener(PlacePopulationSelectionChangedEventName, this.refreshListener);
-        window.addEventListener(ShiftChangedEventName, this.refreshListener);
+        window.addEventListener(ModifierChangedEventName, this.refreshListener);
         window.addEventListener(NajaneOptionsChangedEventName, this.refreshListener);
     }
 
@@ -49,7 +49,7 @@ class NajaneCommonYieldsSection {
         window.removeEventListener(PlotWorkersUpdatedEventName, this.refreshListener);
         window.removeEventListener(InterfaceModeChangedEventName, this.refreshListener);
         window.removeEventListener(PlacePopulationSelectionChangedEventName, this.refreshListener);
-        window.removeEventListener(ShiftChangedEventName, this.refreshListener);
+        window.removeEventListener(ModifierChangedEventName, this.refreshListener);
         window.removeEventListener(NajaneOptionsChangedEventName, this.refreshListener);
     }
 
@@ -148,10 +148,15 @@ class NajaneCommonYieldsSection {
         }
         const barDataJSON = JSON.stringify(barData);
         const barDeltasJSON = JSON.stringify(barDeltas);
-        // The hint names where Shift takes you, so it has to follow the current view.
-        const hintKey = isOriginalDisplayActive()
-            ? "LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF"
-            : "LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL";
+        // The hint names both the key and where it leads, so it follows the current view
+        // AND whatever the player bound in Options -> Key Bindings. Composed here rather
+        // than through data-l10n-id, which cannot take a runtime argument.
+        const hintText = Locale.compose(
+            isOriginalDisplayActive()
+                ? "LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF"
+                : "LOC_NAJANE_SPECIALISTS_KEY_TO_ORIGINAL",
+            getAlternativeViewKeyLabel()
+        );
 
         for (const target of [this.specialist, this.overview]) {
             if (!target) {
@@ -160,7 +165,7 @@ class NajaneCommonYieldsSection {
             target.section.classList.remove("hidden");
             target.bar.setAttribute("data-yield-bar", barDataJSON);
             target.bar.setAttribute("data-yield-deltas", barDeltasJSON);
-            target.hint.setAttribute("data-l10n-id", hintKey);
+            target.hint.textContent = hintText;
         }
     }
 

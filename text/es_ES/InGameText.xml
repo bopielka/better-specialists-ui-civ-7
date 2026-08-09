@@ -4,12 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="es_ES">
             <Text>Rendimientos comunes de especialistas</Text>
         </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL" Language="es_ES">
-            <Text>Shift &#8594; vista predeterminada</Text>
-        </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF" Language="es_ES">
-            <Text>Shift &#8594; diferencias de rendimiento</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="es_ES">
             <Text>Rendimientos comunes de especialistas</Text>
         </Row>
@@ -38,16 +32,31 @@
             <Text>Oculta de los paneles los tipos de rendimiento sin valor común, dejando solo aquellos a los que los especialistas afectan realmente.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER" Language="es_ES">
-            <Text>Mostrar rendimientos completos al pasar el cursor</Text>
+            <Text>Mostrar todo al pasar el cursor</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="es_ES">
             <Text>Al pasar el cursor por una casilla, muestra sus rendimientos completos sin modificar en lugar de la diferencia. Solo afecta a la casilla señalada.</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE" Language="es_ES">
-            <Text>Mostrar solo valores positivos</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="es_ES">
+            <Text>No agrupar los rendimientos positivos</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION" Language="es_ES">
-            <Text>Muestra sobre las casillas únicamente las diferencias positivas. Las negativas aparecen solo en la casilla bajo el cursor.</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION" Language="es_ES">
+            <Text>Deja las ganancias fuera del valor común en el mapa, de modo que cada casilla muestra sus rendimientos positivos completos aunque sean iguales en todas partes. El panel los sigue mostrando.</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_ORIGINAL" Language="es_ES">
+            <Text>{1_Key} &#8594; vista predeterminada</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF" Language="es_ES">
+            <Text>{1_Key} &#8594; diferencias de rendimiento</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_FALLBACK" Language="es_ES">
+            <Text>la tecla de vista alternativa</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW" Language="es_ES">
+            <Text>Better Specialists UI: vista alternativa</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="es_ES">
+            <Text>Mantén pulsada para alternar entre la vista de rendimientos comunes y la vista original del juego.</Text>
         </Row>
     </LocalizedText>
 </Database>

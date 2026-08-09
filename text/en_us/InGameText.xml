@@ -4,12 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER">
             <Text>Common Specialists Yields</Text>
         </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_ORIGINAL">
-            <Text>Shift &#8594; default view</Text>
-        </Row>
-        <Row Tag="LOC_NAJANE_SPECIALISTS_SHIFT_TO_DIFF">
-            <Text>Shift &#8594; yield differences</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS">
             <Text>Common Specialists Yields</Text>
         </Row>
@@ -38,16 +32,31 @@
             <Text>Hide yield types with no common value from the Common Yields panels, leaving only the ones specialists actually affect.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER">
-            <Text>Show full yields on hover</Text>
+            <Text>Show everything on hover</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION">
             <Text>While hovering a tile, show its complete unmodified yields instead of the difference. Only the hovered tile is affected.</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE">
-            <Text>Show positive yields only</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON">
+            <Text>Do not aggregate positive yields</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_NAJANE_ONLY_POSITIVE_DESCRIPTION">
-            <Text>Show only positive differences above the hexes. Negative ones appear only on the tile under the cursor.</Text>
+        <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION">
+            <Text>Leave gains out of the common value on the map, so every tile shows its full positive yields even when they are the same everywhere. The panel still lists them.</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_ORIGINAL">
+            <Text>{1_Key} &#8594; default view</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF">
+            <Text>{1_Key} &#8594; yield differences</Text>
+        </Row>
+        <Row Tag="LOC_NAJANE_SPECIALISTS_KEY_FALLBACK">
+            <Text>the alternative view key</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW">
+            <Text>Better Specialists UI: alternative view</Text>
+        </Row>
+        <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP">
+            <Text>Hold to swap between the common-yield view and the game's original display.</Text>
         </Row>
     </EnglishText>
 </Database>
