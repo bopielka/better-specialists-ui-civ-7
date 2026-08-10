@@ -1,6 +1,7 @@
 # Local deploy script - copy deploy.example.sh to deploy.sh and set MOD_ID.
 # Kept out of the repository so everyone can point it at their own install.
 deploy.sh
+steam-description.md
 
 # System
 Thumbs.db
