@@ -6,14 +6,15 @@
 **Run it after every change** — an untested edit in this repository is not a tested edit
 anywhere.
 
-### First time only — you have to write `deploy.sh`
+### The two scripts
 
-⚠️ **There is no deploy script in the repository.** `deploy.sh` is git-ignored so everyone
-points their own copy at their own install, and the template that used to sit beside it has
-been removed. **This section is the spec** — write the script from it, or copy the sibling
-Commerce mod's `deploy-on-mac.sh` and change `MOD_ID`.
+Both live in the repository: `deploy.sh` for Windows (Git Bash) and `deploy-on-mac.sh` for
+macOS. They are **identical apart from the default install path** — keep them in sync if the
+deploy or check logic changes; `diff` them and expect only the header, the usage lines and
+`DEFAULT_MODS_DIR` to differ. Neither hard-codes your install: `CIV7_MODS_DIR` overrides the
+default on both, which is why one committed copy serves everyone.
 
-What it must do, in order:
+This section stays the spec for what they must do, in order:
 
 ```
 MOD_ID="najane-common-specialists-yields"
@@ -36,7 +37,9 @@ script into a destructive command.
 `/najane-common-specialists-yields/`. Deploy under any other folder name and every import
 fails at once. See [Architecture](02-architecture.md).
 
-Then `chmod +x deploy.sh`.
+Both scripts also hold their window open when they were started by a double-click rather than
+from a terminal — without it a successful deploy and a `die` in the safety block look exactly
+alike from outside: a window that flashes and is gone.
 
 ### Every time
 
@@ -48,7 +51,8 @@ Then `chmod +x deploy.sh`.
 ./deploy.sh --dry
 ```
 
-`--dry` lists what would be copied and changes nothing.
+`--dry` lists what would be copied and changes nothing. On macOS the script is
+`./deploy-on-mac.sh`, with the same arguments.
 
 ### Install locations
 
@@ -59,7 +63,7 @@ Then `chmod +x deploy.sh`.
 
 ⚠️ **Not `Documents\My Games\…`** — that is the Civ VI convention and Civ VII never scans it.
 
-Set the default in your own `deploy.sh`, or override per run:
+Each script defaults to its own platform. Override per run when the install is elsewhere:
 
 ```bash
 CIV7_MODS_DIR="$HOME/Library/Application Support/Civilization VII/Mods" ./deploy.sh
