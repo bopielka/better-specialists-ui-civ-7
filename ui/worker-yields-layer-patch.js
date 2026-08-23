@@ -1,7 +1,7 @@
 import LensManager from '/core/ui/lenses/lens-manager.js';
 import { InterfaceModeChangedEventName } from '/core/ui/interface-modes/interface-modes.js';
 import PlotWorkersManager, { PlotWorkersHoveredPlotChangedEventName } from '/base-standard/ui/plot-workers/plot-workers-manager.js';
-import { computePlotSpecialistDeltas, computeSpecialistYieldBaseline, isSpecialistPlot } from '/najane-common-specialists-yields/ui/model-specialists-yield-baseline.js';
+import { computePlotSpecialistDeltas, computePlotSpecialistYieldParts, computeSpecialistYieldBaseline, getHighestYieldPlots, isSpecialistPlot } from '/najane-common-specialists-yields/ui/model-specialists-yield-baseline.js';
 import NajaneOptions, { NajaneOptionsChangedEventName } from '/najane-common-specialists-yields/ui/options/najane-options.js';
 import { ModifierChangedEventName } from '/najane-common-specialists-yields/ui/modifier-tracker.js';
 import { isOriginalDisplayActive } from '/najane-common-specialists-yields/ui/view-mode.js';
@@ -60,6 +60,64 @@ function drawCompanionExtras(info, location) {
     }
 }
 
+/**
+ * The "show only the tiles with the highest X" filters.
+ *
+ * ⚠️ Any number of them can be on at once, so they UNION and never intersect: a tile is
+ * shown if it wins ANY enabled yield. Intersecting them would make a second checkbox
+ * usually empty the map, since the best science tile is rarely also the best food tile.
+ *
+ * ⚠️ A yield with no standout tile - nothing reaching the common value plus one - returns
+ * an empty set and simply does not take part. If NONE of the enabled yields has one, the
+ * rule does not apply at all and every tile keeps its pills. That is deliberately not the
+ * same as "no tile qualifies, so show nothing": a level field is a reason to leave the map
+ * alone, not to blank it. See getHighestYieldPlots().
+ *
+ * A losing tile keeps its specialist pips - it is still a place a specialist can go, and
+ * the player still needs to see free and blocked slots. Only the yield pills are dropped.
+ */
+let activeHighestOnlyYields = null;
+
+function getActiveHighestOnlyYields() {
+    // Recomputed only when an option changes; the layer asks this once per tile.
+    activeHighestOnlyYields ??= NajaneOptions.getHighestOnlyYieldTypes();
+    return activeHighestOnlyYields;
+}
+
+/**
+ * Whether the hovered tile can differ from any other tile because of these filters.
+ * ⚠️ Asks the same question the filter itself does, rather than merely whether a checkbox
+ * is ticked: a filter with no standout tile changes nothing on screen, and repainting for
+ * it on every cursor move would be pure waste.
+ */
+function isHighestOnlyFilterActive() {
+    for (const yieldType of getActiveHighestOnlyYields()) {
+        if (getHighestYieldPlots(yieldType).size > 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function passesHighestOnlyFilters(info) {
+    const yieldTypes = getActiveHighestOnlyYields();
+    if (yieldTypes.length === 0) {
+        return true;   // no filter on - every tile keeps its pills
+    }
+    let anyYieldEngaged = false;
+    for (const yieldType of yieldTypes) {
+        const winners = getHighestYieldPlots(yieldType);
+        if (winners.size === 0) {
+            continue;   // no tile stands out for this yield - it filters nothing
+        }
+        anyYieldEngaged = true;
+        if (winners.has(info.PlotIndex)) {
+            return true;
+        }
+    }
+    return !anyYieldEngaged;   // nothing engaged at all - the rule does not apply
+}
+
 function applyPatch() {
     const layer = LensManager.layers.get(WORKER_YIELDS_LAYER_ID);
     if (!layer) {
@@ -75,13 +133,30 @@ function applyPatch() {
 
     layer.updateSpecialistPlot = function (info) {
         const isHovered = PlotWorkersManager.hoveredPlotIndex === info.PlotIndex;
-        // "Full yields on hover" hands the hovered tile back to the game untouched,
-        // so the cursor acts as a magnifying glass over an otherwise reduced map.
-        if (isOriginalDisplayActive()
-            || !isSpecialistPlot(info)
-            || (isHovered && NajaneOptions.fullYieldsOnHover)) {
+        if (isOriginalDisplayActive() || !isSpecialistPlot(info)) {
             return originalUpdateSpecialistPlot.call(this, info);
         }
+
+        // "Full yields on hover" makes the cursor a magnifying glass: the hovered tile shows
+        // its own complete figures instead of the deviation from the common value.
+        //
+        // ⚠️ It used to hand the tile back to the game untouched, which reintroduced the one
+        // thing this mod exists to undo: the game draws a yield's GAIN and its UPKEEP as two
+        // separate pills, so a specialist paying 5 happiness to earn 3 showed "+3" and "-5"
+        // side by side instead of the -2 it actually costs. The figures are now drawn from
+        // this mod's own deltas, which already sum the two - one pill per yield, full value.
+        //
+        // Holding the alternative-view key still reaches the game's untouched display, so
+        // nothing is lost by not delegating here.
+        const showFullYields = isHovered && NajaneOptions.fullYieldsOnHover;
+
+        // ⚠️ "Do not aggregate negative yields" is read literally on a full-value tile: do
+        // not fold the upkeep into the gain, show both. So a specialist paying 5 happiness
+        // to earn 3 reads "+3" and "-5" with the option on, and "-2" with it off. Only
+        // applies where the full figures are shown - a deviation from the common value
+        // cannot be split into halves, because the common value is itself a sum.
+        const splitGainFromUpkeep = showFullYields && NajaneOptions.dontAggregateNegatives;
+        const parts = splitGainFromUpkeep ? computePlotSpecialistYieldParts(info) : null;
 
         const baseline = computeSpecialistYieldBaseline();
         const deltas = computePlotSpecialistDeltas(info);
@@ -94,10 +169,16 @@ function applyPatch() {
         const skipNegativeBaseline = NajaneOptions.dontAggregateNegatives;
         const skipPositiveBaseline = NajaneOptions.dontAggregatePositives;
 
+        // "Show only the highest X" hides this tile's pills unless it wins one of the
+        // enabled yields. The hovered tile is always exempt: the cursor is this mod's
+        // inspection tool everywhere else too (negatives, full yields), so a filtered map
+        // stays explorable rather than becoming unreadable.
+        const showPills = isHovered || passesHighestOnlyFilters(info);
+
         // Walk the yield indexes directly instead of building a Set from two spread
         // arrays per tile; GameInfo.Yields is short and this runs for every tile.
         const pillsToAdd = [];
-        for (let i = 0; i < GameInfo.Yields.length; i++) {
+        for (let i = 0; showPills && i < GameInfo.Yields.length; i++) {
             if (!deltas.has(i) && !baseline.has(i)) {
                 continue;
             }
@@ -105,7 +186,20 @@ function applyPatch() {
             if (!yieldDefinition) {
                 continue;
             }
-            const common = baseline.get(i) ?? 0;
+            if (splitGainFromUpkeep) {
+                const part = parts.get(i);
+                if (part) {
+                    if (part.gain !== 0) {
+                        pillsToAdd.push({ yieldDelta: part.gain, yieldType: yieldDefinition.YieldType });
+                    }
+                    if (part.upkeep !== 0 && showNegatives) {
+                        pillsToAdd.push({ yieldDelta: part.upkeep, yieldType: yieldDefinition.YieldType });
+                    }
+                }
+                continue;
+            }
+            // Full yields means "subtract nothing", which also makes both skip flags moot.
+            const common = showFullYields ? 0 : (baseline.get(i) ?? 0);
             const effectiveCommon =
                 (skipNegativeBaseline && common < 0) || (skipPositiveBaseline && common > 0)
                     ? 0
@@ -229,6 +323,9 @@ function hoverAffectsRendering() {
     if (NajaneOptions.fullYieldsOnHover) {
         return true;    // the hovered tile falls back to full figures
     }
+    if (isHighestOnlyFilterActive()) {
+        return true;    // the hovered tile is exempt from the filter, so it draws differently
+    }
     // Negatives are gated to the hovered tile unless they are shown everywhere.
     return !NajaneOptions.alwaysShowNegatives;
 }
@@ -254,6 +351,9 @@ engine.whenReady.then(() => {
     }
     // Shift and option changes affect every tile, so those need the full redraw.
     window.addEventListener(ModifierChangedEventName, redrawLayer);
-    window.addEventListener(NajaneOptionsChangedEventName, redrawLayer);
+    window.addEventListener(NajaneOptionsChangedEventName, () => {
+        activeHighestOnlyYields = null;   // ⚠️ drop the memo BEFORE redrawing with it
+        redrawLayer();
+    });
     window.addEventListener(PlotWorkersHoveredPlotChangedEventName, onHoveredPlotChanged);
 });

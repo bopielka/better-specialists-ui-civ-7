@@ -13,11 +13,15 @@ import PlotWorkersManager, { PlotWorkersUpdatedEventName } from '/base-standard/
 let cachedBaseline = null;
 const cachedDeltas = new Map();        // PlotIndex -> Map(yieldIndex -> value)
 const cachedIsSpecialist = new Map();  // PlotIndex -> boolean
+const cachedBestPlots = new Map();     // yieldIndex -> Set(PlotIndex)
+const cachedParts = new Map();         // PlotIndex -> Map(yieldIndex -> { gain, upkeep }) RAW
 
 export function invalidateSpecialistCaches() {
     cachedBaseline = null;
     cachedDeltas.clear();
     cachedIsSpecialist.clear();
+    cachedBestPlots.clear();
+    cachedParts.clear();
 }
 
 window.addEventListener(PlotWorkersUpdatedEventName, invalidateSpecialistCaches);
@@ -45,11 +49,73 @@ export function isSpecialistPlot(info) {
 }
 
 /**
- * Net change a specialist on this plot would cause, per yield index.
- * Combines the yield gain (NextYields - CurrentYields) with the upkeep it adds
- * (CurrentMaintenance - NextMaintenance, already negative when upkeep grows) -
- * the game draws these as two separate pill groups, but "what does a specialist
- * here cost/give me" is the sum of both.
+ * The two halves a specialist's effect on this plot is made of, per yield index, UNROUNDED:
+ *
+ *   gain   = NextYields - CurrentYields              (what the specialist produces)
+ *   upkeep = CurrentMaintenance - NextMaintenance    (already negative when upkeep grows)
+ *
+ * ⚠️ The game draws these as two separate pill groups, which is why the same yield can
+ * appear twice on one tile - "+3 happiness" beside "-5 happiness". Everything in this mod
+ * normally wants the SUM, because "what does a specialist here cost and give me" is one
+ * question; computePlotSpecialistDeltas() below is that sum, and it is what the baseline,
+ * the ranking and the map all use.
+ *
+ * The halves are kept because "do not aggregate negative yields" asks for them back: with
+ * that option on, the full-value display shows the gain and the upkeep as two pills again.
+ *
+ * ⚠️ Cached RAW, before rounding, so the sum below still rounds exactly once - rounding
+ * each half first and adding afterwards is not the same arithmetic.
+ */
+function computeRawParts(info) {
+    const cached = cachedParts.get(info.PlotIndex);
+    if (cached !== undefined) {
+        return cached;
+    }
+    const parts = new Map();
+    const partFor = (i) => {
+        let part = parts.get(i);
+        if (!part) {
+            part = { gain: 0, upkeep: 0 };
+            parts.set(i, part);
+        }
+        return part;
+    };
+    info.NextYields.forEach((nextValue, i) => {
+        const value = nextValue - (info.CurrentYields[i] ?? 0);
+        if (value !== 0) {
+            partFor(i).gain += value;
+        }
+    });
+    info.NextMaintenance.forEach((nextValue, i) => {
+        const value = (info.CurrentMaintenance[i] ?? 0) - nextValue;
+        if (value !== 0) {
+            partFor(i).upkeep += value;
+        }
+    });
+    cachedParts.set(info.PlotIndex, parts);
+    return parts;
+}
+
+/**
+ * The same two halves, rounded for display, with the empty ones dropped.
+ * Used only where a tile shows its FULL figures and "do not aggregate negative yields"
+ * asks for the halves to stay apart. Everything else wants the sum.
+ */
+export function computePlotSpecialistYieldParts(info) {
+    const parts = new Map();
+    for (const [i, part] of computeRawParts(info)) {
+        const gain = Math.round(part.gain * 10) / 10;
+        const upkeep = Math.round(part.upkeep * 10) / 10;
+        if (gain !== 0 || upkeep !== 0) {
+            parts.set(i, { gain, upkeep });
+        }
+    }
+    return parts;
+}
+
+/**
+ * Net change a specialist on this plot would cause, per yield index - the sum of the two
+ * halves above, rounded once.
  */
 export function computePlotSpecialistDeltas(info) {
     const cached = cachedDeltas.get(info.PlotIndex);
@@ -57,23 +123,9 @@ export function computePlotSpecialistDeltas(info) {
         return cached;
     }
     const deltas = new Map();
-    const add = (i, value) => {
-        if (value === 0) {
-            return;
-        }
-        deltas.set(i, (deltas.get(i) ?? 0) + value);
-    };
-    info.NextYields.forEach((nextValue, i) => {
-        add(i, nextValue - (info.CurrentYields[i] ?? 0));
-    });
-    info.NextMaintenance.forEach((nextValue, i) => {
-        add(i, (info.CurrentMaintenance[i] ?? 0) - nextValue);
-    });
-    for (const [i, value] of deltas) {
-        const rounded = Math.round(value * 10) / 10;
-        if (rounded === 0) {
-            deltas.delete(i);
-        } else {
+    for (const [i, part] of computeRawParts(info)) {
+        const rounded = Math.round((part.gain + part.upkeep) * 10) / 10;
+        if (rounded !== 0) {
             deltas.set(i, rounded);
         }
     }
@@ -140,6 +192,91 @@ export function computeSpecialistYieldBaseline() {
     }
     cachedBaseline = baseline;
     return baseline;
+}
+
+/**
+ * Yield index by YieldType, built once.
+ *
+ * GameInfo is scanned, not queried, and the "show only the highest X" filters ask this
+ * question for every tile of every redraw - so the answer is worked out one time and kept.
+ * The table cannot change while the game is running, so this is never invalidated.
+ */
+let yieldIndexByType = null;
+
+function getYieldIndex(yieldType) {
+    if (yieldIndexByType === null) {
+        yieldIndexByType = new Map();
+        for (let i = 0; i < GameInfo.Yields.length; i++) {
+            const definition = GameInfo.Yields[i];
+            if (definition) {
+                yieldIndexByType.set(definition.YieldType, i);
+            }
+        }
+    }
+    return yieldIndexByType.get(yieldType);
+}
+
+const EMPTY_PLOT_SET = new Set();
+
+/**
+ * How far above the common value a tile must reach before "show only the tiles with the
+ * highest X" singles it out at all.
+ *
+ * ⚠️ Below this the rule does NOT apply and the yield imposes no filter, rather than
+ * picking a winner out of a field that is effectively level. Reducing the map to one tile
+ * that beats the rest by a rounding error hides more than it explains.
+ */
+const STANDOUT_THRESHOLD = 1;
+
+/**
+ * The plots tied for the highest value of one yield - the answer behind "show only the
+ * tiles with the highest science". Cached per yield; dropped with the other caches.
+ *
+ * Ranked on the tile's own delta - what a specialist placed there would actually give -
+ * and NOT on its deviation from the common value. The player is asking which tile is
+ * best, not which tile is most unusual, and those are different questions the moment a
+ * "do not aggregate" option is on.
+ *
+ * Every specialist plot contributes a value, 0 where it produces none of that yield, so
+ * ties are found across the whole set.
+ *
+ * ⚠️ The winner must beat the COMMON value by at least STANDOUT_THRESHOLD, or the answer
+ * is an empty set and the yield filters nothing. Two consequences worth knowing:
+ *  - a yield no plot touches cannot qualify (every plot ties at 0, and so does the common
+ *    value), so switching a filter on for a yield this city cannot produce no longer
+ *    shows the whole map;
+ *  - a yield every plot pays for and none gains - upkeep - cannot qualify either. The
+ *    common value IS the best tile there, by the definition of "closest to zero", so
+ *    nothing is ever +1 above it and there is no standout tile to point at.
+ */
+export function getHighestYieldPlots(yieldType) {
+    const index = getYieldIndex(yieldType);
+    if (index === undefined) {
+        return EMPTY_PLOT_SET;   // a yield this build of the game does not have
+    }
+    const cached = cachedBestPlots.get(index);
+    if (cached !== undefined) {
+        return cached;
+    }
+    let best = new Set();
+    let bestValue = null;
+    for (const plot of getSpecialistPlots()) {
+        const value = computePlotSpecialistDeltas(plot).get(index) ?? 0;
+        if (bestValue === null || value > bestValue) {
+            bestValue = value;
+            best = new Set([plot.PlotIndex]);
+        } else if (value === bestValue) {
+            best.add(plot.PlotIndex);   // a tie shows every tile that ties
+        }
+    }
+    // ⚠️ Rounded before the comparison, like every other figure here: both sides carry one
+    // decimal, and 2.1 - 1.1 is 0.9999999999999998 in binary floating point - which would
+    // fail a bare ">= 1" on numbers that are plainly one apart.
+    const common = computeSpecialistYieldBaseline().get(index) ?? 0;
+    const margin = bestValue === null ? 0 : Math.round((bestValue - common) * 10) / 10;
+    const result = margin >= STANDOUT_THRESHOLD ? best : EMPTY_PLOT_SET;
+    cachedBestPlots.set(index, result);
+    return result;
 }
 
 /**

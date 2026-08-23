@@ -23,7 +23,7 @@
             <Text>Не підсумовувати від'ємні прибутки</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="ru_RU">
-            <Text>Вилучає витрати зі спільного значення на карті, тож кожна клітинка й далі показує повні від'ємні прибутки, а не лише різницю. У панелі вони лишаються.</Text>
+            <Text>Вилучає витрати зі спільного значення на карті, тож кожна клітинка й далі показує повні від'ємні прибутки, а не лише різницю. У панелі вони лишаються. Там, де показуються повні значення — на клітинці під курсором — приріст і утримання того самого прибутку також залишаються окремо, а не додаються.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="ru_RU">
             <Text>Показувати лише прибутки зі спільним значенням</Text>
@@ -35,7 +35,7 @@
             <Text>Показувати все при наведенні</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="ru_RU">
-            <Text>При наведенні на клітинку показує її повні незмінені прибутки замість різниці. Стосується лише клітинки під курсором.</Text>
+            <Text>При наведенні на клітинку показує її повні прибутки замість різниці щодо спільного значення. Приріст і утримання того самого прибутку додаються, тож кожен прибуток показується лише раз. Стосується лише клітинки під курсором.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="ru_RU">
             <Text>Не підсумовувати додатні прибутки</Text>
@@ -57,6 +57,30 @@
         </Row>
         <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="ru_RU">
             <Text>Утримуйте, щоб перемикатися між виглядом спільних прибутків та початковим виглядом гри.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_FOOD" Language="ru_RU">
+            <Text>Показувати лише клітинки, що дають найбільше їжі</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION" Language="ru_RU">
+            <Text>Показувати лише клітинки, що дають найбільше виробництва</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_GOLD" Language="ru_RU">
+            <Text>Показувати лише клітинки, що дають найбільше золота</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE" Language="ru_RU">
+            <Text>Показувати лише клітинки, що дають найбільше науки</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_CULTURE" Language="ru_RU">
+            <Text>Показувати лише клітинки, що дають найбільше культури</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS" Language="ru_RU">
+            <Text>Показувати лише клітинки, що дають найбільше задоволення</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE" Language="ru_RU">
+            <Text>Показувати лише клітинки, що дають найбільше впливу</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="ru_RU">
+            <Text>Показує лише клітинку, на якій спеціаліст дав би найбільше цього прибутку, і приховує числа на інших клітинках. За однакових значень показуються всі такі клітинки. Можна ввімкнути кілька одночасно - клітинка показується, якщо перемагає хоча б в одному. Клітинка під курсором завжди зберігає свої числа.</Text>
         </Row>
     </LocalizedText>
 </Database>

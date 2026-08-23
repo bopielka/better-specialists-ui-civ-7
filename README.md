@@ -10,7 +10,7 @@ settings.
 
 No game rules, values or balance are changed, and saved games are unaffected.
 
-Current version: **1.3**. Steam Workshop: *(add link once published)*
+Current version: **1.4**. Steam Workshop: *(add link once published)*
 
 ## Repository layout
 
@@ -27,8 +27,12 @@ ui/                                        JavaScript loaded by the game's UI
   options/editors/najane-editor-keyboard-mapping.js
                                              makes the key appear in the rebinding screen
 text/<locale>/                             translations, 12 languages
-deploy.example.sh                          template for the local deploy script
+documentation/                             developer documentation - start at its README
 ```
+
+Anyone (or any AI agent) picking this up for development should read
+[`documentation/README.md`](documentation/README.md) first: it is the implementer-facing
+counterpart to this file, and records every platform trap already paid for once.
 
 ## How the pieces fit
 
@@ -47,16 +51,10 @@ model once made the panel and the map disagree.
 This repository is the source of truth. The game never reads from here directly —
 a small script copies a build into Civ VII's mod folder.
 
-First time only:
-
-```bash
-cp deploy.example.sh deploy.sh
-# set MOD_ID at the top of deploy.sh
-chmod +x deploy.sh
-```
-
-`deploy.sh` is git-ignored, so everyone keeps their own copy pointing at their own
-install. Then:
+`deploy.sh` is **git-ignored**, so everyone keeps their own copy pointing at their own
+install. There is no template in the repository; what the script has to do — including the
+guards that stop a bad path from turning it into `rm -rf` on the wrong folder — is written
+out in `documentation/10-development-workflow.md`. Once you have one:
 
 ```bash
 ./deploy.sh          # deploy

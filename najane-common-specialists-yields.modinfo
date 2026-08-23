@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="najane-common-specialists-yields" version="1.3"
+<Mod id="najane-common-specialists-yields" version="1.4"
     xmlns="ModInfo">
     <Properties>
         <Name>LOC_MOD_NAJANE_SPECIALISTS_NAME</Name>
-        <Version>1.3</Version>
+        <Version>1.4</Version>
         <Description>LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION</Description>
         <Authors>Najane</Authors>
         <Package>Mod</Package>

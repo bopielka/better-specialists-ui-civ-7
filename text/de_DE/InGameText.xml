@@ -23,7 +23,7 @@
             <Text>Negative Erträge nicht zusammenfassen</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="de_DE">
-            <Text>Lässt Kosten auf der Karte aus dem gemeinsamen Wert heraus, sodass jedes Feld weiterhin seine vollen negativen Erträge zeigt statt nur der Differenz. Im Panel werden sie weiterhin aufgeführt.</Text>
+            <Text>Lässt Kosten auf der Karte aus dem gemeinsamen Wert heraus, sodass jedes Feld weiterhin seine vollen negativen Erträge zeigt statt nur der Differenz. Im Panel werden sie weiterhin aufgeführt. Wo die vollständigen Zahlen angezeigt werden – auf dem Feld unter dem Mauszeiger – bleiben Ertrag und Unterhalt derselben Art ebenfalls getrennt, statt zusammengerechnet zu werden.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="de_DE">
             <Text>Nur Erträge mit gemeinsamem Wert anzeigen</Text>
@@ -35,7 +35,7 @@
             <Text>Beim Überfahren alles anzeigen</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="de_DE">
-            <Text>Zeigt beim Überfahren eines Feldes dessen vollständige, unveränderte Erträge statt der Differenz. Betrifft nur das Feld unter dem Mauszeiger.</Text>
+            <Text>Zeigt beim Überfahren eines Feldes dessen vollständige Erträge statt der Differenz zum gemeinsamen Wert. Ertrag und Unterhalt derselben Art werden zusammengerechnet, sodass jede Ertragsart nur einmal erscheint. Betrifft nur das Feld unter dem Mauszeiger.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="de_DE">
             <Text>Positive Erträge nicht zusammenfassen</Text>
@@ -57,6 +57,30 @@
         </Row>
         <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="de_DE">
             <Text>Gedrückt halten, um zwischen der Ansicht der gemeinsamen Erträge und der ursprünglichen Anzeige zu wechseln.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_FOOD" Language="de_DE">
+            <Text>Nur Felder anzeigen, die am meisten Nahrung bringen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION" Language="de_DE">
+            <Text>Nur Felder anzeigen, die am meisten Produktion bringen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_GOLD" Language="de_DE">
+            <Text>Nur Felder anzeigen, die am meisten Gold bringen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE" Language="de_DE">
+            <Text>Nur Felder anzeigen, die am meisten Wissenschaft bringen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_CULTURE" Language="de_DE">
+            <Text>Nur Felder anzeigen, die am meisten Kultur bringen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS" Language="de_DE">
+            <Text>Nur Felder anzeigen, die am meisten Zufriedenheit bringen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE" Language="de_DE">
+            <Text>Nur Felder anzeigen, die am meisten Einfluss bringen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="de_DE">
+            <Text>Zeigt nur das Feld, auf dem ein Spezialist den höchsten Ertrag dieser Art bringt, und blendet die Ertragszahlen auf allen anderen Feldern aus. Bei Gleichstand werden alle betroffenen Felder angezeigt. Mehrere dieser Optionen können gleichzeitig aktiv sein - ein Feld wird angezeigt, wenn es bei einer davon gewinnt. Das Feld unter dem Mauszeiger behält seine Zahlen immer.</Text>
         </Row>
     </LocalizedText>
 </Database>

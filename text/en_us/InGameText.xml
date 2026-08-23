@@ -23,7 +23,7 @@
             <Text>Do not aggregate negative yields</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION">
-            <Text>Leave costs out of the common value on the map, so every tile keeps showing its full negative yields instead of only the difference. The panel still lists them.</Text>
+            <Text>Leave costs out of the common value on the map, so every tile keeps showing its full negative yields instead of only the difference. The panel still lists them. Where the full figures are shown — the tile under the cursor — a yield's gain and its upkeep also stay apart instead of being added together.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO">
             <Text>Show only yields with a common value</Text>
@@ -35,7 +35,7 @@
             <Text>Show everything on hover</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION">
-            <Text>While hovering a tile, show its complete unmodified yields instead of the difference. Only the hovered tile is affected.</Text>
+            <Text>While hovering a tile, show its complete yields instead of the difference from the common value. A yield's gain and its upkeep are added together, so each one appears as a single number. Only the hovered tile is affected.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON">
             <Text>Do not aggregate positive yields</Text>
@@ -57,6 +57,30 @@
         </Row>
         <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP">
             <Text>Hold to swap between the common-yield view and the game's original display.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_FOOD">
+            <Text>Show only tiles giving the most Food</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION">
+            <Text>Show only tiles giving the most Production</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_GOLD">
+            <Text>Show only tiles giving the most Gold</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE">
+            <Text>Show only tiles giving the most Science</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_CULTURE">
+            <Text>Show only tiles giving the most Culture</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS">
+            <Text>Show only tiles giving the most Happiness</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE">
+            <Text>Show only tiles giving the most Influence</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION">
+            <Text>Shows only the tile where a specialist would give the most of that yield, and hides the yield numbers on every other tile. Tiles tied for the best are all shown. Several of these can be on at once - a tile is shown if it wins any of them. The tile under the cursor always keeps its numbers.</Text>
         </Row>
     </EnglishText>
 </Database>

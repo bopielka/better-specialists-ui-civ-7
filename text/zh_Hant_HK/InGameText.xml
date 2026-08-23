@@ -23,7 +23,7 @@
             <Text>不合併負數產量</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="zh_Hant_HK">
-            <Text>在地圖上將維護費用排除於共同數值之外，讓每個地塊繼續顯示完整的負數產量而非只顯示差異。面板中仍會列出。</Text>
+            <Text>在地圖上將維護費用排除於共同數值之外，讓每個地塊繼續顯示完整的負數產量而非只顯示差異。面板中仍會列出。在顯示完整數值的地方（游標所指的地塊），同一種產出的收益與維護費也會分開顯示，而不會相加。</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="zh_Hant_HK">
             <Text>只顯示具有共同數值的產量</Text>
@@ -35,7 +35,7 @@
             <Text>游標停留時顯示全部</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="zh_Hant_HK">
-            <Text>將游標停留在地塊上時，顯示該地塊未經修改的完整產量，而非差異。僅影響游標所指的地塊。</Text>
+            <Text>將游標停留在地塊上時，顯示該地塊的完整產量，而非與共同值的差異。同一種產出的收益與維護費會相加，因此每種產出只顯示一次。僅影響游標所指的地塊。</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="zh_Hant_HK">
             <Text>不合併正數產量</Text>
@@ -57,6 +57,30 @@
         </Row>
         <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="zh_Hant_HK">
             <Text>按住可在共同產量檢視與遊戲原本顯示之間切換。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_FOOD" Language="zh_Hant_HK">
+            <Text>僅顯示食物最高的地塊</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION" Language="zh_Hant_HK">
+            <Text>僅顯示生產力最高的地塊</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_GOLD" Language="zh_Hant_HK">
+            <Text>僅顯示金幣最高的地塊</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE" Language="zh_Hant_HK">
+            <Text>僅顯示科技值最高的地塊</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_CULTURE" Language="zh_Hant_HK">
+            <Text>僅顯示文化值最高的地塊</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS" Language="zh_Hant_HK">
+            <Text>僅顯示幸福感最高的地塊</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE" Language="zh_Hant_HK">
+            <Text>僅顯示影響力最高的地塊</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="zh_Hant_HK">
+            <Text>只顯示安置專家後該產出最高的地塊，並隱藏其他地塊上的數字。數值相同的地塊會全部顯示。可以同時開啟多個：只要在任一項中勝出，該地塊就會顯示。游標所指的地塊始終顯示數字。</Text>
         </Row>
     </LocalizedText>
 </Database>

@@ -23,7 +23,7 @@
             <Text>Não agregar rendimentos negativos</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="pt_BR">
-            <Text>Deixa os custos fora do valor comum no mapa, para que cada hexágono continue mostrando seus rendimentos negativos completos em vez de apenas a diferença. O painel continua listando-os.</Text>
+            <Text>Deixa os custos fora do valor comum no mapa, para que cada hexágono continue mostrando seus rendimentos negativos completos em vez de apenas a diferença. O painel continua listando-os. Onde os números completos são exibidos — o hexágono sob o cursor — o ganho e a manutenção de um mesmo rendimento também permanecem separados em vez de serem somados.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="pt_BR">
             <Text>Mostrar apenas rendimentos com valor comum</Text>
@@ -35,7 +35,7 @@
             <Text>Mostrar tudo ao passar o cursor</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="pt_BR">
-            <Text>Ao passar o cursor sobre um hexágono, mostra seus rendimentos completos e inalterados em vez da diferença. Afeta apenas o hexágono sob o cursor.</Text>
+            <Text>Ao passar o cursor sobre um hexágono, mostra seus rendimentos completos em vez da diferença para o valor comum. O ganho e a manutenção de um mesmo rendimento são somados, de modo que cada um aparece uma única vez. Afeta apenas o hexágono sob o cursor.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="pt_BR">
             <Text>Não agregar rendimentos positivos</Text>
@@ -57,6 +57,30 @@
         </Row>
         <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="pt_BR">
             <Text>Segure para alternar entre a visualização de rendimentos comuns e a exibição original do jogo.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_FOOD" Language="pt_BR">
+            <Text>Mostrar apenas os hexágonos que dão mais Alimento</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION" Language="pt_BR">
+            <Text>Mostrar apenas os hexágonos que dão mais Produção</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_GOLD" Language="pt_BR">
+            <Text>Mostrar apenas os hexágonos que dão mais Ouro</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE" Language="pt_BR">
+            <Text>Mostrar apenas os hexágonos que dão mais Ciência</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_CULTURE" Language="pt_BR">
+            <Text>Mostrar apenas os hexágonos que dão mais Cultura</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS" Language="pt_BR">
+            <Text>Mostrar apenas os hexágonos que dão mais Felicidade</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE" Language="pt_BR">
+            <Text>Mostrar apenas os hexágonos que dão mais Influência</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="pt_BR">
+            <Text>Mostra apenas o hexágono em que um especialista renderia mais desse rendimento e oculta os números nos demais. Em caso de empate, todos os hexágonos empatados são mostrados. Várias destas opções podem ficar ativas ao mesmo tempo - um hexágono aparece se vencer em qualquer uma delas. O hexágono sob o cursor sempre mantém seus números.</Text>
         </Row>
     </LocalizedText>
 </Database>

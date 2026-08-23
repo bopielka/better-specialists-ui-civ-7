@@ -23,7 +23,7 @@
             <Text>Ne pas regrouper les rendements négatifs</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="fr_FR">
-            <Text>Exclut les coûts de la valeur commune sur la carte, afin que chaque case continue d'afficher ses rendements négatifs complets au lieu de la seule différence. Le panneau les indique toujours.</Text>
+            <Text>Exclut les coûts de la valeur commune sur la carte, afin que chaque case continue d'afficher ses rendements négatifs complets au lieu de la seule différence. Le panneau les indique toujours. Là où les chiffres complets sont affichés — la case sous le curseur — le gain et l'entretien d'un même rendement restent également séparés au lieu d'être additionnés.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="fr_FR">
             <Text>N'afficher que les rendements ayant une valeur commune</Text>
@@ -35,7 +35,7 @@
             <Text>Tout afficher au survol</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="fr_FR">
-            <Text>Au survol d'une case, affiche ses rendements complets non modifiés au lieu de l'écart. Seule la case survolée est concernée.</Text>
+            <Text>Au survol d'une case, affiche ses rendements complets au lieu de l'écart par rapport à la valeur commune. Le gain et l'entretien d'un même rendement sont additionnés, si bien que chacun n'apparaît qu'une fois. Seule la case survolée est concernée.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="fr_FR">
             <Text>Ne pas regrouper les rendements positifs</Text>
@@ -57,6 +57,30 @@
         </Row>
         <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="fr_FR">
             <Text>Maintenez pour basculer entre la vue des rendements communs et l'affichage d'origine du jeu.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_FOOD" Language="fr_FR">
+            <Text>N'afficher que les cases rapportant le plus de Nourriture</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION" Language="fr_FR">
+            <Text>N'afficher que les cases rapportant le plus de Production</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_GOLD" Language="fr_FR">
+            <Text>N'afficher que les cases rapportant le plus d'Or</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE" Language="fr_FR">
+            <Text>N'afficher que les cases rapportant le plus de Science</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_CULTURE" Language="fr_FR">
+            <Text>N'afficher que les cases rapportant le plus de Culture</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS" Language="fr_FR">
+            <Text>N'afficher que les cases rapportant le plus de Bonheur</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE" Language="fr_FR">
+            <Text>N'afficher que les cases rapportant le plus d'Influence</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="fr_FR">
+            <Text>N'affiche que la case où un spécialiste rapporterait le plus de ce rendement et masque les chiffres sur les autres. En cas d'égalité, toutes les cases concernées sont affichées. Plusieurs de ces options peuvent être actives à la fois : une case est affichée si elle gagne pour l'une d'elles. La case sous le curseur conserve toujours ses chiffres.</Text>
         </Row>
     </LocalizedText>
 </Database>

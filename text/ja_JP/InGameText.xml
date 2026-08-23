@@ -23,7 +23,7 @@
             <Text>マイナスの産出をまとめない</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="ja_JP">
-            <Text>マップ上では維持費を共通値から除外し、各タイルが差分ではなくマイナスの産出をそのまま表示します。パネルには引き続き表示されます。</Text>
+            <Text>マップ上では維持費を共通値から除外し、各タイルが差分ではなくマイナスの産出をそのまま表示します。パネルには引き続き表示されます。また、完全な数値が表示される場所（カーソル下のタイル）では、同じ産出の増加分と維持費も合算されず、別々に表示されます。</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="ja_JP">
             <Text>共通値がある産出のみ表示</Text>
@@ -35,7 +35,7 @@
             <Text>カーソルを合わせたときにすべて表示</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="ja_JP">
-            <Text>タイルにカーソルを合わせている間、差分ではなくそのタイルの変更されていない完全な産出を表示します。カーソル下のタイルのみが対象です。</Text>
+            <Text>タイルにカーソルを合わせている間、共通値との差ではなくそのタイルの完全な産出を表示します。同じ産出の増加分と維持費は合算されるため、各産出は一度だけ表示されます。カーソル下のタイルのみが対象です。</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="ja_JP">
             <Text>プラスの産出をまとめない</Text>
@@ -57,6 +57,30 @@
         </Row>
         <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="ja_JP">
             <Text>押している間、共通産出の表示とゲーム本来の表示を切り替えます。</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_FOOD" Language="ja_JP">
+            <Text>食料が最も多いタイルのみ表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION" Language="ja_JP">
+            <Text>生産力が最も多いタイルのみ表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_GOLD" Language="ja_JP">
+            <Text>ゴールドが最も多いタイルのみ表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE" Language="ja_JP">
+            <Text>科学力が最も多いタイルのみ表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_CULTURE" Language="ja_JP">
+            <Text>文化力が最も多いタイルのみ表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS" Language="ja_JP">
+            <Text>幸福度が最も多いタイルのみ表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE" Language="ja_JP">
+            <Text>影響力が最も多いタイルのみ表示</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="ja_JP">
+            <Text>専門家を配置したときにその産出が最も多くなるタイルだけを表示し、ほかのタイルの数値は隠します。同値のタイルはすべて表示されます。複数を同時にオンにでき、いずれかで最大となるタイルが表示されます。カーソル下のタイルは常に数値を表示します。</Text>
         </Row>
     </LocalizedText>
 </Database>

@@ -23,7 +23,7 @@
             <Text>Nie sumuj ujemnych dochodów</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="pl_PL">
-            <Text>Pomija koszty przy wyliczaniu wspólnej wartości na mapie, dzięki czemu każde pole nadal pokazuje pełne ujemne dochody, a nie tylko różnicę. W panelu nadal są widoczne.</Text>
+            <Text>Pomija koszty przy wyliczaniu wspólnej wartości na mapie, dzięki czemu każde pole nadal pokazuje pełne ujemne dochody, a nie tylko różnicę. W panelu nadal są widoczne. Tam, gdzie pokazywane są pełne wartości — na polu pod kursorem — przyrost i utrzymanie tego samego dochodu również pozostają osobno, zamiast się sumować.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="pl_PL">
             <Text>We wspólnych dochodach pokazuj tylko zasoby z niezerowymi dochodami</Text>
@@ -35,7 +35,7 @@
             <Text>Pokazuj wszystko po najechaniu</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="pl_PL">
-            <Text>Po najechaniu na pole pokazuje jego pełne, niezmienione dochody zamiast różnicy. Dotyczy tylko pola pod kursorem.</Text>
+            <Text>Po najechaniu na pole pokazuje jego pełne dochody zamiast różnicy względem wartości wspólnej. Przyrost i utrzymanie tego samego dochodu są sumowane, więc każdy dochód pojawia się tylko raz. Dotyczy tylko pola pod kursorem.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="pl_PL">
             <Text>Nie sumuj dodatnich dochodów</Text>
@@ -57,6 +57,30 @@
         </Row>
         <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="pl_PL">
             <Text>Przytrzymaj, aby przełączać między widokiem wspólnych dochodów a oryginalnym widokiem gry.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_FOOD" Language="pl_PL">
+            <Text>Pokazuj tylko pola dające najwięcej żywności</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION" Language="pl_PL">
+            <Text>Pokazuj tylko pola dające najwięcej produkcji</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_GOLD" Language="pl_PL">
+            <Text>Pokazuj tylko pola dające najwięcej złota</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE" Language="pl_PL">
+            <Text>Pokazuj tylko pola dające najwięcej nauki</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_CULTURE" Language="pl_PL">
+            <Text>Pokazuj tylko pola dające najwięcej kultury</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS" Language="pl_PL">
+            <Text>Pokazuj tylko pola dające najwięcej zadowolenia</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE" Language="pl_PL">
+            <Text>Pokazuj tylko pola dające najwięcej wpływów</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="pl_PL">
+            <Text>Pokazuje tylko pole, na którym specjalista dałby najwięcej tego dochodu, i ukrywa liczby na pozostałych polach. Przy remisie pokazywane są wszystkie remisujące pola. Można włączyć kilka naraz - pole jest pokazywane, jeśli wygrywa w którymkolwiek. Pole pod kursorem zawsze zachowuje swoje liczby.</Text>
         </Row>
     </LocalizedText>
 </Database>

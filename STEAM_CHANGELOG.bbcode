@@ -1,0 +1,35 @@
+[h1]Better Specialists UI — Changelog[/h1]
+
+Short form. The full, reasoned version lives in [b]CHANGELOG.md[/b] in the source repository.
+
+[hr][/hr]
+[h2]1.4[/h2]
+[list]
+[*][b]Show only the best tiles for a yield[/b] — seven new checkboxes in Options → Mods, one each for Food, Production, Gold, Science, Culture, Happiness and Influence. With one on, only the tile where a specialist would give the most of that yield keeps its numbers. Every other tile keeps its specialist pips and drops its yield pills, so you can still see where a specialist can go.
+[*][b]They stack rather than exclude.[/b] Switch on several and a tile is shown if it wins any of them — the best Science tile is rarely also the best Food tile, so intersecting them would leave the map empty. Tiles tied for the best are all shown, and the tile under the cursor always keeps its numbers.
+[*][b]A yield only has a "best" tile when one beats the shared value by at least 1.[/b] On a level field the rule stays out of the way and the map is left alone, rather than singling out a tile that wins by a rounding error. A yield your city cannot produce at all filters nothing.
+[*][b]Fixed: "Show everything on hover" listed the same yield twice.[/b] A specialist paying 5 Happiness to earn 3 showed "+3" and "-5" beside each other — the tile was handed back to the game, and the game draws a yield's gain and its upkeep as two separate pills. That is the very doubling-up this mod exists to remove. The hovered tile now reads "-2": one number per yield.
+[*][b]"Do not aggregate negative yields" now does what its name says there too.[/b] Switch it on and the hovered tile keeps the gain and the upkeep apart — "+3" and "-5" — instead of adding them up. Holding the alternative view key still reaches the game's own untouched display either way.
+[/list]
+
+[h2]1.3[/h2]
+[list]
+[*][b]The alternative view is a real key binding.[/b] It is listed under Options → Accessibility → Keyboard and Mouse → Configuration as "Better Specialists UI: alternative view" and can be rebound to any key. The default is now [b]Tab[/b] — it used to be hardwired to Shift, which clashed with other UI mods reacting to the same key.
+[*][b]The on-screen hint names the key that is actually bound[/b] and follows any rebinding, instead of always saying "Shift". The binding entry is translated in all 12 languages.
+[*][b]City Hall's building slot icons are drawn again while this mod's view is active.[/b] Until now they only reappeared while the original view was on screen, because this mod replaced the drawing step City Hall extends.
+[*][b]"Show positive yields only" is now "Do not aggregate positive yields"[/b] and sits directly under the negative counterpart it mirrors exactly. It no longer overrides "Always show negative yields" — each option now does one thing.
+[*][b]"Show full yields on hover" is now "Show everything on hover".[/b]
+[*][b]Icons in the Common Specialists Yields panel are centred with even spacing[/b] instead of being stretched across the panel when some of them are filtered out.
+[*][b]Fixed:[/b] "Do not aggregate positive yields" did nothing when a yield was the same on every tile. It now shows such yields in full, which was the point of the option.
+[/list]
+
+[h2]1.0 — initial release[/h2]
+[list]
+[*][b]A "Common Yields" panel that states once, per city, what any specialist gives and costs there.[/b] The common value is the part every specialist option shares: for each yield, the value closest to zero across all specialist tiles. A yield only some tiles produce has no common part and is left out. Both a specialist's yield gain and its upkeep are taken into account.
+[*][b]The panel appears in both places you need it[/b] — at the bottom of the "Choose a tile" overview, and at the top of the "Add specialist" view.
+[*][b]Tiles show only their deviation from the common value[/b] instead of repeating the full figures. A tile matching the common value shows no yield pill at all.
+[*][b]Only urban tiles are counted[/b] — Urban and City Center districts. Rural expansion tiles are left out of the calculation and keep the game's original display, untouched. Specialist pips and blocked-tile markers are unchanged.
+[*][b]Negative yields are shown only on the tile under the cursor[/b] by default.
+[*][b]Holding Shift switches to the game's original, unmodified display[/b], and the panel hint updates live to say where Shift will take you: "Shift → default view" or "Shift → yield differences".
+[*][b]Four options under Options → Mods[/b], all off by default and remembered between sessions: always show negative yields; show original yields by default; do not aggregate negative yields; show only yields with a common value.
+[/list]

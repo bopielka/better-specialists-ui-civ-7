@@ -51,6 +51,32 @@ function restore(optionID) {
     }
 }
 
+/**
+ * The "show only the tiles with the highest X" family - one checkbox per yield.
+ *
+ * A table rather than seven hand-written blocks, because these are parallel options that
+ * differ only in which yield they name: the defaults, the accessors and the registrations
+ * are all derived from this one list, so they cannot drift apart. The six unrelated
+ * options below are still written out individually, which is the right shape for them.
+ *
+ * ⚠️ YieldType strings only - no GameInfo lookups. This module also loads in the SHELL
+ * scope (the options screen exists in the main menu), where the gameplay database is not
+ * available. Resolving a type to a yield index is the model's job, in the game scope.
+ *
+ * ⚠️ `optionID` is the stored key. Renaming one silently resets that setting for every
+ * player who had it on; append to the table rather than reshuffling it.
+ */
+export const HIGHEST_ONLY_YIELDS = [
+    { optionID: "highestOnlyFood", yieldType: "YIELD_FOOD", id: "najane-highest-only-food", label: "LOC_OPTIONS_NAJANE_HIGHEST_FOOD" },
+    { optionID: "highestOnlyProduction", yieldType: "YIELD_PRODUCTION", id: "najane-highest-only-production", label: "LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION" },
+    { optionID: "highestOnlyGold", yieldType: "YIELD_GOLD", id: "najane-highest-only-gold", label: "LOC_OPTIONS_NAJANE_HIGHEST_GOLD" },
+    { optionID: "highestOnlyScience", yieldType: "YIELD_SCIENCE", id: "najane-highest-only-science", label: "LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE" },
+    { optionID: "highestOnlyCulture", yieldType: "YIELD_CULTURE", id: "najane-highest-only-culture", label: "LOC_OPTIONS_NAJANE_HIGHEST_CULTURE" },
+    { optionID: "highestOnlyHappiness", yieldType: "YIELD_HAPPINESS", id: "najane-highest-only-happiness", label: "LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS" },
+    // ⚠️ Influence is YIELD_DIPLOMACY in the data; "Influence" is only its display name.
+    { optionID: "highestOnlyInfluence", yieldType: "YIELD_DIPLOMACY", id: "najane-highest-only-influence", label: "LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE" },
+];
+
 const NajaneOptions = new class {
     defaults = {
         alwaysShowNegatives: 0,
@@ -59,6 +85,8 @@ const NajaneOptions = new class {
         dontAggregatePositives: 0,
         onlyNonZeroCommon: 0,
         fullYieldsOnHover: 0,
+        // One per yield, derived from the table so a new entry cannot be left without a default.
+        ...Object.fromEntries(HIGHEST_ONLY_YIELDS.map((entry) => [entry.optionID, 0])),
     };
     data = {};
 
@@ -99,6 +127,19 @@ const NajaneOptions = new class {
     /** The hovered tile shows the game's full, unmodified figures instead of the difference. */
     get fullYieldsOnHover() { return this.get("fullYieldsOnHover"); }
     set fullYieldsOnHover(value) { this.set("fullYieldsOnHover", value); }
+
+    /**
+     * YieldTypes whose "show only the tiles with the highest X" filter is currently on.
+     *
+     * ⚠️ Returns a LIST, not a single choice: the player may switch on any number of
+     * these, and the map then shows the best tile for EACH of them. The consumer unions
+     * the results - see ui/worker-yields-layer-patch.js.
+     */
+    getHighestOnlyYieldTypes() {
+        return HIGHEST_ONLY_YIELDS
+            .filter((entry) => this.get(entry.optionID))
+            .map((entry) => entry.yieldType);
+    }
 }();
 
 Options.addInitCallback(() => {
@@ -163,6 +204,20 @@ Options.addInitCallback(() => {
         label: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER",
         description: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION",
     });
+    // One checkbox per yield, from the table above. They share a description: the text
+    // differs only in the yield it names, and the label already says which one that is.
+    for (const entry of HIGHEST_ONLY_YIELDS) {
+        Options.addOption({
+            category: CategoryType.Mods,
+            group: "najane_mods",
+            type: OptionType.Checkbox,
+            id: entry.id,
+            initListener: (info) => info.currentValue = NajaneOptions.get(entry.optionID),
+            updateListener: (_info, value) => NajaneOptions.set(entry.optionID, value),
+            label: entry.label,
+            description: "LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION",
+        });
+    }
 });
 
 export { NajaneOptions as default };

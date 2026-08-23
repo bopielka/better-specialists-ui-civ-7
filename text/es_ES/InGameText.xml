@@ -23,7 +23,7 @@
             <Text>No agrupar los rendimientos negativos</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="es_ES">
-            <Text>Deja los costes fuera del valor común en el mapa, de modo que cada casilla sigue mostrando sus rendimientos negativos completos en lugar de solo la diferencia. El panel los sigue mostrando.</Text>
+            <Text>Deja los costes fuera del valor común en el mapa, de modo que cada casilla sigue mostrando sus rendimientos negativos completos en lugar de solo la diferencia. El panel los sigue mostrando. Donde se muestran las cifras completas —la casilla bajo el cursor— la ganancia y el mantenimiento de un mismo rendimiento también se mantienen separados en lugar de sumarse.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="es_ES">
             <Text>Mostrar solo los rendimientos con valor común</Text>
@@ -35,7 +35,7 @@
             <Text>Mostrar todo al pasar el cursor</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="es_ES">
-            <Text>Al pasar el cursor por una casilla, muestra sus rendimientos completos sin modificar en lugar de la diferencia. Solo afecta a la casilla señalada.</Text>
+            <Text>Al pasar el cursor por una casilla, muestra sus rendimientos completos en lugar de la diferencia con el valor común. La ganancia y el mantenimiento de un mismo rendimiento se suman, de modo que cada uno aparece una sola vez. Solo afecta a la casilla señalada.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="es_ES">
             <Text>No agrupar los rendimientos positivos</Text>
@@ -57,6 +57,30 @@
         </Row>
         <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="es_ES">
             <Text>Mantén pulsada para alternar entre la vista de rendimientos comunes y la vista original del juego.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_FOOD" Language="es_ES">
+            <Text>Mostrar solo las casillas que dan más Alimentos</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION" Language="es_ES">
+            <Text>Mostrar solo las casillas que dan más Producción</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_GOLD" Language="es_ES">
+            <Text>Mostrar solo las casillas que dan más Oro</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE" Language="es_ES">
+            <Text>Mostrar solo las casillas que dan más Ciencia</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_CULTURE" Language="es_ES">
+            <Text>Mostrar solo las casillas que dan más Cultura</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS" Language="es_ES">
+            <Text>Mostrar solo las casillas que dan más Felicidad</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE" Language="es_ES">
+            <Text>Mostrar solo las casillas que dan más Influencia</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="es_ES">
+            <Text>Muestra solo la casilla en la que un especialista daría más de ese rendimiento y oculta las cifras en las demás. Si hay empate, se muestran todas las casillas empatadas. Se pueden activar varias a la vez: una casilla se muestra si gana en alguna de ellas. La casilla bajo el cursor siempre conserva sus cifras.</Text>
         </Row>
     </LocalizedText>
 </Database>

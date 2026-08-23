@@ -23,7 +23,7 @@
             <Text>Non aggregare le rese negative</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION" Language="it_IT">
-            <Text>Esclude i costi dal valore comune sulla mappa, così ogni casella continua a mostrare le rese negative complete anziché la sola differenza. Il pannello le elenca comunque.</Text>
+            <Text>Esclude i costi dal valore comune sulla mappa, così ogni casella continua a mostrare le rese negative complete anziché la sola differenza. Il pannello le elenca comunque. Dove vengono mostrate le cifre complete — la casella sotto il cursore — anche il guadagno e il mantenimento della stessa risorsa restano separati invece di essere sommati.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ONLY_NONZERO" Language="it_IT">
             <Text>Mostra solo le rese con un valore comune</Text>
@@ -35,7 +35,7 @@
             <Text>Mostra tutto al passaggio del cursore</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="it_IT">
-            <Text>Passando il cursore su una casella, mostra le sue rese complete non modificate invece della differenza. Riguarda solo la casella sotto il cursore.</Text>
+            <Text>Passando il cursore su una casella, mostra le sue rese complete invece della differenza rispetto al valore comune. Il guadagno e il mantenimento della stessa risorsa vengono sommati, così ognuna compare una sola volta. Riguarda solo la casella sotto il cursore.</Text>
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="it_IT">
             <Text>Non aggregare le rese positive</Text>
@@ -57,6 +57,30 @@
         </Row>
         <Row Tag="LOC_INPUT_NAJANE_ALTERNATIVE_VIEW_HELP" Language="it_IT">
             <Text>Tieni premuto per passare dalla vista delle rese comuni alla visualizzazione originale del gioco.</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_FOOD" Language="it_IT">
+            <Text>Mostra solo le caselle che danno più Cibo</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_PRODUCTION" Language="it_IT">
+            <Text>Mostra solo le caselle che danno più Produzione</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_GOLD" Language="it_IT">
+            <Text>Mostra solo le caselle che danno più Oro</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_SCIENCE" Language="it_IT">
+            <Text>Mostra solo le caselle che danno più Scienza</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_CULTURE" Language="it_IT">
+            <Text>Mostra solo le caselle che danno più Cultura</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_HAPPINESS" Language="it_IT">
+            <Text>Mostra solo le caselle che danno più Felicità</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_INFLUENCE" Language="it_IT">
+            <Text>Mostra solo le caselle che danno più Influenza</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="it_IT">
+            <Text>Mostra solo la casella in cui uno specialista darebbe di più di quella risorsa e nasconde i numeri sulle altre. In caso di parità vengono mostrate tutte le caselle a pari merito. È possibile attivarne più di una: una casella viene mostrata se vince in almeno una. La casella sotto il cursore mantiene sempre i suoi numeri.</Text>
         </Row>
     </LocalizedText>
 </Database>
