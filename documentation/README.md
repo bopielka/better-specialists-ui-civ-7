@@ -50,9 +50,9 @@ display. It changes no rules, values or balance, and declares `AffectsSavedGames
 2. **The dependency order.** `options` ← `modifier-tracker` ← `view-mode` ←
    `baseline model` ← `panel` / `layer`. Never import upwards; the panel and the layer must
    never import each other.
-3. **`deploy.sh` after every change.** The game never reads this repository. The script is
-   git-ignored and is **not** in the repository — [workflow](10-development-workflow.md) is
-   the spec for writing one.
+3. **`deploy.sh` after every change** (`deploy-on-mac.sh` on macOS). The game never reads
+   this repository. ⚠️ Both scripts are committed **non-executable** and run **no checks** —
+   see [workflow](10-development-workflow.md).
 4. **`console.log` never reaches the game's log.** Use `console.error`, prefixed
    `najane-specialists:`.
 5. **Presentation options belong in the layer, never in the model.** Putting "do not

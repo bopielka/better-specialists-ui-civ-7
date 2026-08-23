@@ -137,7 +137,7 @@ for f in ui/*.js ui/options/*.js ui/options/editors/*.js; do
 done
 ```
 
-⚠️ **Put this check in your `deploy.sh`** — the sibling Commerce mod's script has it, added
+⚠️ **Neither deploy script here runs this check** — the sibling Commerce mod's does, added
 after a broken string literal reached the game and stopped the mod loading entirely. Until
 it is there, run it by hand, and run it **after** the last edit rather than before: a file
 checked, edited once more, and then deployed unchecked is the other half of that failure.
@@ -224,7 +224,7 @@ CHANGELOG.md              the full history, with reasoning
 STEAM_CHANGELOG.bbcode    ⚠️ the SHORT form of it; see below. 8000-character limit
 TODO.md                   ⚠️ "For AI agents: Don't edit this file unless asked."
 documentation/            this folder
-(no deploy script)        deploy.sh is git-ignored; this document is its spec
+deploy.sh                 Windows (Git Bash); deploy-on-mac.sh is its macOS twin
 steam-description.md      git-ignored, lives outside the repository's history
 .idea/, .git/
 ```
@@ -250,8 +250,8 @@ thing lost is the tail — the oldest versions. When the file approaches the lim
 oldest version section** rather than trimming the recent ones; the full history is in the
 Markdown file either way. The file currently sits at about 4.7k.
 
-⚠️ **Check that limit in your `deploy.sh`** — the sibling Commerce mod's script refuses to
-deploy over it. Until yours does, check by hand:
+⚠️ **Neither deploy script here checks that limit** — the sibling Commerce mod's refuses to
+deploy over it. Until these do, check by hand:
 
 ```bash
 wc -c STEAM_CHANGELOG.bbcode

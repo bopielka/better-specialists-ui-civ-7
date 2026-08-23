@@ -8,21 +8,13 @@ import { ModifierChangedEventName, getAlternativeViewKeyLabel } from '/najane-co
 import { isOriginalDisplayActive } from '/najane-common-specialists-yields/ui/view-mode.js';
 
 /**
- * Shows what EVERY specialist in this city gives/costs, once, so the per-tile
- * pills on the map only have to show how a tile deviates from it.
+ * Shows what EVERY specialist in this city gives and costs, once, so the per-tile pills only
+ * have to show how a tile deviates from it.
  *
- * Two placements, because the panel swaps between two frames:
- *  - subsystemFrame ("Choose a tile" overview, shown when nothing is hovered):
- *    appended at the BOTTOM, next to the other explanatory blocks.
- *  - placeSpecialistFrame ("Add specialist", shown while hovering a valid tile):
- *    inserted at the TOP, above BEFORE/AFTER.
- * Anything put in subsystemFrame alone would be invisible while placing a
- * specialist - the game hides that frame in exactly that state.
- *
- * DOM insertion is deferred with waitForLayout: fxs-subsystem-frame rearranges
- * its children after build, so inserting during afterAttach silently landed the
- * section at the end instead of the requested position.
- * UI-only: reads PlotWorkersManager data, writes no game state.
+ * ⚠️ Built TWICE, because the panel swaps between two frames and hides the one it is not
+ * using: the "Choose a tile" overview and the "Add specialist" view. ⚠️ Inserted via
+ * waitForLayout - fxs-subsystem-frame rearranges its children after build, so inserting in
+ * afterAttach silently lands the section at the end. UI-only: writes no game state.
  */
 class NajaneCommonYieldsSection {
     specialist = null;
@@ -79,10 +71,9 @@ class NajaneCommonYieldsSection {
     }
 
     /**
-     * Both placements use the same chrome as the explanatory blocks on the
-     * "choose a tile" screen (title + divider inside a ticket container), so the
-     * section reads identically wherever it appears.
-     */
+ * Both placements use the chrome of the game's own explanatory blocks, so the section reads
+ * identically wherever it appears.
+ */
     createSection() {
         const section = document.createElement("div");
         section.classList.add("najane-common-yields", "flex", "flex-col");
@@ -101,10 +92,8 @@ class NajaneCommonYieldsSection {
         barHost.appendChild(divider);
 
         const bar = document.createElement("yield-bar-base");
-        // yield-bar-base sets "justify-between" on itself, which is fine for the
-        // full set of yields but leaves huge gaps once some are filtered out.
-        // An inline style beats the component's class, keeping the entries
-        // centred with the same even spacing whatever their number.
+        // ⚠️ yield-bar-base sets "justify-between" on itself, which leaves huge gaps once
+        // some yields are filtered out. An inline style beats the component's class.
         bar.style.justifyContent = "center";
         barHost.appendChild(bar);
 
@@ -148,9 +137,8 @@ class NajaneCommonYieldsSection {
         }
         const barDataJSON = JSON.stringify(barData);
         const barDeltasJSON = JSON.stringify(barDeltas);
-        // The hint names both the key and where it leads, so it follows the current view
-        // AND whatever the player bound in Options -> Key Bindings. Composed here rather
-        // than through data-l10n-id, which cannot take a runtime argument.
+        // ⚠️ Composed here rather than through data-l10n-id, which cannot take a runtime
+        // argument - the hint names the key the player actually bound, and where it leads.
         const hintText = Locale.compose(
             isOriginalDisplayActive()
                 ? "LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF"

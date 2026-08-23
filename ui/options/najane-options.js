@@ -3,14 +3,11 @@ import { CategoryType, Options, OptionType } from '/core/ui/options/model-option
 import { CategoryData } from '/core/ui/options/options-helpers.js';
 
 /**
- * Mod options for "Common Specialists Yields", shown under a "Mods" tab in the
- * main-menu options screen.
+ * Mod options, shown under a "Mods" tab in the options screen.
  *
- * The "Mods" category is not part of the base game; several community mods add
- * it the same way, so it is created with ??= and the id "mods" to share one tab
- * instead of each mod spawning its own.
- * Values persist through UI.setOption("user", "Mod", ...), with localStorage as
- * a fallback - the same approach other Civ VII mods settled on.
+ * ⚠️ The "Mods" category is not part of the base game; several community mods add it the
+ * same way, so it is created with ??= and the shared id "mods" rather than each spawning
+ * its own tab. Values persist through UI.setOption, with localStorage as a fallback.
  */
 CategoryType["Mods"] = "mods";
 CategoryData[CategoryType.Mods] ??= {
@@ -54,17 +51,10 @@ function restore(optionID) {
 /**
  * The "show only the tiles with the highest X" family - one checkbox per yield.
  *
- * A table rather than seven hand-written blocks, because these are parallel options that
- * differ only in which yield they name: the defaults, the accessors and the registrations
- * are all derived from this one list, so they cannot drift apart. The six unrelated
- * options below are still written out individually, which is the right shape for them.
- *
- * ⚠️ YieldType strings only - no GameInfo lookups. This module also loads in the SHELL
- * scope (the options screen exists in the main menu), where the gameplay database is not
- * available. Resolving a type to a yield index is the model's job, in the game scope.
- *
- * ⚠️ `optionID` is the stored key. Renaming one silently resets that setting for every
- * player who had it on; append to the table rather than reshuffling it.
+ * A table because these differ only in the yield they name: defaults, accessor and
+ * registrations all derive from it. ⚠️ YieldType STRINGS only, no GameInfo - this module
+ * also loads in the SHELL scope, where the gameplay database does not exist. ⚠️ `optionID`
+ * is the stored key: renaming one resets that setting for everyone; append instead.
  */
 export const HIGHEST_ONLY_YIELDS = [
     { optionID: "highestOnlyFood", yieldType: "YIELD_FOOD", id: "najane-highest-only-food", label: "LOC_OPTIONS_NAJANE_HIGHEST_FOOD" },
@@ -108,7 +98,7 @@ const NajaneOptions = new class {
     get alwaysShowNegatives() { return this.get("alwaysShowNegatives"); }
     set alwaysShowNegatives(value) { this.set("alwaysShowNegatives", value); }
 
-    /** Invert Shift: unmodified game display by default, mod's view while Shift is held. */
+    /** Invert the alternative-view key: the game's display by default, the mod's while held. */
     get originalByDefault() { return this.get("originalByDefault"); }
     set originalByDefault(value) { this.set("originalByDefault", value); }
 
@@ -129,12 +119,9 @@ const NajaneOptions = new class {
     set fullYieldsOnHover(value) { this.set("fullYieldsOnHover", value); }
 
     /**
-     * YieldTypes whose "show only the tiles with the highest X" filter is currently on.
-     *
-     * ⚠️ Returns a LIST, not a single choice: the player may switch on any number of
-     * these, and the map then shows the best tile for EACH of them. The consumer unions
-     * the results - see ui/worker-yields-layer-patch.js.
-     */
+ * YieldTypes whose "highest X" filter is on. ⚠️ A LIST, not a single choice - the player may
+ * switch on any number, and the consumer unions the results.
+ */
     getHighestOnlyYieldTypes() {
         return HIGHEST_ONLY_YIELDS
             .filter((entry) => this.get(entry.optionID))
@@ -204,8 +191,7 @@ Options.addInitCallback(() => {
         label: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER",
         description: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION",
     });
-    // One checkbox per yield, from the table above. They share a description: the text
-    // differs only in the yield it names, and the label already says which one that is.
+    // One checkbox per yield, from the table above; they share one description.
     for (const entry of HIGHEST_ONLY_YIELDS) {
         Options.addOption({
             category: CategoryType.Mods,
