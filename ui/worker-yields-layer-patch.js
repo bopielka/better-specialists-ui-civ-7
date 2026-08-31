@@ -171,7 +171,21 @@ function applyPatch() {
         const currentWorkers = info.NumWorkers;
         const workerCap = info.MaxWorkers;
         const location = GameplayMap.getLocationFromIndex(info.PlotIndex);
-        for (let i = 0; i < workerCap; i++) {
+
+        /*
+         * ⚠️ THE PIPS ARE THIS MOD'S OWN LOOK, and they stay that way when it runs alone.
+         *
+         * Better City UI draws a single "used/max" field on these same tiles, positioned with the
+         * building icons it already renders there. With both installed the tile would carry the
+         * same fact twice in two different shapes, so this stands down and lets the other one say
+         * it - the count is then in one place, and in the same place as on its city screen.
+         *
+         * ⚠️ Read at DRAW time, not at load. That mod loads after this one (LoadOrder 1200 against
+         * 1000), so the flag does not exist yet while this file is being evaluated.
+         */
+        const drawPips = !globalThis.najaneCityUiDrawsSpecialistCounts;
+
+        for (let i = 0; drawPips && i < workerCap; i++) {
             const offsetAndScale = this.getSpecialistPipOffsetsAndScale(i, workerCap - 1);
             if (i < currentWorkers) {
                 this.yieldVisualizer.addSprite(
