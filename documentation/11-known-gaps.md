@@ -72,15 +72,21 @@ not reconstruct them from the diff and present the result as a record of intent.
 so they cannot drift. Anything reconstructed now comes from git history
 (`git log --oneline`), which currently has eight commits and does not explain reasoning.
 
-## 6. ⚠️ There is no deploy script in the repository
+## 6. ⚠️ The deploy scripts are committed non-executable, and check nothing
 
-`deploy.sh` is git-ignored and the template that used to sit beside it has been removed, so
-a fresh clone has **no way to deploy** until someone writes one.
-[Workflow](10-development-workflow.md) carries the spec, including the guards that keep an
-`rm -rf` on a computed path from going wrong.
+`deploy.sh` (Windows, Git Bash) and `deploy-on-mac.sh` (macOS) are both in the repository and
+differ only in the default install path. Two things are wrong with them.
 
-Whatever you write, the sibling Commerce mod's `deploy-on-mac.sh` runs three checks that mod
-learned to need the hard way:
+**They are tracked with mode `100644`**, so a fresh clone — and this working copy — cannot
+run `./deploy.sh` at all; it fails with "permission denied". `chmod +x` fixes the local copy
+but not the repository. Fix it in a way git records:
+
+```bash
+git update-index --chmod=+x deploy.sh deploy-on-mac.sh
+```
+
+**They run no checks on what they deploy.** The sibling Commerce mod's `deploy.sh` runs three
+that mod learned to need the hard way:
 
 | Check | Why it exists there |
 |---|---|
@@ -94,8 +100,10 @@ exists as of 1.4 and has a hard 8000-character ceiling that Steam enforces by si
 truncating the tail. Until both are ported, run them by hand — see
 [workflow](10-development-workflow.md).
 
-Copying `deploy-on-mac.sh` from the Commerce repository and changing `MOD_ID` to
-`najane-common-specialists-yields` is the shortest route to all three.
+Lifting the check blocks out of the Commerce repository's `deploy.sh` is the shortest route
+to both that apply. ⚠️ There, `deploy.sh` holds the logic and `deploy-on-mac.sh` is a
+seven-line shim that `exec`s it — the opposite of the arrangement here, where the two are
+full copies of one another and must be kept in sync by hand.
 
 ## 7. Structural fragility, ranked
 

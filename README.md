@@ -51,13 +51,12 @@ model once made the panel and the map disagree.
 This repository is the source of truth. The game never reads from here directly —
 a small script copies a build into Civ VII's mod folder.
 
-`deploy.sh` is **git-ignored**, so everyone keeps their own copy pointing at their own
-install. There is no template in the repository; what the script has to do — including the
-guards that stop a bad path from turning it into `rm -rf` on the wrong folder — is written
-out in `documentation/10-development-workflow.md`. Once you have one:
+Two scripts, both in the repository and identical apart from the default install path:
+`deploy.sh` for Windows (Git Bash) and `deploy-on-mac.sh` for macOS. Neither hard-codes an
+install location — `CIV7_MODS_DIR` overrides the default on both.
 
 ```bash
-./deploy.sh          # deploy
+./deploy.sh          # deploy          (macOS: ./deploy-on-mac.sh)
 ./deploy.sh --dry    # show what would be copied, change nothing
 ```
 

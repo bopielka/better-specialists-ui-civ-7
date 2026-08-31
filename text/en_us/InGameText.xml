@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER">
             <Text>Common Specialists Yields</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS">
-            <Text>Common Specialists Yields</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES">
             <Text>Always show negative yields</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION">
             <Text>Shows only the tile where a specialist would give the most of that yield, and hides the yield numbers on every other tile. Tiles tied for the best are all shown. Several of these can be on at once - a tile is shown if it wins any of them. The tile under the cursor always keeps its numbers.</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS">
+            <Text>Najane Mods: specialists</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS">
+            <Text>Najane Mods: specialist yields</Text>
         </Row>
     </EnglishText>
 </Database>

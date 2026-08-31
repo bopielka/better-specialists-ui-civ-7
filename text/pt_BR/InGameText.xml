@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="pt_BR">
             <Text>Rendimentos comuns de especialistas</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="pt_BR">
-            <Text>Rendimentos comuns de especialistas</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="pt_BR">
             <Text>Sempre mostrar rendimentos negativos</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="pt_BR">
             <Text>Mostra apenas o hexágono em que um especialista renderia mais desse rendimento e oculta os números nos demais. Em caso de empate, todos os hexágonos empatados são mostrados. Várias destas opções podem ficar ativas ao mesmo tempo - um hexágono aparece se vencer em qualquer uma delas. O hexágono sob o cursor sempre mantém seus números.</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="pt_BR">
+            <Text>Mods de Najane: especialistas</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="pt_BR">
+            <Text>Mods de Najane: rendimentos de especialistas</Text>
         </Row>
     </LocalizedText>
 </Database>

@@ -1,19 +1,12 @@
 /**
- * Makes the mod's key binding appear in Options -> Accessibility -> Keyboard and
- * Mouse -> Configuration.
+ * Puts the mod's key binding in the keyboard remapping screen.
  *
- * Registering an InputAction in config/input.xml is NOT enough on its own: the
- * editor does not enumerate registered actions, it walks a hardcoded KEYS_TO_ADD
- * array inside the game's own editor-keyboard-mapping.js. Anything not in that
- * list simply never shows up, with no error anywhere.
- *
- * So the editor's addActionsForContext is wrapped and the mod's action appended
- * afterwards, reusing the component's own createActionEntry so the row looks and
- * behaves exactly like a stock one. Same approach other mods use for this.
+ * ⚠️ Declaring the InputAction in config/input.xml is not enough: the editor walks a
+ * hardcoded KEYS_TO_ADD array of the game's own, so an action not in it never shows up and
+ * nothing reports it. Hence wrapping addActionsForContext and appending ours.
  */
-// Spelled out rather than imported from modifier-tracker.js: this file also runs in
-// the shell scope, where that module's gameplay imports are not worth dragging in.
-// Must stay in sync with ALTERNATIVE_VIEW_ACTION and config/input.xml.
+// ⚠️ Spelled out, not imported: this file also runs in the SHELL scope. Keep in sync
+// with ALTERNATIVE_VIEW_ACTION and config/input.xml.
 const NAJANE_KEYS_TO_ADD = ["najane-alternative-view"];
 
 class NajaneEditorKeyboardMapping {

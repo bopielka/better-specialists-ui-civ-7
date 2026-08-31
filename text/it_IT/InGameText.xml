@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="it_IT">
             <Text>Rese comuni degli specialisti</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="it_IT">
-            <Text>Rese comuni degli specialisti</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="it_IT">
             <Text>Mostra sempre le rese negative</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="it_IT">
             <Text>Mostra solo la casella in cui uno specialista darebbe di più di quella risorsa e nasconde i numeri sulle altre. In caso di parità vengono mostrate tutte le caselle a pari merito. È possibile attivarne più di una: una casella viene mostrata se vince in almeno una. La casella sotto il cursore mantiene sempre i suoi numeri.</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="it_IT">
+            <Text>Mod di Najane: specialisti</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="it_IT">
+            <Text>Mod di Najane: rese degli specialisti</Text>
         </Row>
     </LocalizedText>
 </Database>

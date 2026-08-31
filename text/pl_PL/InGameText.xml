@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="pl_PL">
             <Text>Wspólne dochody specjalistów</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="pl_PL">
-            <Text>Wspólne dochody specjalistów</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="pl_PL">
             <Text>Zawsze pokazuj ujemne dochody</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="pl_PL">
             <Text>Pokazuje tylko pole, na którym specjalista dałby najwięcej tego dochodu, i ukrywa liczby na pozostałych polach. Przy remisie pokazywane są wszystkie remisujące pola. Można włączyć kilka naraz - pole jest pokazywane, jeśli wygrywa w którymkolwiek. Pole pod kursorem zawsze zachowuje swoje liczby.</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="pl_PL">
+            <Text>Mody Najane: specjaliści</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="pl_PL">
+            <Text>Mody Najane: dochody specjalistów</Text>
         </Row>
     </LocalizedText>
 </Database>

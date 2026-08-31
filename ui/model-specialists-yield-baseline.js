@@ -2,13 +2,11 @@ import { InterfaceModeChangedEventName } from '/core/ui/interface-modes/interfac
 import PlotWorkersManager, { PlotWorkersUpdatedEventName } from '/base-standard/ui/plot-workers/plot-workers-manager.js';
 
 /**
- * Caches for one "session" of the placement UI.
+ * Caches for one session of the placement UI.
  *
- * The map layer calls into here once per tile, and every call used to re-derive
- * the baseline from ALL plots - quadratic work, with an engine district lookup
- * per plot per tile. The inputs only change when the worker data changes, so the
- * results are cached and dropped on the two events that can invalidate them:
- * a worker being placed, and entering/leaving the placement mode (new city).
+ * ⚠️ The layer calls in once per TILE; without these the baseline was re-derived from all
+ * plots every time - quadratic, with an engine district lookup per plot per tile.
+ * Dropped on the only two events that can invalidate them, below.
  */
 let cachedBaseline = null;
 const cachedDeltas = new Map();        // PlotIndex -> Map(yieldIndex -> value)
@@ -28,12 +26,9 @@ window.addEventListener(PlotWorkersUpdatedEventName, invalidateSpecialistCaches)
 window.addEventListener(InterfaceModeChangedEventName, invalidateSpecialistCaches);
 
 /**
- * True only for plots where a SPECIALIST is placed, i.e. urban tiles.
- * Rural tiles are population-expansion targets: placing there creates an
- * improvement and yields the tile's own output, which must NOT be folded into
- * the specialist baseline (and must keep its original on-map display).
- * The game itself treats URBAN + CITY_CENTER as the urban set
- * (see support-city-decoration.js: getIdsOfTypes([URBAN, CITY_CENTER])).
+ * Urban tiles only - the ones a SPECIALIST goes on.
+ * ⚠️ Rural tiles are population expansions: they yield the tile's own output, which must
+ * never reach the specialist baseline. URBAN + CITY_CENTER is the game's own urban set.
  */
 export function isSpecialistPlot(info) {
     const cached = cachedIsSpecialist.get(info.PlotIndex);
@@ -49,22 +44,13 @@ export function isSpecialistPlot(info) {
 }
 
 /**
- * The two halves a specialist's effect on this plot is made of, per yield index, UNROUNDED:
+ * The two halves of a specialist's effect, per yield index, UNROUNDED:
+ *   gain   = NextYields - CurrentYields           upkeep = CurrentMaintenance - NextMaintenance
  *
- *   gain   = NextYields - CurrentYields              (what the specialist produces)
- *   upkeep = CurrentMaintenance - NextMaintenance    (already negative when upkeep grows)
- *
- * ⚠️ The game draws these as two separate pill groups, which is why the same yield can
- * appear twice on one tile - "+3 happiness" beside "-5 happiness". Everything in this mod
- * normally wants the SUM, because "what does a specialist here cost and give me" is one
- * question; computePlotSpecialistDeltas() below is that sum, and it is what the baseline,
- * the ranking and the map all use.
- *
- * The halves are kept because "do not aggregate negative yields" asks for them back: with
- * that option on, the full-value display shows the gain and the upkeep as two pills again.
- *
- * ⚠️ Cached RAW, before rounding, so the sum below still rounds exactly once - rounding
- * each half first and adding afterwards is not the same arithmetic.
+ * ⚠️ The game draws these as two pill groups, so one yield can appear twice on a tile. This
+ * mod wants the SUM everywhere except the full-value display with "do not aggregate
+ * negative yields" on. ⚠️ Cached raw so the sum rounds exactly once - rounding each half
+ * first and adding afterwards is not the same arithmetic.
  */
 function computeRawParts(info) {
     const cached = cachedParts.get(info.PlotIndex);
@@ -96,11 +82,7 @@ function computeRawParts(info) {
     return parts;
 }
 
-/**
- * The same two halves, rounded for display, with the empty ones dropped.
- * Used only where a tile shows its FULL figures and "do not aggregate negative yields"
- * asks for the halves to stay apart. Everything else wants the sum.
- */
+/** The halves, rounded for display. Only the full-value display wants them apart. */
 export function computePlotSpecialistYieldParts(info) {
     const parts = new Map();
     for (const [i, part] of computeRawParts(info)) {
@@ -113,10 +95,7 @@ export function computePlotSpecialistYieldParts(info) {
     return parts;
 }
 
-/**
- * Net change a specialist on this plot would cause, per yield index - the sum of the two
- * halves above, rounded once.
- */
+/** Net change per yield index - the sum of the two halves, rounded once. */
 export function computePlotSpecialistDeltas(info) {
     const cached = cachedDeltas.get(info.PlotIndex);
     if (cached !== undefined) {
@@ -142,10 +121,9 @@ function getSpecialistPlots() {
 
 /**
  * The part EVERY specialist option shares: the value closest to zero, sign kept.
- * `values` must contain one entry per specialist plot, including explicit 0s -
- * a yield only some tiles produce is not common at all, so a single 0 makes the
- * whole thing 0. With +3/+5 production everywhere the common part is +3; with
- * -4 food everywhere it is -4; with +8 gold on one tile and none elsewhere it is 0.
+ * ⚠️ `values` needs one entry per specialist plot INCLUDING explicit 0s - a yield only some
+ * tiles produce is not common at all, so a single 0 makes the whole thing 0. Mixed signs
+ * likewise. +3/+5 production everywhere gives +3; -4 food everywhere gives -4.
  */
 function pickCommonValue(values) {
     if (values.length === 0) {
@@ -162,10 +140,7 @@ function pickCommonValue(values) {
     return values.reduce((best, v) => (Math.abs(v) < Math.abs(best) ? v : best), values[0]);
 }
 
-/**
- * Common specialist yield for the active city, keyed by yield index.
- * Cached; see invalidateSpecialistCaches() for when it is dropped.
- */
+/** Common specialist yield for the active city, by yield index. Cached. */
 export function computeSpecialistYieldBaseline() {
     if (cachedBaseline !== null) {
         return cachedBaseline;
@@ -195,11 +170,9 @@ export function computeSpecialistYieldBaseline() {
 }
 
 /**
- * Yield index by YieldType, built once.
- *
- * GameInfo is scanned, not queried, and the "show only the highest X" filters ask this
- * question for every tile of every redraw - so the answer is worked out one time and kept.
- * The table cannot change while the game is running, so this is never invalidated.
+ * Yield index by YieldType, built once. ⚠️ GameInfo is scanned, not queried, and the
+ * "highest X" filters ask this for every tile of every redraw. Never invalidated - the
+ * table cannot change while the game runs.
  */
 let yieldIndexByType = null;
 
@@ -219,35 +192,23 @@ function getYieldIndex(yieldType) {
 const EMPTY_PLOT_SET = new Set();
 
 /**
- * How far above the common value a tile must reach before "show only the tiles with the
- * highest X" singles it out at all.
- *
- * ⚠️ Below this the rule does NOT apply and the yield imposes no filter, rather than
- * picking a winner out of a field that is effectively level. Reducing the map to one tile
- * that beats the rest by a rounding error hides more than it explains.
+ * How far above the common value a tile must reach before "show only the highest X" picks
+ * it out. ⚠️ Below this the rule does not apply at all and the yield filters nothing -
+ * reducing the map to a tile that wins by a rounding error hides more than it explains.
  */
 const STANDOUT_THRESHOLD = 1;
 
 /**
- * The plots tied for the highest value of one yield - the answer behind "show only the
- * tiles with the highest science". Cached per yield; dropped with the other caches.
+ * Plots tied for the highest value of one yield - the answer behind "show only the tiles
+ * with the highest X". Cached per yield.
  *
- * Ranked on the tile's own delta - what a specialist placed there would actually give -
- * and NOT on its deviation from the common value. The player is asking which tile is
- * best, not which tile is most unusual, and those are different questions the moment a
- * "do not aggregate" option is on.
+ * ⚠️ Ranked on the tile's own delta, NOT its deviation from the common value: the player
+ * asks which tile is best, not which is most unusual, and those differ once a "do not
+ * aggregate" option is on. Every plot contributes a value, 0 where it produces none.
  *
- * Every specialist plot contributes a value, 0 where it produces none of that yield, so
- * ties are found across the whole set.
- *
- * ⚠️ The winner must beat the COMMON value by at least STANDOUT_THRESHOLD, or the answer
- * is an empty set and the yield filters nothing. Two consequences worth knowing:
- *  - a yield no plot touches cannot qualify (every plot ties at 0, and so does the common
- *    value), so switching a filter on for a yield this city cannot produce no longer
- *    shows the whole map;
- *  - a yield every plot pays for and none gains - upkeep - cannot qualify either. The
- *    common value IS the best tile there, by the definition of "closest to zero", so
- *    nothing is ever +1 above it and there is no standout tile to point at.
+ * ⚠️ An empty set means this yield filters NOTHING (see the threshold above). Two cases can
+ * never qualify: a yield no plot touches, and a yield every plot only pays for - the common
+ * value is the one closest to zero, which for an all-negative set is the best tile itself.
  */
 export function getHighestYieldPlots(yieldType) {
     const index = getYieldIndex(yieldType);
@@ -266,12 +227,11 @@ export function getHighestYieldPlots(yieldType) {
             bestValue = value;
             best = new Set([plot.PlotIndex]);
         } else if (value === bestValue) {
-            best.add(plot.PlotIndex);   // a tie shows every tile that ties
+            best.add(plot.PlotIndex);
         }
     }
-    // ⚠️ Rounded before the comparison, like every other figure here: both sides carry one
-    // decimal, and 2.1 - 1.1 is 0.9999999999999998 in binary floating point - which would
-    // fail a bare ">= 1" on numbers that are plainly one apart.
+    // ⚠️ Rounded before comparing: 2.1 - 1.1 is 0.9999999999999998, which would fail a
+    // bare ">= 1" on numbers plainly one apart.
     const common = computeSpecialistYieldBaseline().get(index) ?? 0;
     const margin = bestValue === null ? 0 : Math.round((bestValue - common) * 10) / 10;
     const result = margin >= STANDOUT_THRESHOLD ? best : EMPTY_PLOT_SET;
@@ -280,12 +240,9 @@ export function getHighestYieldPlots(yieldType) {
 }
 
 /**
- * One-shot dump of the raw per-plot data behind the baseline, so the numbers can
- * be checked against what the game's own panel reports.
- * NOTE: console.log does NOT reach Logs/UI.log (verified - an earlier dump left
- * no trace), so this deliberately uses console.error to make it show up there.
- * Kept OFF in releases: it writes one line per plot and those lines show up as
- * "JS Error" entries in the player's log. Flip on only while investigating.
+ * One-shot dump of the raw per-plot data, to check the numbers against the game's own panel.
+ * ⚠️ console.log does NOT reach Logs/UI.log, hence console.error. ⚠️ Must ship OFF: it
+ * writes a line per plot and they appear as "JS Error" entries in the player's log.
  */
 export const DIAGNOSTICS = false;
 

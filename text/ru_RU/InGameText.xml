@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="ru_RU">
             <Text>Спільні прибутки спеціалістів</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="ru_RU">
-            <Text>Спільні прибутки спеціалістів</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="ru_RU">
             <Text>Завжди показувати від'ємні прибутки</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="ru_RU">
             <Text>Показує лише клітинку, на якій спеціаліст дав би найбільше цього прибутку, і приховує числа на інших клітинках. За однакових значень показуються всі такі клітинки. Можна ввімкнути кілька одночасно - клітинка показується, якщо перемагає хоча б в одному. Клітинка під курсором завжди зберігає свої числа.</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="ru_RU">
+            <Text>Моды Najane: специалисты</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="ru_RU">
+            <Text>Моды Najane: доходы специалистов</Text>
         </Row>
     </LocalizedText>
 </Database>

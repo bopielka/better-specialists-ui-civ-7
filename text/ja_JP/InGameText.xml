@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="ja_JP">
             <Text>専門家の共通産出</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="ja_JP">
-            <Text>専門家の共通産出</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="ja_JP">
             <Text>マイナスの産出を常に表示</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="ja_JP">
             <Text>専門家を配置したときにその産出が最も多くなるタイルだけを表示し、ほかのタイルの数値は隠します。同値のタイルはすべて表示されます。複数を同時にオンにでき、いずれかで最大となるタイルが表示されます。カーソル下のタイルは常に数値を表示します。</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="ja_JP">
+            <Text>Najane MOD: 専門家</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="ja_JP">
+            <Text>Najane MOD: 専門家の産出</Text>
         </Row>
     </LocalizedText>
 </Database>

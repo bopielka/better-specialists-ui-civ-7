@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="de_DE">
             <Text>Gemeinsame Spezialistenerträge</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="de_DE">
-            <Text>Gemeinsame Spezialistenerträge</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="de_DE">
             <Text>Negative Erträge immer anzeigen</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="de_DE">
             <Text>Zeigt nur das Feld, auf dem ein Spezialist den höchsten Ertrag dieser Art bringt, und blendet die Ertragszahlen auf allen anderen Feldern aus. Bei Gleichstand werden alle betroffenen Felder angezeigt. Mehrere dieser Optionen können gleichzeitig aktiv sein - ein Feld wird angezeigt, wenn es bei einer davon gewinnt. Das Feld unter dem Mauszeiger behält seine Zahlen immer.</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="de_DE">
+            <Text>Najane-Mods: Spezialisten</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="de_DE">
+            <Text>Najane-Mods: Spezialistenerträge</Text>
         </Row>
     </LocalizedText>
 </Database>
