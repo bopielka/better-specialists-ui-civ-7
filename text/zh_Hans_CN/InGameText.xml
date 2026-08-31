@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="zh_Hans_CN">
             <Text>专家共同产出</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="zh_Hans_CN">
-            <Text>专家共同产出</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="zh_Hans_CN">
             <Text>始终显示负数产出</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="zh_Hans_CN">
             <Text>仅显示安置专家后该产出最高的地块，并隐藏其他地块上的数字。数值相同的地块会全部显示。可以同时开启多个：只要在任一项中胜出，该地块就会显示。光标所指的地块始终显示数字。</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="zh_Hans_CN">
+            <Text>Najane 模组: 专家</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="zh_Hans_CN">
+            <Text>Najane 模组: 专家产出</Text>
         </Row>
     </LocalizedText>
 </Database>

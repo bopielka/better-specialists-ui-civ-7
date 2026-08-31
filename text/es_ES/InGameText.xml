@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="es_ES">
             <Text>Rendimientos comunes de especialistas</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="es_ES">
-            <Text>Rendimientos comunes de especialistas</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="es_ES">
             <Text>Mostrar siempre los rendimientos negativos</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="es_ES">
             <Text>Muestra solo la casilla en la que un especialista daría más de ese rendimiento y oculta las cifras en las demás. Si hay empate, se muestran todas las casillas empatadas. Se pueden activar varias a la vez: una casilla se muestra si gana en alguna de ellas. La casilla bajo el cursor siempre conserva sus cifras.</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="es_ES">
+            <Text>Mods de Najane: especialistas</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="es_ES">
+            <Text>Mods de Najane: rendimientos de especialistas</Text>
         </Row>
     </LocalizedText>
 </Database>

@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="zh_Hant_HK">
             <Text>專家共同產量</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="zh_Hant_HK">
-            <Text>專家共同產量</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="zh_Hant_HK">
             <Text>永遠顯示負數產量</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="zh_Hant_HK">
             <Text>只顯示安置專家後該產出最高的地塊，並隱藏其他地塊上的數字。數值相同的地塊會全部顯示。可以同時開啟多個：只要在任一項中勝出，該地塊就會顯示。游標所指的地塊始終顯示數字。</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="zh_Hant_HK">
+            <Text>Najane 模組: 專家</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="zh_Hant_HK">
+            <Text>Najane 模組: 專家產量</Text>
         </Row>
     </LocalizedText>
 </Database>

@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="ko_KR">
             <Text>전문가 공통 생산량</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="ko_KR">
-            <Text>전문가 공통 생산량</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="ko_KR">
             <Text>음수 생산량 항상 표시</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="ko_KR">
             <Text>전문가를 배치했을 때 해당 산출이 가장 높은 타일만 표시하고 나머지 타일의 수치는 숨깁니다. 동점인 타일은 모두 표시됩니다. 여러 개를 동시에 켤 수 있으며, 하나라도 1위인 타일은 표시됩니다. 커서 아래 타일은 항상 수치를 표시합니다.</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="ko_KR">
+            <Text>Najane 모드: 전문가</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="ko_KR">
+            <Text>Najane 모드: 전문가 생산량</Text>
         </Row>
     </LocalizedText>
 </Database>

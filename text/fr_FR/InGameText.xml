@@ -4,9 +4,6 @@
         <Row Tag="LOC_NAJANE_SPECIALISTS_COMMON_HEADER" Language="fr_FR">
             <Text>Rendements communs des spécialistes</Text>
         </Row>
-        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS" Language="fr_FR">
-            <Text>Rendements communs des spécialistes</Text>
-        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES" Language="fr_FR">
             <Text>Toujours afficher les rendements négatifs</Text>
         </Row>
@@ -81,6 +78,13 @@
         </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION" Language="fr_FR">
             <Text>N'affiche que la case où un spécialiste rapporterait le plus de ce rendement et masque les chiffres sur les autres. En cas d'égalité, toutes les cases concernées sont affichées. Plusieurs de ces options peuvent être actives à la fois : une case est affichée si elle gagne pour l'une d'elles. La case sous le curseur conserve toujours ses chiffres.</Text>
+        </Row>
+
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_SPECIALISTS" Language="fr_FR">
+            <Text>Mods de Najane: spécialistes</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_GROUP_NAJANE_MODS_YIELDS" Language="fr_FR">
+            <Text>Mods de Najane: rendements des spécialistes</Text>
         </Row>
     </LocalizedText>
 </Database>

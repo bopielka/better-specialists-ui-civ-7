@@ -1,6 +1,7 @@
 import '/core/ui/options/screen-options.js';  // must load before the model is touched
 import { CategoryType, Options, OptionType } from '/core/ui/options/model-options.js';
 import { CategoryData } from '/core/ui/options/options-helpers.js';
+import { flushNajaneOptions, registerNajaneOptions } from './najane-mod-options-registry.js';
 
 /**
  * Mod options, shown under a "Mods" tab in the options screen.
@@ -129,81 +130,117 @@ const NajaneOptions = new class {
     }
 }();
 
-Options.addInitCallback(() => {
-    Options.addOption({
-        category: CategoryType.Mods,
-        group: "najane_mods",
-        type: OptionType.Checkbox,
-        id: "najane-always-show-negatives",
-        initListener: (info) => info.currentValue = NajaneOptions.alwaysShowNegatives,
-        updateListener: (_info, value) => NajaneOptions.alwaysShowNegatives = value,
-        label: "LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES",
-        description: "LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION",
-    });
-    Options.addOption({
-        category: CategoryType.Mods,
-        group: "najane_mods",
-        type: OptionType.Checkbox,
-        id: "najane-original-by-default",
-        initListener: (info) => info.currentValue = NajaneOptions.originalByDefault,
-        updateListener: (_info, value) => NajaneOptions.originalByDefault = value,
-        label: "LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT",
-        description: "LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION",
-    });
-    Options.addOption({
-        category: CategoryType.Mods,
-        group: "najane_mods",
-        type: OptionType.Checkbox,
-        id: "najane-dont-aggregate-negatives",
-        initListener: (info) => info.currentValue = NajaneOptions.dontAggregateNegatives,
-        updateListener: (_info, value) => NajaneOptions.dontAggregateNegatives = value,
-        label: "LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON",
-        description: "LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION",
-    });
-    // Registered right after its mirror image so the pair reads as one choice.
-    Options.addOption({
-        category: CategoryType.Mods,
-        group: "najane_mods",
-        type: OptionType.Checkbox,
-        id: "najane-dont-aggregate-positives",
-        initListener: (info) => info.currentValue = NajaneOptions.dontAggregatePositives,
-        updateListener: (_info, value) => NajaneOptions.dontAggregatePositives = value,
-        label: "LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON",
-        description: "LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION",
-    });
-    Options.addOption({
-        category: CategoryType.Mods,
-        group: "najane_mods",
-        type: OptionType.Checkbox,
-        id: "najane-only-nonzero-common",
-        initListener: (info) => info.currentValue = NajaneOptions.onlyNonZeroCommon,
-        updateListener: (_info, value) => NajaneOptions.onlyNonZeroCommon = value,
-        label: "LOC_OPTIONS_NAJANE_ONLY_NONZERO",
-        description: "LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION",
-    });
-    Options.addOption({
-        category: CategoryType.Mods,
-        group: "najane_mods",
-        type: OptionType.Checkbox,
-        id: "najane-full-on-hover",
-        initListener: (info) => info.currentValue = NajaneOptions.fullYieldsOnHover,
-        updateListener: (_info, value) => NajaneOptions.fullYieldsOnHover = value,
-        label: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER",
-        description: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION",
-    });
-    // One checkbox per yield, from the table above; they share one description.
-    for (const entry of HIGHEST_ONLY_YIELDS) {
+/**
+ * The two headings this mod owns in the shared "Mods" tab.
+ *
+ * ⚠️ `najane_mods_*` IS A CONVENTION ACROSS THREE MODS (user's instruction, 2026-08-30). Better
+ * City UI and Better Commerce Screen UI use the same prefix and the same "Najane Mods: x" heading
+ * pattern, so all of them read as one family rather than as three unrelated blocks.
+ *
+ * ⚠️ THE HEADING TEXT IS DERIVED, NOT PASSED. `GetGroupLocKey` uppercases the group name into
+ * `LOC_OPTIONS_GROUP_<NAME>`, so these strings and the localisation tags have to be kept in step
+ * by hand - nothing errors when they drift, the player just sees a raw tag.
+ *
+ * ⚠️ Split because thirteen checkboxes under one heading is a list nobody scans: the six that
+ * change how the panel READS, and the seven per-yield ones that are really one setting with seven
+ * switches.
+ */
+const GROUP_SPECIALISTS = 'najane_mods_specialists';
+const GROUP_YIELDS = 'najane_mods_yields';
+
+// ⚠️ Order matters twice over: a group is laid out in the order its options are added, and the
+// HEADINGS are laid out in the order each group is first mentioned.
+/**
+ * ⚠️ REGISTERED, NOT ADDED. Going straight to `Options.addInitCallback` puts this mod's headings
+ * wherever its callback happens to fall among every other mod's, which scattered the Najane
+ * sections down the tab. The registry collects all three mods and adds them in one burst, so the
+ * headings come out adjacent. See ui/options/najane-mod-options-registry.js.
+ *
+ * ⚠️ `sort` and `probeId` are part of that contract: `sort` is this mod's fixed place in the
+ * running order, `probeId` is the first option below and is how the registry recognises an init
+ * cycle it has already handled.
+ */
+registerNajaneOptions({
+    sort: 10,
+    probeId: 'najane-always-show-negatives',
+    add: () => {
         Options.addOption({
             category: CategoryType.Mods,
-            group: "najane_mods",
+            group: GROUP_SPECIALISTS,
             type: OptionType.Checkbox,
-            id: entry.id,
-            initListener: (info) => info.currentValue = NajaneOptions.get(entry.optionID),
-            updateListener: (_info, value) => NajaneOptions.set(entry.optionID, value),
-            label: entry.label,
-            description: "LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION",
+            id: "najane-always-show-negatives",
+            initListener: (info) => info.currentValue = NajaneOptions.alwaysShowNegatives,
+            updateListener: (_info, value) => NajaneOptions.alwaysShowNegatives = value,
+            label: "LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES",
+            description: "LOC_OPTIONS_NAJANE_ALWAYS_NEGATIVES_DESCRIPTION",
         });
-    }
+        Options.addOption({
+            category: CategoryType.Mods,
+            group: GROUP_SPECIALISTS,
+            type: OptionType.Checkbox,
+            id: "najane-original-by-default",
+            initListener: (info) => info.currentValue = NajaneOptions.originalByDefault,
+            updateListener: (_info, value) => NajaneOptions.originalByDefault = value,
+            label: "LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT",
+            description: "LOC_OPTIONS_NAJANE_ORIGINAL_DEFAULT_DESCRIPTION",
+        });
+        Options.addOption({
+            category: CategoryType.Mods,
+            group: GROUP_SPECIALISTS,
+            type: OptionType.Checkbox,
+            id: "najane-dont-aggregate-negatives",
+            initListener: (info) => info.currentValue = NajaneOptions.dontAggregateNegatives,
+            updateListener: (_info, value) => NajaneOptions.dontAggregateNegatives = value,
+            label: "LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON",
+            description: "LOC_OPTIONS_NAJANE_NO_NEGATIVE_COMMON_DESCRIPTION",
+        });
+        // Registered right after its mirror image so the pair reads as one choice.
+        Options.addOption({
+            category: CategoryType.Mods,
+            group: GROUP_SPECIALISTS,
+            type: OptionType.Checkbox,
+            id: "najane-dont-aggregate-positives",
+            initListener: (info) => info.currentValue = NajaneOptions.dontAggregatePositives,
+            updateListener: (_info, value) => NajaneOptions.dontAggregatePositives = value,
+            label: "LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON",
+            description: "LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON_DESCRIPTION",
+        });
+        Options.addOption({
+            category: CategoryType.Mods,
+            group: GROUP_SPECIALISTS,
+            type: OptionType.Checkbox,
+            id: "najane-only-nonzero-common",
+            initListener: (info) => info.currentValue = NajaneOptions.onlyNonZeroCommon,
+            updateListener: (_info, value) => NajaneOptions.onlyNonZeroCommon = value,
+            label: "LOC_OPTIONS_NAJANE_ONLY_NONZERO",
+            description: "LOC_OPTIONS_NAJANE_ONLY_NONZERO_DESCRIPTION",
+        });
+        Options.addOption({
+            category: CategoryType.Mods,
+            group: GROUP_SPECIALISTS,
+            type: OptionType.Checkbox,
+            id: "najane-full-on-hover",
+            initListener: (info) => info.currentValue = NajaneOptions.fullYieldsOnHover,
+            updateListener: (_info, value) => NajaneOptions.fullYieldsOnHover = value,
+            label: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER",
+            description: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION",
+        });
+        // One checkbox per yield, from the table above; they share one description.
+        for (const entry of HIGHEST_ONLY_YIELDS) {
+            Options.addOption({
+                category: CategoryType.Mods,
+                group: GROUP_YIELDS,
+                type: OptionType.Checkbox,
+                id: entry.id,
+                initListener: (info) => info.currentValue = NajaneOptions.get(entry.optionID),
+                updateListener: (_info, value) => NajaneOptions.set(entry.optionID, value),
+                label: entry.label,
+                description: "LOC_OPTIONS_NAJANE_HIGHEST_ONLY_DESCRIPTION",
+            });
+        }
+    },
 });
 
+// ⚠️ Every Najane mod registers this same flush; the first one to fire adds all of them.
+Options.addInitCallback(flushNajaneOptions);
 export { NajaneOptions as default };
