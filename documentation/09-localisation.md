@@ -53,9 +53,9 @@ The game has **no Ukrainian locale**, so those strings sit in the Russian one �
 deliberate choice, the same one the sibling Commerce mod makes. **It is not a mislabelled
 file — do not "fix" it**, and do not machine-translate over it.
 
-## The twenty-seven keys
+## The thirty keys
 
-Every locale file carries **the same twenty-seven tags** — verified identical across all twelve.
+Every locale file carries **the same thirty tags** — verified identical across all twelve.
 A missing key renders as the raw `LOC_…` tag on screen.
 
 | Key | Used by |
@@ -68,6 +68,7 @@ A missing key renders as the raw `LOC_…` tag on screen.
 | `LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON` + `_DESCRIPTION` | option |
 | `LOC_OPTIONS_NAJANE_ONLY_NONZERO` + `_DESCRIPTION` | option |
 | `LOC_OPTIONS_NAJANE_FULL_ON_HOVER` + `_DESCRIPTION` | option |
+| `LOC_OPTIONS_NAJANE_EXPAND_DETAILS` + `_DESCRIPTION` | option |
 | `LOC_NAJANE_SPECIALISTS_KEY_TO_ORIGINAL` | the hint, when the mod's view is on screen |
 | `LOC_NAJANE_SPECIALISTS_KEY_TO_DIFF` | the hint, when the game's view is on screen |
 | `LOC_NAJANE_SPECIALISTS_KEY_FALLBACK` | the hint when the action is unbound |

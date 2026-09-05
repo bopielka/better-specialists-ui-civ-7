@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="ja_JP">
             <Text>タイルにカーソルを合わせている間、共通値との差ではなくそのタイルの完全な産出を表示します。同じ産出の増加分と維持費は合算されるため、各産出は一度だけ表示されます。カーソル下のタイルのみが対象です。</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="ja_JP">
+            <Text>産出の詳細を既定で展開する</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="ja_JP">
+            <Text>人口配置画面を、毎回スペースキーを押さなくても産出の詳細が展開された状態で開きます。スペースキーで折りたたむことは引き続き可能で、この設定は改善の配置にも適用されます。</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="ja_JP">
             <Text>プラスの産出をまとめない</Text>
         </Row>

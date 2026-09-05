@@ -1,7 +1,10 @@
-# 06 — `ui/panel-place-population-decorator.js` — the panel
+# 06 — the panel
 
-195 lines. Adds the **"Common Specialists Yields"** section to the game's
-`panel-place-population`, twice, and keeps it in step with everything that can change it.
+Two decorators on the game's `panel-place-population`, independent of each other:
+`ui/panel-place-population-decorator.js` (195 lines) adds the **"Common Specialists Yields"**
+section twice and keeps it in step with everything that can change it, and
+`ui/panel-expanded-default.js` (55 lines) opens the screen with the game's own yield details
+already expanded. The first is the bulk of this document; the second is at the end.
 
 Attached with the old framework's documented hook:
 
@@ -145,3 +148,51 @@ if (!this.diagnosticsDone && PlotWorkersManager.workablePlots.length > 0) {
 Fires **once**, and only after there is real data — the first refresh often happens before
 the plot list is populated. `dumpSpecialistDiagnostics()` is itself a no-op unless
 `DIAGNOSTICS` is on; see [the baseline model](04-baseline-model.md).
+
+---
+
+# `ui/panel-expanded-default.js` — details expanded on open
+
+The game's placement screen opens collapsed: the yield details behind **"Show yield details"**
+need a Space press every time. With **Expand yield details by default** on — and it is on by
+default — this expands them as the screen opens.
+
+## ⚠️ On mode entry, not on attach
+
+`panel-place-population` lives in `root-game.html`, so it attaches **once per session**, long
+before the first placement screen. Two things follow:
+
+- A flag set in `beforeAttach` would apply to the **first** placement screen only. Every later
+  one would open in whatever state the player last left it.
+- Worse, `onAttach` ends with `ViewManager.isWorldZoomAllowed = !PlacePopulation.showExpandedView`
+  and nothing restores it until a placement screen closes. Setting the flag before that line
+  therefore **disables world zoom from game load** until the player opens and closes the screen
+  once.
+
+So the decorator listens for `InterfaceModeChangedEventName` and acts when the current mode is
+`INTERFACEMODE_ACQUIRE_TILE`, which is the moment the screen actually opens.
+
+## ⚠️ It delegates to `toggleMinMax`, and touches nothing else
+
+```js
+if (!NajaneOptions.expandDetailsByDefault || PlacePopulation.showExpandedView) {
+    return;
+}
+this.component.toggleMinMax();
+```
+
+`toggleMinMax` flips `showExpandedView`, toggles the **four** min/max containers, rewrites the
+four footer labels and sets the zoom flag. Doing any of that here would be a copy of fifteen
+lines of game code to keep in step with every patch — and the zoom flag is exactly where the
+attach-time version went wrong.
+
+⚠️ **The known cost is its expand sound firing on open.** That is the price of delegating, and
+it was accepted deliberately rather than reimplementing the method to drop one line.
+
+⚠️ **`showExpandedView` is one flag for the whole panel**, shared with the "add improvement"
+view. There is no per-frame version, so this setting expands that view too. The option's
+description says so.
+
+⚠️ **Already-expanded is a no-op**, which is what lets the player collapse the details with
+Space and have them stay collapsed for the rest of that visit. The next time the screen opens,
+the default applies again.

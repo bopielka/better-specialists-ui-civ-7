@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="ru_RU">
             <Text>При наведенні на клітинку показує її повні прибутки замість різниці щодо спільного значення. Приріст і утримання того самого прибутку додаються, тож кожен прибуток показується лише раз. Стосується лише клітинки під курсором.</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="ru_RU">
+            <Text>Типово розгортати подробиці прибутків</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="ru_RU">
+            <Text>Відкриває екран розміщення населення з уже розгорнутими подробицями прибутків, замість натискання пробілу щоразу. Пробіл і далі згортає їх, а налаштування діє також під час розміщення покращення.</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="ru_RU">
             <Text>Не підсумовувати додатні прибутки</Text>
         </Row>

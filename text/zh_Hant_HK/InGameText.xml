@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="zh_Hant_HK">
             <Text>將游標停留在地塊上時，顯示該地塊的完整產量，而非與共同值的差異。同一種產出的收益與維護費會相加，因此每種產出只顯示一次。僅影響游標所指的地塊。</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="zh_Hant_HK">
+            <Text>預設展開產量詳情</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="zh_Hant_HK">
+            <Text>開啟人口安置畫面時直接展開產量詳情，無需每次按空白鍵。仍可用空白鍵收起，此設定同樣適用於放置改良設施。</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="zh_Hant_HK">
             <Text>不合併正數產量</Text>
         </Row>

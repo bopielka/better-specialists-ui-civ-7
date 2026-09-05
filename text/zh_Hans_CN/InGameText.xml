@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="zh_Hans_CN">
             <Text>将光标悬停在地块上时，显示该地块的完整产出，而非与共同值的差异。同一种产出的收益与维护费会相加，因此每种产出只显示一次。仅影响光标所指的地块。</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="zh_Hans_CN">
+            <Text>默认展开产出详情</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="zh_Hans_CN">
+            <Text>打开人口安置界面时直接展开产出详情，无需每次按空格键。仍可用空格键收起，此设置同样适用于放置改良设施。</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="zh_Hans_CN">
             <Text>不合并正数产出</Text>
         </Row>

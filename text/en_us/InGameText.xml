@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION">
             <Text>While hovering a tile, show its complete yields instead of the difference from the common value. A yield's gain and its upkeep are added together, so each one appears as a single number. Only the hovered tile is affected.</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS">
+            <Text>Expand yield details by default</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION">
+            <Text>Opens the population placement screen with the yield details already expanded, instead of pressing Space every time. Space still collapses them, and the setting applies to placing an improvement as well.</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON">
             <Text>Do not aggregate positive yields</Text>
         </Row>

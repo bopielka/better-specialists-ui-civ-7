@@ -1,7 +1,7 @@
 # 08 — Options and persistence
 
 ```
-ui/options/najane-options.js                       six checkboxes + the storage channel
+ui/options/najane-options.js                       seven checkboxes + the storage channel
 ui/options/editors/najane-editor-keyboard-mapping.js   makes the key rebindable
 ```
 
@@ -40,9 +40,9 @@ text is not set in code.**
 Commerce mod deliberately uses a *different* group (`najane_commerce`) for the same reason:
 anything filed under someone else's group appears to belong to them.
 
-## The six settings
+## The seven settings
 
-All booleans, stored as `0` / `1`, all defaulting to **off**.
+All booleans, stored as `0` / `1`, defaulting to **off** — except `expandDetailsByDefault`.
 
 | Property | Option id | Read by |
 |---|---|---|
@@ -52,9 +52,14 @@ All booleans, stored as `0` / `1`, all defaulting to **off**.
 | `dontAggregatePositives` | `najane-dont-aggregate-positives` | the layer |
 | `onlyNonZeroCommon` | `najane-only-nonzero-common` | the panel |
 | `fullYieldsOnHover` | `najane-full-on-hover` | the layer |
+| `expandDetailsByDefault` ⚠️ default **on** | `najane-expand-details-default` | `panel-expanded-default.js` |
 
 ⚠️ **Every one of them is presentation only.** None may reach the baseline — see
 [Architecture](02-architecture.md).
+
+⚠️ **`expandDetailsByDefault` is the one default that is `1`.** `defaults` is the only place
+that says so; `get()` falls back to it whenever nothing is stored, so an option left out of
+that object reads as `undefined` → `false` and silently ships off.
 
 The two "do not aggregate" boxes are registered **adjacent on purpose**, so the mirrored
 pair reads as one choice.

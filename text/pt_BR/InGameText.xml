@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="pt_BR">
             <Text>Ao passar o cursor sobre um hexágono, mostra seus rendimentos completos em vez da diferença para o valor comum. O ganho e a manutenção de um mesmo rendimento são somados, de modo que cada um aparece uma única vez. Afeta apenas o hexágono sob o cursor.</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="pt_BR">
+            <Text>Expandir os detalhes de rendimento por padrão</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="pt_BR">
+            <Text>Abre a tela de posicionamento de população com os detalhes de rendimento já expandidos, em vez de pressionar Espaço toda vez. Espaço continua recolhendo-os, e a opção também vale ao posicionar uma melhoria.</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="pt_BR">
             <Text>Não agregar rendimentos positivos</Text>
         </Row>

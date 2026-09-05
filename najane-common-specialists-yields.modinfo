@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="najane-common-specialists-yields" version="1.4"
+<Mod id="najane-common-specialists-yields" version="1.5"
     xmlns="ModInfo">
     <Properties>
         <Name>LOC_MOD_NAJANE_SPECIALISTS_NAME</Name>
-        <Version>1.4</Version>
+        <Version>1.5</Version>
         <Description>LOC_MOD_NAJANE_SPECIALISTS_DESCRIPTION</Description>
         <Authors>Najane</Authors>
         <Package>Mod</Package>
@@ -45,6 +45,7 @@
                     <Item>ui/view-mode.js</Item>
                     <Item>ui/model-specialists-yield-baseline.js</Item>
                     <Item>ui/panel-place-population-decorator.js</Item>
+                    <Item>ui/panel-expanded-default.js</Item>
                     <Item>ui/worker-yields-layer-patch.js</Item>
                 </UIScripts>
             </Actions>

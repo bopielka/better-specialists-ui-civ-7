@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="it_IT">
             <Text>Passando il cursore su una casella, mostra le sue rese complete invece della differenza rispetto al valore comune. Il guadagno e il mantenimento della stessa risorsa vengono sommati, così ognuna compare una sola volta. Riguarda solo la casella sotto il cursore.</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="it_IT">
+            <Text>Espandi i dettagli delle rese per impostazione predefinita</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="it_IT">
+            <Text>Apre la schermata di collocamento della popolazione con i dettagli delle rese già espansi, invece di premere Spazio ogni volta. Spazio li richiude comunque e l'impostazione vale anche per il collocamento di un miglioramento.</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="it_IT">
             <Text>Non aggregare le rese positive</Text>
         </Row>

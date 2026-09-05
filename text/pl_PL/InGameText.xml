@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="pl_PL">
             <Text>Po najechaniu na pole pokazuje jego pełne dochody zamiast różnicy względem wartości wspólnej. Przyrost i utrzymanie tego samego dochodu są sumowane, więc każdy dochód pojawia się tylko raz. Dotyczy tylko pola pod kursorem.</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="pl_PL">
+            <Text>Domyślnie rozwinięte szczegóły dochodu</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="pl_PL">
+            <Text>Otwiera ekran rozdysponowania ludności z już rozwiniętymi szczegółami dochodu, zamiast wymagać wciśnięcia spacji za każdym razem. Spacja nadal je zwija, a ustawienie działa też przy umieszczaniu ulepszenia.</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="pl_PL">
             <Text>Nie sumuj dodatnich dochodów</Text>
         </Row>

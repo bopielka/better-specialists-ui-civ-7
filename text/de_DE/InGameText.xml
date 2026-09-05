@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="de_DE">
             <Text>Zeigt beim Überfahren eines Feldes dessen vollständige Erträge statt der Differenz zum gemeinsamen Wert. Ertrag und Unterhalt derselben Art werden zusammengerechnet, sodass jede Ertragsart nur einmal erscheint. Betrifft nur das Feld unter dem Mauszeiger.</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="de_DE">
+            <Text>Ertragsdetails standardmäßig ausklappen</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="de_DE">
+            <Text>Öffnet den Bildschirm zur Bevölkerungsplatzierung mit bereits ausgeklappten Ertragsdetails, statt jedes Mal die Leertaste zu drücken. Die Leertaste klappt sie weiterhin ein, und die Einstellung gilt auch für das Platzieren einer Verbesserung.</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="de_DE">
             <Text>Positive Erträge nicht zusammenfassen</Text>
         </Row>

@@ -65,8 +65,8 @@ cares about — the game hides that frame while a specialist is being placed. Se
 
 ## Options under **Options → Mods**
 
-All six are checkboxes, all default **off**, and all affect **presentation only** — never
-the baseline the panel reports.
+All seven are checkboxes, and all affect **presentation only** — never the baseline the
+panel reports. All default **off** except the last one.
 
 | Setting | Off (default) | On |
 |---|---|---|
@@ -76,6 +76,12 @@ the baseline the panel reports.
 | Do not aggregate positive yields | gains are folded into the common value | gains stay on every tile in full |
 | Show only yields with a common value | the panel lists every yield | the panel lists only yields specialists touch |
 | Show everything on hover | the hovered tile shows deviations | the hovered tile shows its own full figures, one pill per yield |
+| Expand yield details by default (**on**) | the placement screen opens collapsed, Space expands it | the screen opens expanded, Space still collapses it |
+
+⚠️ **The last one is the only setting here that is on by default, and the only one that
+touches the game's own state rather than this mod's drawing** — it flips
+`PlacePopulation.showExpandedView`, which the game shares with the "add improvement" view.
+See [the panel](06-panel.md).
 
 Plus **seven** more — one per yield — under the same group:
 

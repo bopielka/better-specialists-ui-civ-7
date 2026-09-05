@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="es_ES">
             <Text>Al pasar el cursor por una casilla, muestra sus rendimientos completos en lugar de la diferencia con el valor común. La ganancia y el mantenimiento de un mismo rendimiento se suman, de modo que cada uno aparece una sola vez. Solo afecta a la casilla señalada.</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="es_ES">
+            <Text>Expandir los detalles de rendimiento por defecto</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="es_ES">
+            <Text>Abre la pantalla de colocación de población con los detalles de rendimiento ya expandidos, en lugar de pulsar Espacio cada vez. Espacio sigue plegándolos, y la opción también se aplica al colocar una mejora.</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="es_ES">
             <Text>No agrupar los rendimientos positivos</Text>
         </Row>

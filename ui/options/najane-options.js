@@ -76,6 +76,9 @@ const NajaneOptions = new class {
         dontAggregatePositives: 0,
         onlyNonZeroCommon: 0,
         fullYieldsOnHover: 0,
+        // ⚠️ THE ONLY DEFAULT HERE THAT IS ON. The expanded view is what the panel is for;
+        // reaching it with Space on every open is the step this removes.
+        expandDetailsByDefault: 1,
         // One per yield, derived from the table so a new entry cannot be left without a default.
         ...Object.fromEntries(HIGHEST_ONLY_YIELDS.map((entry) => [entry.optionID, 0])),
     };
@@ -118,6 +121,10 @@ const NajaneOptions = new class {
     /** The hovered tile shows the game's full, unmodified figures instead of the difference. */
     get fullYieldsOnHover() { return this.get("fullYieldsOnHover"); }
     set fullYieldsOnHover(value) { this.set("fullYieldsOnHover", value); }
+
+    /** The placement screen opens with the yield details expanded, without pressing Space. */
+    get expandDetailsByDefault() { return this.get("expandDetailsByDefault"); }
+    set expandDetailsByDefault(value) { this.set("expandDetailsByDefault", value); }
 
     /**
  * YieldTypes whose "highest X" filter is on. ⚠️ A LIST, not a single choice - the player may
@@ -224,6 +231,16 @@ registerNajaneOptions({
             updateListener: (_info, value) => NajaneOptions.fullYieldsOnHover = value,
             label: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER",
             description: "LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION",
+        });
+        Options.addOption({
+            category: CategoryType.Mods,
+            group: GROUP_SPECIALISTS,
+            type: OptionType.Checkbox,
+            id: "najane-expand-details-default",
+            initListener: (info) => info.currentValue = NajaneOptions.expandDetailsByDefault,
+            updateListener: (_info, value) => NajaneOptions.expandDetailsByDefault = value,
+            label: "LOC_OPTIONS_NAJANE_EXPAND_DETAILS",
+            description: "LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION",
         });
         // One checkbox per yield, from the table above; they share one description.
         for (const entry of HIGHEST_ONLY_YIELDS) {

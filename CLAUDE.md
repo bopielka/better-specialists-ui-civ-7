@@ -7,7 +7,7 @@ A UI-only mod for Sid Meier's Civilization VII that rewrites the **specialist pl
 display: the `panel-place-population` side panel and the `fxs-worker-yields-layer` map lens.
 It states the yield every specialist tile shares **once**, so the tiles only have to show how
 they differ from it. Plain ES modules, **no build step, no bundler, no TypeScript, no tests**
-— the game loads the `.js` files directly. About 1,300 lines across seven scripts.
+— the game loads the `.js` files directly. About 1,350 lines across eight scripts.
 
 ## Read this first
 
@@ -119,14 +119,14 @@ where there is no game and no gameplay database. Those two files may hold `Yield
 action name out instead of importing it, and why resolving a type to a yield index is the
 model's job.
 
-⚠️ **There is no single entry point.** The `.modinfo` lists **all seven** scripts, so its
+⚠️ **There is no single entry point.** The `.modinfo` lists **all eight** scripts, so its
 order is not the load order — the import graph is. Three files do work at import time
 (`modifier-tracker.js` and the model register listeners; `worker-yields-layer-patch.js`
-patches the lens on `engine.whenReady`); the other two register with `Controls.decorate`.
+patches the lens on `engine.whenReady`); the other three register with `Controls.decorate`.
 
 | Group | Scope | Contents |
 |---|---|---|
-| `najane-specialists-ui` | `game` | text + all seven scripts |
+| `najane-specialists-ui` | `game` | text + all eight scripts |
 | `najane-specialists-shell` | `shell` | text + `config/input.xml` + **the two options scripts only** |
 
 ## Rules that are easy to break
@@ -200,7 +200,7 @@ to the constraint it protects; do not throw the constraint away with the prose.
 
 Follow the surrounding code; it is consistent. 4-space indent, semicolons, trailing commas.
 ⚠️ **Import paths use single quotes, every other string uses double quotes** — that split is
-deliberate and consistent across all seven files. `camelCase` functions, `SCREAMING_SNAKE`
+deliberate and consistent across all eight files. `camelCase` functions, `SCREAMING_SNAKE`
 module constants, `LOC_NAJANE_SPECIALISTS_*` / `LOC_OPTIONS_NAJANE_*` localisation keys,
 `najane-*` CSS classes, event names and DOM ids.
 

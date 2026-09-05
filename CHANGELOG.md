@@ -11,6 +11,42 @@ history is all that is left of them.
 Skip that once and the two drift apart within a release or two, at which point nobody knows
 which is right.
 
+## 1.5 — unreleased
+
+### Yield details expanded when the placement screen opens
+
+**"Expand yield details by default", under Options → Mods, and the only setting in this mod
+that ships ON.** The game opens the placement screen collapsed and puts the numbers behind a
+Space press; the panel exists to be read, so reaching them should not be a step.
+
+⚠️ **IT RUNS ON MODE ENTRY, NOT ON ATTACH, AND THAT IS NOT A STYLE CHOICE.**
+`panel-place-population` sits in `root-game.html` and attaches ONCE per session, before any
+placement screen. An attach-time flag would reach the first screen only — and `onAttach` ends
+with `ViewManager.isWorldZoomAllowed = !PlacePopulation.showExpandedView`, which nothing
+restores until a placement screen closes, so setting the flag there **disables world zoom from
+game load** until the player has opened and closed the screen once. Entering
+`INTERFACEMODE_ACQUIRE_TILE` is the moment the screen actually opens, and it is where this acts.
+
+⚠️ **IT CALLS `toggleMinMax()` AND TOUCHES NOTHING ELSE.** That method flips the flag, toggles
+four min/max containers, rewrites four footer labels and sets the zoom flag. Reproducing it here
+would be fifteen lines of game code to re-check on every patch — and the zoom flag is precisely
+what the attach-time version got wrong. The accepted cost is its expand sound firing as the
+screen opens.
+
+⚠️ **`showExpandedView` IS ONE FLAG FOR THE WHOLE PANEL**, shared with the "add improvement"
+view. There is no per-frame version, so the setting expands that view too; the option
+description says so rather than pretending otherwise.
+
+⚠️ **Already expanded is a no-op**, so Space still collapses the details and they stay
+collapsed for the rest of that visit. The default applies again the next time the screen opens.
+
+⚠️ **A SECOND DECORATOR ON THE SAME COMPONENT, in its own file.** `Controls.decorate` appends
+to a list and `doAttach` walks all of it, so this and the common-yields section are independent
+— neither can see the other. Folding it into the section's class would have tied a setting about
+the game's own frames to the lifetime of a section this mod draws.
+
+---
+
 ## Najane mods: one settings block (2026-08-30)
 
 ### One block of settings across all three Najane mods

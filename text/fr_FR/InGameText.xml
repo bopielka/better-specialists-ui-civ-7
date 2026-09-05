@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="fr_FR">
             <Text>Au survol d'une case, affiche ses rendements complets au lieu de l'écart par rapport à la valeur commune. Le gain et l'entretien d'un même rendement sont additionnés, si bien que chacun n'apparaît qu'une fois. Seule la case survolée est concernée.</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="fr_FR">
+            <Text>Développer les détails de rendement par défaut</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="fr_FR">
+            <Text>Ouvre l'écran de placement de population avec les détails de rendement déjà développés, au lieu d'appuyer sur Espace à chaque fois. Espace les replie toujours, et le réglage s'applique aussi au placement d'un aménagement.</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="fr_FR">
             <Text>Ne pas regrouper les rendements positifs</Text>
         </Row>

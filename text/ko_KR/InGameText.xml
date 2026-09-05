@@ -34,6 +34,12 @@
         <Row Tag="LOC_OPTIONS_NAJANE_FULL_ON_HOVER_DESCRIPTION" Language="ko_KR">
             <Text>타일에 마우스를 올리는 동안 공통값과의 차이 대신 해당 타일의 전체 산출을 표시합니다. 같은 산출의 증가분과 유지비는 합산되어 각 산출이 한 번만 표시됩니다. 커서 아래 타일에만 적용됩니다.</Text>
         </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS" Language="ko_KR">
+            <Text>기본적으로 생산량 세부 정보 펼치기</Text>
+        </Row>
+        <Row Tag="LOC_OPTIONS_NAJANE_EXPAND_DETAILS_DESCRIPTION" Language="ko_KR">
+            <Text>인구 배치 화면을 열 때마다 스페이스를 누르지 않아도 생산량 세부 정보가 이미 펼쳐진 상태로 표시됩니다. 스페이스로 다시 접을 수 있으며, 이 설정은 시설 배치에도 적용됩니다.</Text>
+        </Row>
         <Row Tag="LOC_OPTIONS_NAJANE_NO_POSITIVE_COMMON" Language="ko_KR">
             <Text>양수 생산량을 합산하지 않음</Text>
         </Row>

@@ -2,7 +2,7 @@
 
 Written for an AI agent (or a human) starting a **new session** on this mod with no prior
 context. Read this file, then the documents it points at for the area you are about to
-touch. Between them they describe what the mod does in game, how its seven scripts fit
+touch. Between them they describe what the mod does in game, how its eight scripts fit
 together, and which of the platform's traps have already been paid for once.
 
 The repository's own `README.md` is the *player- and author-facing* document: what the mod
@@ -14,7 +14,7 @@ is built, and what will break if you build it differently.
 | # | Document | What it answers |
 |---|---|---|
 | 01 | [What the mod does](01-what-the-mod-does.md) | Every in-game behaviour, and which file implements it |
-| 02 | [Architecture](02-architecture.md) | The seven scripts, the dependency order, load order, scopes |
+| 02 | [Architecture](02-architecture.md) | The eight scripts, the dependency order, load order, scopes |
 | 03 | [Platform notes](03-platform-notes.md) | Civ VII UI framework, lens layers, input actions, DOM quirks |
 
 Then the module documents, one per source file:
@@ -23,7 +23,7 @@ Then the module documents, one per source file:
 |---|---|---|
 | 04 | [The baseline model](04-baseline-model.md) | `ui/model-specialists-yield-baseline.js` |
 | 05 | [Input and view mode](05-input-and-view-mode.md) | `ui/modifier-tracker.js`, `ui/view-mode.js`, `config/input.xml` |
-| 06 | [The panel](06-panel.md) | `ui/panel-place-population-decorator.js` |
+| 06 | [The panel](06-panel.md) | `ui/panel-place-population-decorator.js`, `ui/panel-expanded-default.js` |
 | 07 | [The map layer](07-map-layer.md) | `ui/worker-yields-layer-patch.js` |
 | 08 | [Options and persistence](08-options.md) | `ui/options/` |
 | 09 | [Localisation](09-localisation.md) | `text/<locale>/` |

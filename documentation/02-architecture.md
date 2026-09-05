@@ -1,6 +1,6 @@
 # 02 — Architecture
 
-Seven scripts, about 800 lines of JavaScript in total. There are no folders to speak of and
+Eight scripts, about 850 lines of JavaScript in total. There are no folders to speak of and
 no build step; the structure is entirely in the import graph.
 
 ## The dependency order
@@ -18,6 +18,7 @@ options  ←  modifier-tracker  ←  view-mode  ←  baseline model  ←  panel
 | `ui/view-mode.js` | options + modifier-tracker | anything that draws |
 | `ui/model-specialists-yield-baseline.js` | the game's plot data | options, view mode, anything that draws |
 | `ui/panel-place-population-decorator.js` | all of the above | the layer |
+| `ui/panel-expanded-default.js` | options + the game's placement model | the baseline, the layer, the section above |
 | `ui/worker-yields-layer-patch.js` | all of the above | the panel |
 
 ### Why the two consumers must not meet
@@ -54,7 +55,7 @@ name the view the player is already looking at.
 ## The entry points
 
 ⚠️ **There is no single entry module.** Unlike the sibling Commerce mod, which lists two
-scripts and lets `import` pull in the rest, this `.modinfo` lists **all seven** files under
+scripts and lets `import` pull in the rest, this `.modinfo` lists **all eight** files under
 `<UIScripts>`. Both work — ES modules are cached, so a file listed *and* imported still
 evaluates once — but the consequence is that the order in the `.modinfo` is not the real
 load order. The import graph is.
@@ -67,12 +68,17 @@ Three files do work at load time, with no function call to trigger them:
 | `ui/model-specialists-yield-baseline.js` | registers the two cache-invalidation listeners |
 | `ui/worker-yields-layer-patch.js` | `engine.whenReady.then(...)` → patch the layer, wire the redraw listeners |
 
-The other two register themselves with the framework instead:
+The other three register themselves with the framework instead:
 
 ```js
 Controls.decorate("panel-place-population", (component) => new NajaneCommonYieldsSection(component));
+Controls.decorate("panel-place-population", (component) => new NajaneExpandedByDefault(component));
 Controls.decorate("editor-keyboard-mapping", (component) => new NajaneEditorKeyboardMapping(component));
 ```
+
+⚠️ **Two decorators on one component is supported, not a clash.** `Controls.decorate` appends
+to a list and `doAttach` walks all of it, so the two panel decorators are independent: neither
+can see the other, and removing one leaves the other working.
 
 ## ⚠️ The mod id is not the repository name
 
@@ -99,7 +105,7 @@ grep -rn "najane-common-specialists-yields" --include=*.js --include=*.xml --inc
 
 | Group | Scope | Contents |
 |---|---|---|
-| `najane-specialists-ui` | `game` | text + all seven scripts |
+| `najane-specialists-ui` | `game` | text + all eight scripts |
 | `najane-specialists-shell` | `shell` | text + `config/input.xml` + **the two options scripts only** |
 
 Why each half is needed:
