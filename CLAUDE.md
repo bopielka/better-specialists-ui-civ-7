@@ -149,8 +149,11 @@ patches the lens on `engine.whenReady`); the other three register with `Controls
    attribute; every other locale uses `<LocalizedText>` **with** one — a row copied without it
    validates and never displays.
 5. **The changelog is `STEAM_CHANGELOG.bbcode`, and it is the only one.** One bullet per change,
-   under a hard 8000-character limit Steam enforces by silently truncating the tail. When it is
-   close, **drop the oldest version section** rather than trimming recent ones.
+   newest section first.
+   ⚠️ **THE FILE HAS NO LENGTH LIMIT** (user, 2026-09-10): only the NEWEST section is ever pasted
+   into the Workshop's change note, so this file is the archive and old sections are **never
+   deleted**. The limit that does exist belongs to the DESCRIPTION, a different file. Reading it
+   the other way cost the sibling Commerce mod two old versions.
    ⚠️ There is no `CHANGELOG.md` (user's instruction, 2026-09-10). The REASONING does not
    belong in the bullets - it goes where it is useful: a `⚠️` comment beside the code it
    constrains, or a page under `documentation/`.
