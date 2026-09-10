@@ -62,9 +62,8 @@ or compose the bound label in code the way the hint does.
 
 ## 5. ⚠️ 1.1 and 1.2 have no release notes at all
 
-`CHANGELOG.md` and `STEAM_CHANGELOG.bbcode` both now exist and both cover **1.0, 1.3 and
-1.4**. The 1.0 and 1.3 sections are **reconstructed from the Steam Workshop page**, which was
-the only written account of them.
+`STEAM_CHANGELOG.bbcode` covers **1.0, 1.3 and 1.4**. The 1.0 and 1.3 sections are
+**reconstructed from the Steam Workshop page**, which was the only written account of them.
 
 **1.1 and 1.2 were never written up anywhere** and are gone apart from git history
 (`git log --oneline`), which does not explain reasoning. Fill them in only from evidence — do

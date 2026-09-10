@@ -148,10 +148,12 @@ patches the lens on `engine.whenReady`); the other three register with `Controls
    the game has no Ukrainian locale. ⚠️ `en_us` uses `<EnglishText>` with no `Language`
    attribute; every other locale uses `<LocalizedText>` **with** one — a row copied without it
    validates and never displays.
-5. **The changelog is written twice, in the same pass.** `CHANGELOG.md` carries the cause and
-   the reasoning; `STEAM_CHANGELOG.bbcode` carries one bullet per change and has a hard
-   8000-character limit Steam enforces by silently truncating the tail. When it is close,
-   **drop the oldest version section** rather than trimming recent ones.
+5. **The changelog is `STEAM_CHANGELOG.bbcode`, and it is the only one.** One bullet per change,
+   under a hard 8000-character limit Steam enforces by silently truncating the tail. When it is
+   close, **drop the oldest version section** rather than trimming recent ones.
+   ⚠️ There is no `CHANGELOG.md` (user's instruction, 2026-09-10). The REASONING does not
+   belong in the bullets - it goes where it is useful: a `⚠️` comment beside the code it
+   constrains, or a page under `documentation/`.
 6. **`TODO.md` says: "For AI agents: Don't edit this file unless asked."** Honour it — and
    do not implement what is listed there unless asked either.
 7. **Set `DIAGNOSTICS = false` before publishing** (`ui/model-specialists-yield-baseline.js`).
@@ -214,3 +216,27 @@ does**. Match that — it is how the layer rule stays enforceable by reading.
 
 ⚠️ Wrap every call into the game in `try`/`catch` and `console.error` on failure. The engine
 throws where a browser would return `undefined`.
+
+## ⚠️⚠️ STANDING RULE: DO NOT GUESS AT A BUG — LOG IT AND READ THE LOG
+
+**The user's instruction, 2026-09-07, after five wrong guesses in a row on one bug.** It applies to
+every mod in this folder.
+
+When something does not work and the cause is not *visible* in the code, the next step is a
+`warn()` at the decision point, a deploy, and a read of `UI.log` — **not** another hypothesis. This
+session proved it repeatedly: reasoning from the game's XML was wrong four times about one
+warehouse rule; a `ReferenceError` that emptied every badge sat in the log for twenty minutes while
+three theories were tried; a drag bug survived five explanations and was settled by one line of
+trace.
+
+- **Log at the decision, not at the entry.** The question is always "which branch did it take and
+  with what values", so print the values the branch turns on.
+- **Filter to the FAILING case.** A trace that prints the first row prints something that works and
+  says nothing. Print the rows that did not get the outcome.
+- **`log()` is silent here.** `support/diagnostics.js` ships `DIAGNOSTICS = false`, so a temporary
+  probe must use `warn()` or it will not reach `UI.log` at all.
+- **Read the log yourself.** It is at
+  `%LOCALAPPDATA%\Firaxis Games\Sid Meier's Civilization VII\Logs\UI.log` — check the
+  `loaded, build <stamp>` line first to be sure the running build is the one you deployed.
+- **Remove the probes once the answer is in**, and put the answer in a `⚠️` comment where the code
+  is, so the next session does not re-derive it.

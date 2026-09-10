@@ -220,8 +220,7 @@ not predict. Say what was tried, what happened, and what the evidence was.
 
 ```
 README.md                 the player- and author-facing document
-CHANGELOG.md              the full history, with reasoning
-STEAM_CHANGELOG.bbcode    ⚠️ the SHORT form of it; see below. 8000-character limit
+STEAM_CHANGELOG.bbcode    ⚠️ the ONLY changelog; see below. 8000-character limit
 TODO.md                   ⚠️ "For AI agents: Don't edit this file unless asked."
 documentation/            this folder
 deploy.sh                 Windows (Git Bash); deploy-on-mac.sh is its macOS twin
@@ -229,26 +228,23 @@ steam-description.md      git-ignored, lives outside the repository's history
 .idea/, .git/
 ```
 
-### ⚠️ The changelog is written TWICE
+### ⚠️ There is ONE changelog, and it is the Steam one
 
-Every entry added to `CHANGELOG.md` is condensed into `STEAM_CHANGELOG.bbcode` **in the same
-pass**. Skip it once and the two drift apart within a release or two, at which point nobody
-knows which is right.
+`STEAM_CHANGELOG.bbcode` is written for a player on the Workshop page: what changed, one bullet
+each, fixes folded into a single "Fixed:" bullet per version, BBCode with `[h2]` per version and
+the house style from the sibling Commerce mod.
 
-| | `CHANGELOG.md` | `STEAM_CHANGELOG.bbcode` |
-|---|---|---|
-| Audience | whoever maintains this next | a player on the Workshop page |
-| Carries | the cause, the ⚠️ notes, the approaches that failed | what changed, one bullet each |
-| Fixes | one entry per fix, explained | folded into a single "Fixed:" bullet per version |
-| Format | Markdown, newest first | BBCode, `[h2]` per version, house style from the sibling Commerce mod |
+⚠️ **`CHANGELOG.md` was deleted** (user's instruction, 2026-09-10). The REASONING behind a change
+does not go into the bullets — it goes where it is actually useful: a `⚠️` comment beside the code
+it constrains, or a page in this folder.
 
 File a release-worthy change under the **in-progress version heading**, never under an
 "Unreleased" one.
 
 ⚠️ **Steam truncates the changelog field at 8000 characters without warning**, and the first
 thing lost is the tail — the oldest versions. When the file approaches the limit, **drop the
-oldest version section** rather than trimming the recent ones; the full history is in the
-Markdown file either way. The file currently sits at about 4.7k.
+oldest version section** rather than trimming the recent ones; git still has them. The file
+currently sits at about 4.7k.
 
 ⚠️ **Neither deploy script here checks that limit** — the sibling Commerce mod's refuses to
 deploy over it. Until these do, check by hand:
@@ -257,8 +253,8 @@ deploy over it. Until these do, check by hand:
 wc -c STEAM_CHANGELOG.bbcode
 ```
 
-⚠️ **1.1 and 1.2 have no notes anywhere.** `CHANGELOG.md`'s 1.0 and 1.3 sections are
-reconstructed from the Steam Workshop page; those two releases were never written up.
+⚠️ **1.1 and 1.2 have no notes anywhere.** The 1.0 and 1.3 sections are reconstructed from the
+Steam Workshop page; those two releases were never written up.
 
 ⚠️ **The Steam description has a hard 6000-character limit** and Steam truncates without
 warning — the first thing lost is the tail, which is where credits and the source link live.
