@@ -203,6 +203,18 @@ to the constraint it protects; do not throw the constraint away with the prose.
 
 ## Conventions
 
+⚠️ **EVERYTHING WRITTEN TO A FILE IS IN ENGLISH** (user's instruction, 2026-09-10), whatever
+language the conversation is in. This file, `documentation/`, `README.md`,
+`STEAM_CHANGELOG.bbcode`, every code comment, and the shared Civ VII knowledge base at
+`Documents\Civ7Modding\knowledge-base\`. The only Polish that belongs in a file is Polish
+CONTENT: `text/pl_PL/InGameText.xml`, or a localisation example showing what a Polish string looks
+like.
+
+⚠️ **Match the DOCUMENT's language, not the chat's.** Mirroring the conversation put two
+Polish sections into an otherwise English knowledge base (`05-ui-javascript.md`,
+`14-quirks-and-gotchas.md` §71) and both had to be translated back. A reference nobody can read
+end to end stops being a reference.
+
 Follow the surrounding code; it is consistent. 4-space indent, semicolons, trailing commas.
 ⚠️ **Import paths use single quotes, every other string uses double quotes** — that split is
 deliberate and consistent across all eight files. `camelCase` functions, `SCREAMING_SNAKE`
