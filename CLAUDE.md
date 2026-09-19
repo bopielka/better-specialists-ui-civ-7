@@ -161,6 +161,10 @@ patches the lens on `engine.whenReady`); the other three register with `Controls
    validates and never displays.
 5. **The changelog is `STEAM_CHANGELOG.bbcode`, and it is the only one.** One bullet per change,
    newest section first.
+   ⚠️ **WRITTEN FOR THE PLAYER** (user's instruction, 2026-09-20): short, plain entries saying what
+   changes on screen in the game. No rem figures, file, class or texture names, no engine reasoning -
+   that belongs in a `⚠️` comment beside the code. The rule is repeated at the top of the changelog
+   itself.
    ⚠️ **THE FILE HAS NO LENGTH LIMIT** (user, 2026-09-10): only the NEWEST section is ever pasted
    into the Workshop's change note, so this file is the archive and old sections are **never
    deleted**. The limit that does exist belongs to the DESCRIPTION, a different file. Reading it
