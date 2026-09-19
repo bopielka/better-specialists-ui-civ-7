@@ -59,6 +59,17 @@ that has not been deployed is a change that is not running. It must copy the `.m
 `ui/`, `text/` and `config/`, and it wipes the target first so deleted files disappear rather
 than lingering. After deploying, **return to the main menu or restart** — scripts load once.
 
+### `game-files-snapshots/`
+
+1:1 copies of the original game `.js` files this mod imports from, or overrides/decorates/patches
+by name (`Controls.decorate`, or a live-instance method patch found through `LensManager`), one
+sub-folder per game version — see
+[`game-files-snapshots/README.md`](game-files-snapshots/README.md) for the file-by-file
+breakdown and how to add the next one. It is **tracked in git** (not ignored), so a future update
+can be diffed against exactly what was captured. ⚠️ It never reaches the player's mod folder —
+the deploy scripts only copy `.modinfo` + `ui/` + `text/` + `config/` (above); this folder is a
+sibling of those, outside them by construction, not by an exclude list.
+
 ### ⚠️ A Steam Workshop subscription silently shadows the local build
 
 **The most confusing failure in this workflow.** A subscription to the published mod puts a
@@ -161,6 +172,18 @@ patches the lens on `engine.whenReady`); the other three register with `Controls
    do not implement what is listed there unless asked either.
 7. **Set `DIAGNOSTICS = false` before publishing** (`ui/model-specialists-yield-baseline.js`).
    It writes one line per plot, and those show up as "JS Error" entries in the player's log.
+8. **`game-files-snapshots/` keeps AT MOST two versions: newest, and ONE version back** (user's
+   instruction, 2026-09-20, applied identically in the sibling mods) — the opposite rule from the
+   changelog in 5. Adding a third snapshot folder means deleting the oldest one in the same
+   change. As of 1.5 there is only `1.5.0/`, because that is the first game update this process
+   covers.
+9. **A change that makes the mod import from, or override/decorate/patch by name, an original
+   game file not already under `game-files-snapshots/<newest>/` must add that file there in the
+   same change** (user's instruction, 2026-09-20) — including a `Controls.decorate` target or a
+   `LensManager`-located instance patch whose backing file is not itself imported (e.g.
+   `panel-place-population.js`, `worker-yields-layer.js`). The snapshot has to stay a complete
+   inventory of what the mod touches. See
+   [`game-files-snapshots/README.md`](game-files-snapshots/README.md).
 
 ## Performance is a correctness requirement here
 
