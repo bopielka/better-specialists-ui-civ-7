@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="najane-common-specialists-yields" version="1.5"
+<!--
+    version on <Mod> must be an integer >= 1. It is parsed as an int, so version="1.5" fails
+    the Workshop Uploader's validation ("ERROR: The string is not a valid integer") outright
+    - every release of this mod had this wrong until now, same trap as the sibling mods'
+    .modinfo (better-city-ui, better-commerce-screen-ui). The human-readable version lives in
+    <Properties><Version> below, which is a free-form string.
+
+    So it is a RELEASE COUNTER, not the version anyone reads. It has to go up on every
+    release, because it is the only number the game (and the Uploader) can compare.
+-->
+<Mod id="najane-common-specialists-yields" version="1"
     xmlns="ModInfo">
     <Properties>
         <Name>LOC_MOD_NAJANE_SPECIALISTS_NAME</Name>

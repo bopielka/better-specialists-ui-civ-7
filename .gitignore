@@ -8,3 +8,7 @@ desktop.ini
 .idea/
 *.swp
 *~
+
+# game-files-snapshots/: 1:1 copies of Firaxis's own game .js files, kept on disk only for
+# local diffing against the next game update - never in git (user's instruction, 2026-11-13).
+game-files-snapshots/

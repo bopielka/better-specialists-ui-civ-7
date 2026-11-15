@@ -63,12 +63,21 @@ than lingering. After deploying, **return to the main menu or restart** — scri
 
 1:1 copies of the original game `.js` files this mod imports from, or overrides/decorates/patches
 by name (`Controls.decorate`, or a live-instance method patch found through `LensManager`), one
-sub-folder per game version — see
-[`game-files-snapshots/README.md`](game-files-snapshots/README.md) for the file-by-file
-breakdown and how to add the next one. It is **tracked in git** (not ignored), so a future update
-can be diffed against exactly what was captured. ⚠️ It never reaches the player's mod folder —
-the deploy scripts only copy `.modinfo` + `ui/` + `text/` + `config/` (above); this folder is a
-sibling of those, outside them by construction, not by an exclude list.
+sub-folder per game version — see `game-files-snapshots/README.md` for the file-by-file
+breakdown and how to add the next one.
+
+⚠️ **The entire `game-files-snapshots/` folder is gitignored** (user's instruction, 2026-11-13,
+reasserted after an earlier attempt only ignored the `.js` copies and left the `README.md`s
+tracked) — it is Firaxis's own code plus notes about it, and none of it goes to the git remote.
+It exists **only on the local disk of whoever runs the capture steps**; a fresh clone has no
+`game-files-snapshots/` at all until someone regenerates it from the game install and rewrites
+its `README.md`s from scratch. Diffing the next update against this one still works locally —
+`diff` reads the filesystem, not git — but nothing here survives a clone, so do not link to a
+file under this folder from a tracked doc as if it will always be there.
+
+⚠️ It never reaches the player's mod folder either way — the deploy scripts only copy
+`.modinfo` + `ui/` + `text/` + `config/` (above); this folder is a sibling of those, outside
+them by construction, not by an exclude list.
 
 ### ⚠️ A Steam Workshop subscription silently shadows the local build
 
@@ -179,8 +188,8 @@ patches the lens on `engine.whenReady`); the other three register with `Controls
 8. **`game-files-snapshots/` keeps AT MOST two versions: newest, and ONE version back** (user's
    instruction, 2026-09-20, applied identically in the sibling mods) — the opposite rule from the
    changelog in 5. Adding a third snapshot folder means deleting the oldest one in the same
-   change. As of 1.5 there is only `1.5.0/`, because that is the first game update this process
-   covers.
+   change. As of the 1.5.1 game update there are `1.5.0/` and `1.5.1/`; the next snapshot
+   captured must delete `1.5.0/` in the same change.
 9. **A change that makes the mod import from, or override/decorate/patch by name, an original
    game file not already under `game-files-snapshots/<newest>/` must add that file there in the
    same change** (user's instruction, 2026-09-20) — including a `Controls.decorate` target or a
